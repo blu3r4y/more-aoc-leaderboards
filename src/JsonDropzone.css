@@ -1,0 +1,7 @@
+.DropzoneText {
+  margin-top: 5vh;
+}
+
+.DropzoneText.hidden {
+  display: none;
+}

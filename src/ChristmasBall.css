@@ -1,0 +1,56 @@
+.Dropzone > .ChristmasBall {
+  height: 25vmin;
+  user-select: none;
+}
+
+.Dropzone > .ChristmasBall:hover {
+  cursor: pointer;
+}
+
+.Dropzone > .ChristmasBall > .BallPath {
+  fill: var(--font-color);
+  transition: fill 0.5s;
+}
+
+.Dropzone.accept > .ChristmasBall > .BallPath,
+.Dropzone:not(.active) > .ChristmasBall:hover > .BallPath {
+  fill: var(--highlight-color);
+}
+
+.Dropzone.reject > .ChristmasBall > .BallPath {
+  fill: var(--error-color);
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .Dropzone:not(.active) > .ChristmasBall {
+    animation: swing infinite 2s ease-in-out alternate-reverse;
+  }
+
+  .Dropzone.active.accept > .ChristmasBall {
+    animation: swing infinite 0.2s ease-in-out alternate-reverse;
+  }
+
+  .Dropzone.active.reject > .ChristmasBall {
+    animation: wobble infinite 0.2s ease-in-out alternate-reverse;
+  }
+}
+
+@keyframes wobble {
+  0% {
+    transform: translate(1vmin, 0);
+  }
+  100% {
+    transform: translate(-1vmin, 0);
+  }
+}
+
+@keyframes swing {
+  0% {
+    transform: rotate(15deg);
+    transform-origin: top center;
+  }
+  100% {
+    transform: rotate(-15deg);
+    transform-origin: top center;
+  }
+}
