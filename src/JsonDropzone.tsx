@@ -38,7 +38,11 @@ function JsonDropzone(props: any) {
   }, [props.noText]);
 
   const link = (
-    <a href="https://adventofcode.com/leaderboard/private" target="_blank">
+    <a
+      href="https://adventofcode.com/leaderboard/private"
+      target="_blank"
+      rel="noreferrer"
+    >
       private leaderboard
     </a>
   );
