@@ -1,5 +1,17 @@
-.DropzoneText {
-  margin-top: 5vh;
+/* dropzone field style */
+
+.DropzoneField {
+  margin-bottom: 5vh;
+}
+
+/* title and subtitle */
+
+.DropzoneText p.Title {
+  font-size: var(--font-size-large);
+}
+
+.DropzoneText p.Subtitle {
+  font-weight: var(--font-weight-light);
 }
 
 .DropzoneText.hidden {

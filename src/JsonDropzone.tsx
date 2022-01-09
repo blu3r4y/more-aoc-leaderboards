@@ -24,7 +24,7 @@ function JsonDropzone(props: any) {
   }
 
   const rootClassName = useMemo(() => {
-    let clazz = "Dropzone";
+    let clazz = "DropzoneField";
     if (isDragActive) clazz += " active";
     if (isDragAccept) clazz += " accept";
     if (isDragReject) clazz += " reject";
@@ -54,8 +54,10 @@ function JsonDropzone(props: any) {
         <ChristmasBall />
       </div>
       <div className={textClassName}>
-        <p>Drop a JSON file on the christmas ball to start!</p>
-        <small>You can get this file through the API link in your {link}.</small>
+        <p className="Title">Drop a JSON file on the christmas ball to start!</p>
+        <p className="Subtitle">
+          You can get this file through the API link in your {link}.
+        </p>
         <p>{file}</p>
       </div>
     </div>

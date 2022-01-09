@@ -1,17 +1,30 @@
+/* variables */
+
 :root {
-  --bg-color: #0f0f23;
-  --highlight-color: #ffff66;
-  --error-color: #ff6659;
-  --font-color: #dddddd;
-  --font-size-small: calc(14px + 1vmin);
-  --font-size-normal: calc(16px + 2vmin);
+  --color-font: #dddddd;
+  --color-bg: #0f0f23;
+  --color-error: #ff6659;
+  --color-gold: #ffff66;
+  --color-silver: #797986;
+  --color-bronze: #945210;
+  --font-size-small: calc(8px + 1vmin);
+  --font-size-normal: calc(10px + 1vmin);
+  --font-size-large: calc(16px + 2vmin);
+  --font-weight-light: 300;
+  --font-weight-normal: 400;
+  --font-weight-bold: 700;
 }
+
+
+/* base style */
 
 body {
   margin: 5vmin 5vmin 0 5vmin;
-  color: var(--font-color);
-  background-color: var(--bg-color);
-  font-family: "Caveat", "Segoe UI", sans-serif;
+  color: var(--color-font);
+  background-color: var(--color-bg);
+  font-size: var(--font-size-normal);
+  font-weight: var(--font-weight-normal);
+  font-family: "Kalam", "Segoe UI", sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   font-size: var(--font-size-normal);
@@ -21,12 +34,10 @@ p {
   margin: 2vh 0;
 }
 
-small {
-  font-size: var(--font-size-small);
-}
+/* links */
 
 a {
-  color: var(--highlight-color);
+  color: var(--color-gold);
   text-decoration: none;
 }
 

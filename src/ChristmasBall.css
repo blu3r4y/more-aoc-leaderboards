@@ -1,39 +1,47 @@
-.Dropzone > .ChristmasBall {
+/* default ball styles */
+
+.DropzoneField > .ChristmasBall {
   height: 25vmin;
   user-select: none;
 }
 
-.Dropzone > .ChristmasBall:hover {
+.DropzoneField > .ChristmasBall:hover {
   cursor: pointer;
 }
 
-.Dropzone > .ChristmasBall > .BallPath {
-  fill: var(--font-color);
-  transition: fill 0.5s;
+.DropzoneField > .ChristmasBall > .BallPath {
+  fill: var(--color-font);
+  transition: fill 0.5s ease;
 }
 
-.Dropzone.accept > .ChristmasBall > .BallPath,
-.Dropzone:not(.active) > .ChristmasBall:hover > .BallPath {
-  fill: var(--highlight-color);
+/* ball colors based on drag'n'drop state or hover */
+
+.DropzoneField.accept > .ChristmasBall > .BallPath,
+.DropzoneField:not(.active) > .ChristmasBall:hover > .BallPath {
+  fill: var(--color-gold);
 }
 
-.Dropzone.reject > .ChristmasBall > .BallPath {
-  fill: var(--error-color);
+.DropzoneField.reject > .ChristmasBall > .BallPath {
+  fill: var(--color-error);
 }
+
+/* ball animations based on drag'n' drop state */
 
 @media (prefers-reduced-motion: no-preference) {
-  .Dropzone:not(.active) > .ChristmasBall {
+  .DropzoneField:not(.active) > .ChristmasBall {
     animation: swing infinite 2s ease-in-out alternate-reverse;
   }
 
-  .Dropzone.active.accept > .ChristmasBall {
+  .DropzoneField.active.accept > .ChristmasBall {
     animation: swing infinite 0.2s ease-in-out alternate-reverse;
   }
 
-  .Dropzone.active.reject > .ChristmasBall {
+  .DropzoneField.active.reject > .ChristmasBall {
     animation: wobble infinite 0.2s ease-in-out alternate-reverse;
   }
 }
+
+/* animation keyframes */
 
 @keyframes wobble {
   0% {
