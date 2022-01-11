@@ -1,11 +1,17 @@
 import { useState, useCallback, useMemo } from "react";
 import { useDropzone } from "react-dropzone";
 
-import { Leaderboard, schema } from "./ApiTypes";
+import { IApiData, schema } from "./ApiTypes";
 import ChristmasBall from "./ChristmasBall";
 import "./JsonDropzone.css";
 
-function JsonDropzone(props: any) {
+declare interface JsonDropzoneProps {
+  onSuccess?: (data: IApiData) => void;
+  onError?: (error: string) => void;
+  hideText?: boolean;
+}
+
+function JsonDropzone(props: JsonDropzoneProps) {
   // possibly show parsing errors
   const [error, setError] = useState(null);
 
@@ -20,7 +26,7 @@ function JsonDropzone(props: any) {
         .then(JSON.parse)
         .then((obj) => schema.validateAsync(obj))
         .then((obj) => {
-          if (props.onSuccess) props.onSuccess(obj as Leaderboard);
+          if (props.onSuccess) props.onSuccess(obj as IApiData);
           setError(null);
         })
         .catch((err) => {
@@ -29,7 +35,7 @@ function JsonDropzone(props: any) {
           setError(msg);
         });
     },
-    [props.onSuccess, props.onError]
+    [props]
   );
 
   // initialize dropzone
@@ -47,9 +53,9 @@ function JsonDropzone(props: any) {
 
   const textClassName = useMemo(() => {
     let clazz = "DropzoneText";
-    if (props.noText) clazz += " hidden";
+    if (props.hideText) clazz += " hidden";
     return clazz;
-  }, [props.noText]);
+  }, [props.hideText]);
 
   const errorHtml = <p className="Description error">{error}</p>;
   const descriptionHtml = (

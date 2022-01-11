@@ -1,24 +1,24 @@
-import * as Joi from "joi";
+import Joi from "joi";
 
-export declare interface Leaderboard {
+export declare interface IApiData {
   owner_id: number;
   event: number;
   members: {
-    [id: number]: Member;
+    [id: number]: IMember;
   };
 }
 
-export declare interface Member {
+export declare interface IMember {
   id: number;
   name?: string;
   stars: number;
   local_score: number;
   global_score: number;
   last_star_ts: number;
-  completion_day_level: Completion;
+  completion_day_level: ICompletion;
 }
 
-export declare interface Completion {
+export declare interface ICompletion {
   [day: number]: {
     [part: number]: {
       get_star_ts: number;
