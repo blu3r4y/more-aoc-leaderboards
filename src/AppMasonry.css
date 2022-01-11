@@ -1,0 +1,14 @@
+/* masonry layout for the leaderboards */
+
+.AppMasonry {
+  --masonry-gap: 2em;
+  margin-left: calc(var(--masonry-gap) * -1);
+  display: flex;
+  justify-content: center;
+  width: auto;
+}
+
+.AppMasonry > .AppMasonryColumn {
+  padding-left: var(--masonry-gap);
+  background-clip: padding-box;
+}
