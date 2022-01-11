@@ -1,8 +1,10 @@
+/* base app layout */
+
 .App {
-  text-align: center;
-  min-height: 100vh;
+  --app-margin: 3vmax;
+  margin: var(--app-margin);
+  min-height: calc(99vh - 2 * var(--app-margin));
   display: flex;
-  flex-direction: column;
   align-items: center;
   justify-content: center;
 }

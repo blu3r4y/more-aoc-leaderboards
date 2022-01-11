@@ -7,7 +7,9 @@
 
 :root {
   --color-font: #dddddd;
-  --color-bg: #0f0f23;
+  --color-dim: #aaaaaa;
+  --color-background: #0f0f23;
+  --color-highlight: #1f1f47;
   --color-error: #ff6659;
   --color-gold: #ffff66;
   --color-silver: #797986;
@@ -20,19 +22,19 @@
   --font-weight-bold: 700;
 }
 
-
 /* base style */
 
 body {
-  margin: 5vmin 5vmin 0 5vmin;
+  margin: 0;
+  padding: 0;
+  text-align: center;
   color: var(--color-font);
-  background-color: var(--color-bg);
+  background-color: var(--color-background);
   font-size: var(--font-size-normal);
   font-weight: var(--font-weight-normal);
   font-family: "Kalam", "Segoe UI", sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  font-size: var(--font-size-normal);
 }
 
 p {
@@ -48,4 +50,11 @@ a {
 
 a:hover {
   text-decoration: underline;
+}
+
+/* hide scrollbar */
+
+::-webkit-scrollbar {
+  width: 0px;
+  background: transparent;
 }

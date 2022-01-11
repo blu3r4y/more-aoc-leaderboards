@@ -1,0 +1,126 @@
+/* leaderboard base styles */
+
+.Leaderboard {
+  margin-bottom: 2vmin;
+  padding: 2em 1em;
+  border-radius: 1em;
+  border: 1px solid var(--color-font);
+  box-shadow: 0 0 1vmin var(--color-font);
+}
+
+.Leaderboard > div {
+  padding: 0 1em;
+  margin-bottom: 1em;
+  font-weight: var(--font-weight-bold);
+}
+
+.Leaderboard > table {
+  width: 100%;
+  table-layout: fixed;
+  border-collapse: collapse;
+}
+
+/* rank, name, value */
+
+.Leaderboard td.Name {
+  text-align: left;
+  padding: 0 0.75em;
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+}
+
+.Leaderboard td.Rank {
+  width: 1.5em;
+}
+
+.Leaderboard td.Value {
+  width: 4em;
+  padding-right: 0.5em;
+  font-family: "Inconsolata", monospace;
+}
+
+.Leaderboard td.Rank,
+.Leaderboard td.Value {
+  text-align: right;
+  color: var(--color-dim);
+  font-size: var(--font-size-small);
+  font-weight: var(--font-weight-light);
+}
+
+/* row hover */
+
+.Leaderboard tr:hover {
+  background-color: var(--color-highlight);
+}
+
+/* rank medal colors */
+
+.Leaderboard tr[data-rank="1"] > td.Rank,
+.Leaderboard tr[data-rank="1"] > td.Name {
+  color: var(--color-gold);
+  font-weight: var(--font-weight-normal);
+  filter: drop-shadow(0 0 0.5vmin var(--color-gold));
+}
+
+.Leaderboard tr[data-rank="2"] > td.Rank,
+.Leaderboard tr[data-rank="2"] > td.Name {
+  color: var(--color-silver);
+  font-weight: var(--font-weight-normal);
+  filter: drop-shadow(0 0 0.5vmin var(--color-silver));
+}
+
+.Leaderboard tr[data-rank="3"] > td.Rank,
+.Leaderboard tr[data-rank="3"] > td.Name {
+  color: var(--color-bronze);
+  font-weight: var(--font-weight-normal);
+  filter: drop-shadow(0 0 0.5vmin var(--color-bronze));
+}
+
+/* box shadow animation (with a bit of hard-coded randomness) */
+
+@media (prefers-reduced-motion: no-preference) {
+  .Leaderboard:nth-of-type(5n + 1) {
+    animation: pulse infinite 14s ease-in-out alternate-reverse;
+    animation-delay: 0s;
+  }
+  .Leaderboard:nth-of-type(5n + 2) {
+    animation: pulse infinite 16s ease-in-out alternate-reverse;
+    animation-delay: -16s;
+  }
+  .Leaderboard:nth-of-type(5n + 3) {
+    animation: pulse infinite 12s ease-in-out alternate-reverse;
+    animation-delay: -7s;
+  }
+  .Leaderboard:nth-of-type(5n + 4) {
+    animation: pulse infinite 20s ease-in-out alternate-reverse;
+    animation-delay: -12s;
+  }
+  .Leaderboard:nth-of-type(5n + 5) {
+    animation: pulse infinite 10s ease-in-out alternate-reverse;
+    animation-delay: -2s;
+  }
+}
+
+@keyframes pulse {
+  0% {
+    border: 1px solid var(--color-font);
+    box-shadow: 0 0 1vmin var(--color-font);
+  }
+  40% {
+    border: 1px solid var(--color-silver);
+    box-shadow: 0 0 1vmin var(--color-silver);
+  }
+  50% {
+    border: 1px solid var(--color-gold);
+    box-shadow: 0 0 1vmin var(--color-gold);
+  }
+  60% {
+    border: 1px solid var(--color-silver);
+    box-shadow: 0 0 1vmin var(--color-silver);
+  }
+  100% {
+    border: 1px solid var(--color-bronze);
+    box-shadow: 0 0 1vmin var(--color-bronze);
+  }
+}
