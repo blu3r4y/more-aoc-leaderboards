@@ -4,14 +4,18 @@
   margin-bottom: 5vh;
 }
 
-/* title and subtitle */
+/* title and description */
 
 .DropzoneText p.Title {
   font-size: var(--font-size-large);
 }
 
-.DropzoneText p.Subtitle {
+.DropzoneText p.Description {
   font-weight: var(--font-weight-light);
+}
+
+.DropzoneText p.Description.error {
+  color: var(--color-error);
 }
 
 .DropzoneText.hidden {
