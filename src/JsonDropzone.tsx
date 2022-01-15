@@ -8,7 +8,7 @@ import "./JsonDropzone.css";
 declare interface JsonDropzoneProps {
   onSuccess?: (data: IApiData) => void;
   onError?: (error: string) => void;
-  hideText?: boolean;
+  small?: boolean;
 }
 
 function JsonDropzone(props: JsonDropzoneProps) {
@@ -51,11 +51,11 @@ function JsonDropzone(props: JsonDropzoneProps) {
     return clazz;
   }, [isDragActive, isDragAccept, isDragReject]);
 
-  const textClassName = useMemo(() => {
-    let clazz = "DropzoneText";
-    if (props.hideText) clazz += " hidden";
+  const wrapperClassName = useMemo(() => {
+    let clazz = "JsonDropzone";
+    if (small) clazz += " small";
     return clazz;
-  }, [props.hideText]);
+  }, [props.small]);
 
   const errorHtml = <p className="Description error">{error}</p>;
   const descriptionHtml = (
@@ -72,12 +72,12 @@ function JsonDropzone(props: JsonDropzoneProps) {
   );
 
   return (
-    <div className="JsonDropzone">
+    <div className={wrapperClassName}>
       <div {...getRootProps({ className: rootClassName })}>
         <input {...getInputProps()} />
         <ChristmasBall />
       </div>
-      <div className={textClassName}>
+      <div className="DropzoneText">
         <p className="Title">Drop a JSON file on the christmas ball to start!</p>
         {error ? errorHtml : descriptionHtml}
       </div>

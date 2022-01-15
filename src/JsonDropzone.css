@@ -1,10 +1,19 @@
 /* dropzone field style */
 
 .DropzoneField {
-  margin-bottom: 5vh;
+  height: 25vmin;
+  width: 90vw;
+}
+
+.JsonDropzone.small > .DropzoneField {
+  height: 10vmin;
 }
 
 /* title and description */
+
+.DropzoneText {
+  margin-top: 5vh;
+}
 
 .DropzoneText p.Title {
   font-size: var(--font-size-large);
@@ -18,6 +27,8 @@
   color: var(--color-error);
 }
 
-.DropzoneText.hidden {
+/* smaller dropzone */
+
+.JsonDropzone.small > .DropzoneText {
   display: none;
 }

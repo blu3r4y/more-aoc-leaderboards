@@ -1,7 +1,7 @@
 /* default ball styles */
 
 .DropzoneField > .ChristmasBall {
-  height: 25vmin;
+  height: 100%;
   user-select: none;
 }
 

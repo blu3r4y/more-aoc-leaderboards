@@ -6,18 +6,15 @@ import LeaderboardSet from "./LeaderboardSet";
 import "./App.css";
 
 function App() {
-  let view = null;
-
   const [data, setData] = useState<IApiData | null>(null);
   const onSuccess = useCallback((data) => setData(data), []);
 
-  if (data) {
-    view = <LeaderboardSet apiData={data} />;
-  } else {
-    view = <JsonDropzone onSuccess={onSuccess} />;
-  }
-
-  return <div className="App">{view}</div>;
+  return (
+    <div className="App">
+      <JsonDropzone onSuccess={onSuccess} small={!!data} />
+      {data ? <LeaderboardSet apiData={data} /> : null}
+    </div>
+  );
 }
 
 export default App;
