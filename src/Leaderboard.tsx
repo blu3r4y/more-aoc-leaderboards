@@ -1,43 +1,50 @@
+import { useMemo } from "react";
+
 import "./Leaderboard.css";
 
 declare interface LeaderboardProps {
-  title?: string;
-  noSort?: boolean;
   items: { name: string; score: number }[];
+  title?: string;
+  sort?: boolean;
+  limit?: number;
 }
 
 function Leaderboard(props: LeaderboardProps) {
-  // sort the items unless avoided
-  const items = props.noSort
-    ? props.items
-    : props.items.sort((a, b) => b.score - a.score);
+  const { items, title, sort, limit } = props;
 
-  const rows = [];
-  let scorePre = null;
-  let rankDelta = 0;
+  const rows = useMemo(() => {
+    // sort the items unless avoided
+    const values = sort ? items.sort((a, b) => b.score - a.score) : items;
 
-  // prepare entries
-  for (const [rank, element] of items.entries()) {
-    // adjust rank if scores are equal
-    rankDelta = scorePre !== null && scorePre === element.score ? rankDelta + 1 : 0;
-    const displayRank = rankDelta > 0 ? "." : rank + 1;
+    const result = [];
+    let scorePre = null;
+    let rankDelta = 0;
 
-    rows.push(
-      <tr key={rank} data-rank={rank + 1 - rankDelta}>
-        <td className="Rank">{displayRank}</td>
-        <td className="Name">{element.name}</td>
-        <td className="Value">{formatScore(element.score)}</td>
-      </tr>
-    );
+    // prepare entries
+    for (const [rank, element] of values.entries()) {
+      // adjust rank if scores are equal
+      rankDelta = scorePre !== null && scorePre === element.score ? rankDelta + 1 : 0;
+      const displayRank = rankDelta > 0 ? "." : rank + 1;
 
-    scorePre = element.score;
-  }
+      result.push(
+        <tr key={rank} data-rank={rank + 1 - rankDelta}>
+          <td className="Rank">{displayRank}</td>
+          <td className="Name">{element.name}</td>
+          <td className="Value">{formatScore(element.score)}</td>
+        </tr>
+      );
+
+      scorePre = element.score;
+    }
+
+    return result;
+  }, [items, sort]);
 
   return (
     <div className="Leaderboard">
-      <div>{props.title}</div>
+      <div>{title}</div>
       <table>
-        <tbody>{rows}</tbody>
+        <tbody>{rows.slice(0, limit)}</tbody>
       </table>
     </div>
   );

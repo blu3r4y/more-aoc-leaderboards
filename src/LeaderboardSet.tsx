@@ -19,7 +19,7 @@ function LeaderboardSet(props: LeaderboardSetProps) {
 
   return (
     <AppMasonry>
-      <Leaderboard title="Local Leaderboard" items={board} />
+      <Leaderboard title="Local Leaderboard" items={board} limit={10} sort />
     </AppMasonry>
   );
 }

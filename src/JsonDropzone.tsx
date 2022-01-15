@@ -12,6 +12,8 @@ declare interface JsonDropzoneProps {
 }
 
 function JsonDropzone(props: JsonDropzoneProps) {
+  const { onSuccess, onError, small } = props;
+
   // possibly show parsing errors
   const [error, setError] = useState(null);
 
@@ -26,16 +28,16 @@ function JsonDropzone(props: JsonDropzoneProps) {
         .then(JSON.parse)
         .then((obj) => schema.validateAsync(obj))
         .then((obj) => {
-          if (props.onSuccess) props.onSuccess(obj as IApiData);
+          if (onSuccess) onSuccess(obj as IApiData);
           setError(null);
         })
         .catch((err) => {
           const msg = err.toString().split("\n")[0];
-          if (props.onError) props.onError(msg);
+          if (onError) onError(msg);
           setError(msg);
         });
     },
-    [props]
+    [onSuccess, onError]
   );
 
   // initialize dropzone
@@ -55,7 +57,7 @@ function JsonDropzone(props: JsonDropzoneProps) {
     let clazz = "JsonDropzone";
     if (small) clazz += " small";
     return clazz;
-  }, [props.small]);
+  }, [small]);
 
   const errorHtml = <p className="Description error">{error}</p>;
   const descriptionHtml = (
