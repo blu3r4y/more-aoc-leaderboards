@@ -1,6 +1,6 @@
 /* dropzone field style */
 
-.DropzoneField {
+.JsonDropzone > .DropzoneField {
   height: 25vmin;
   width: 90vw;
 }
@@ -11,24 +11,20 @@
 
 /* title and description */
 
-.DropzoneText {
+.JsonDropzone > p:first-of-type {
   margin-top: 5vh;
 }
 
-.DropzoneText p.Title {
+.JsonDropzone p.Title {
+  margin-top: 5vh;
   font-size: var(--font-size-large);
 }
 
-.DropzoneText p.Description {
+.JsonDropzone p.Description {
   font-weight: var(--font-weight-light);
 }
 
-.DropzoneText p.Description.error {
+.JsonDropzone p.Error {
+  font-weight: var(--font-weight-light);
   color: var(--color-error);
-}
-
-/* smaller dropzone */
-
-.JsonDropzone.small > .DropzoneText {
-  display: none;
 }

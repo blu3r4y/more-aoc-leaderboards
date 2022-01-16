@@ -59,7 +59,10 @@ function JsonDropzone(props: JsonDropzoneProps) {
     return clazz;
   }, [small]);
 
-  const errorHtml = <p className="Description error">{error}</p>;
+  const titleHtml = (
+    <p className="Title">Drop a JSON file on the christmas ball to start!</p>
+  );
+
   const descriptionHtml = (
     <p className="Description">
       Get this file through the API in your{" "}
@@ -73,16 +76,17 @@ function JsonDropzone(props: JsonDropzoneProps) {
     </p>
   );
 
+  const errorHtml = <p className="Error">{error}</p>;
+
   return (
     <div className={wrapperClassName}>
       <div {...getRootProps({ className: rootClassName })}>
         <input {...getInputProps()} />
         <ChristmasBall />
       </div>
-      <div className="DropzoneText">
-        <p className="Title">Drop a JSON file on the christmas ball to start!</p>
-        {error ? errorHtml : descriptionHtml}
-      </div>
+      {!small ? titleHtml : null}
+      {!small && !error ? descriptionHtml : null}
+      {error ? errorHtml : null}
     </div>
   );
 }
