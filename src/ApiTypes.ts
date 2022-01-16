@@ -4,21 +4,21 @@ export declare interface IApiData {
   owner_id: number;
   event: number;
   members: {
-    [id: number]: IMember;
+    [id: number]: IApiMember;
   };
 }
 
-export declare interface IMember {
+export declare interface IApiMember {
   id: number;
   name?: string;
   stars: number;
   local_score: number;
   global_score: number;
   last_star_ts: number;
-  completion_day_level: ICompletion;
+  completion_day_level: IApiCompletion;
 }
 
-export declare interface ICompletion {
+export declare interface IApiCompletion {
   [day: number]: {
     [part: number]: {
       get_star_ts: number;

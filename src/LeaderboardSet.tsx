@@ -1,18 +1,18 @@
-import { IApiData } from "./ApiTypes";
+import { IMember } from "./ApiProcessor";
 import AppMasonry from "./AppMasonry";
 import Leaderboard from "./Leaderboard";
 
 declare interface LeaderboardSetProps {
-  apiData: IApiData;
+  members: IMember[];
 }
 
 function LeaderboardSet(props: LeaderboardSetProps) {
   const board = [];
 
   // render local score board
-  for (const member of Object.values(props.apiData.members)) {
+  for (const member of Object.values(props.members)) {
     board.push({
-      name: member.name ?? `#${member.id}`,
+      name: member.name,
       score: member.local_score,
     });
   }

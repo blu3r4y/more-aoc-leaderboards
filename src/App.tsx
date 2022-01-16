@@ -1,18 +1,19 @@
 import { useCallback, useState } from "react";
 
-import { IApiData } from "./ApiTypes";
-import JsonDropzone from "./JsonDropzone";
+import { IMember, processData } from "./ApiProcessor";
 import LeaderboardSet from "./LeaderboardSet";
+import JsonDropzone from "./JsonDropzone";
+
 import "./App.css";
 
 function App() {
-  const [data, setData] = useState<IApiData | null>(null);
-  const onSuccess = useCallback((data) => setData(data), []);
+  const [members, setMembers] = useState<IMember[] | null>(null);
+  const onSuccess = useCallback((data) => setMembers(processData(data)), []);
 
   return (
     <div className="App">
-      <JsonDropzone onSuccess={onSuccess} small={!!data} />
-      {data ? <LeaderboardSet apiData={data} /> : null}
+      <JsonDropzone onSuccess={onSuccess} small={!!members} />
+      {members ? <LeaderboardSet members={members} /> : null}
     </div>
   );
 }
