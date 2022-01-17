@@ -13,8 +13,8 @@ function Leaderboard(props: LeaderboardProps) {
   const { items, title, sort, limit } = props;
 
   const rows = useMemo(() => {
-    // sort the items unless avoided
-    const values = sort ? items.sort((a, b) => b.score - a.score) : items;
+    // sort the items unless avoided (ensure to copy items before mutating them)
+    const values = sort ? [...items].sort((a, b) => b.score - a.score) : items;
 
     const result = [];
     let scorePre = null;
