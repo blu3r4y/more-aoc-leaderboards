@@ -66,7 +66,7 @@ function JsonDropzone(props: JsonDropzoneProps) {
 
   const descriptionHtml = (
     <p className="Description">
-      Get this file through the API in your{" "}
+      🤖 Get this file through the API in your{" "}
       <a
         href="https://adventofcode.com/leaderboard/private"
         target="_blank"
