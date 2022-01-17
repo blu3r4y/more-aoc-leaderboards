@@ -6,13 +6,13 @@ import ChristmasBall from "./ChristmasBall";
 
 import "./JsonDropzone.css";
 
-declare interface JsonDropzoneProps {
+declare interface IJsonDropzoneProps {
   onSuccess?: (data: IApiData) => void;
   onError?: (error: string) => void;
   small?: boolean;
 }
 
-function JsonDropzone(props: JsonDropzoneProps) {
+function JsonDropzone(props: IJsonDropzoneProps) {
   const { onSuccess, onError, small } = props;
 
   // possibly show parsing errors

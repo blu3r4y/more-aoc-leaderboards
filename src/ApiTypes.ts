@@ -10,7 +10,7 @@ export declare interface IApiData {
 
 export declare interface IApiMember {
   id: number;
-  name?: string;
+  name: string | null;
   stars: number;
   local_score: number;
   global_score: number;

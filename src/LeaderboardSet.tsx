@@ -2,11 +2,11 @@ import { IMember } from "./ApiProcessor";
 import AppMasonry from "./AppMasonry";
 import Leaderboard from "./Leaderboard";
 
-declare interface LeaderboardSetProps {
+declare interface ILeaderboardSetProps {
   members: IMember[];
 }
 
-function LeaderboardSet(props: LeaderboardSetProps) {
+function LeaderboardSet(props: ILeaderboardSetProps) {
   const board = [];
 
   // render local score board

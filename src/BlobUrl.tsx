@@ -4,11 +4,11 @@ import { IMember } from "./ApiProcessor";
 
 import "./BlobUrl.css";
 
-declare interface BlobUrlProps {
+declare interface IBlobUrlProps {
   members: IMember[];
 }
 
-function BlobUrl(props: BlobUrlProps) {
+function BlobUrl(props: IBlobUrlProps) {
   const { members } = props;
 
   const [url, setUrl] = useState<string | null>(null);

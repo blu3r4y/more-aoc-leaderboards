@@ -11,6 +11,10 @@ dayjs.extend(duration);
  * we don't give them equal points at the moment!
  */
 
+/**
+ * TODO: user lowerCamelCase for variables
+ */
+
 declare interface IPreMember {
   /** the unique id of the member */
   id: number;

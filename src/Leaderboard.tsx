@@ -2,14 +2,14 @@ import { useMemo } from "react";
 
 import "./Leaderboard.css";
 
-declare interface LeaderboardProps {
+declare interface ILeaderboardProps {
   items: { name: string; score: number }[];
   title?: string;
   sort?: boolean;
   limit?: number;
 }
 
-function Leaderboard(props: LeaderboardProps) {
+function Leaderboard(props: ILeaderboardProps) {
   const { items, title, sort, limit } = props;
 
   const rows = useMemo(() => {

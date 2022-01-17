@@ -3,11 +3,11 @@ import Masonry from "react-masonry-css";
 
 import "./AppMasonry.css";
 
-declare interface AppMasonryProps {
+declare interface IAppMasonryProps {
   children: ReactElement | ReactElement[];
 }
 
-function AppMasonry(props: AppMasonryProps) {
+function AppMasonry(props: IAppMasonryProps) {
   const masonryBreakpoints = {
     default: 6,
     2500: 5,
