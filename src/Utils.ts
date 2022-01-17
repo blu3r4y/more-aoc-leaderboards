@@ -16,6 +16,16 @@ export function mapValues<V, W>(
 }
 
 /**
+ * removes null elements from array
+ *
+ * @param obj the array to filter on
+ * @returns an array with null elements removed
+ */
+export function dropNull<T>(obj: (T | null)[]): T[] {
+  return obj.filter((x): x is T => x !== null);
+}
+
+/**
  * computes the median of a list of numbers
  *
  * @param values list of numbers
