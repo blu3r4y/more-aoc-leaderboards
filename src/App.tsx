@@ -3,6 +3,7 @@ import { useCallback, useState } from "react";
 import { IMember, processData } from "./ApiProcessor";
 import LeaderboardSet from "./LeaderboardSet";
 import JsonDropzone from "./JsonDropzone";
+import BlobUrl from "./BlobUrl";
 
 import "./App.css";
 
@@ -14,6 +15,7 @@ function App() {
     <div className="App">
       <JsonDropzone onSuccess={onSuccess} small={!!members} />
       {members ? <LeaderboardSet members={members} /> : null}
+      {members ? <BlobUrl members={members} /> : null}
     </div>
   );
 }
