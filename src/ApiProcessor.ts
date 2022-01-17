@@ -6,6 +6,11 @@ import { mapValues, dropNull, median } from "./Utils";
 
 dayjs.extend(duration);
 
+/**
+ * TODO: when members finished at the same time,
+ * we don't give them equal points at the moment!
+ */
+
 declare interface IPreMember {
   /** the unique id of the member */
   id: number;
@@ -52,7 +57,24 @@ declare interface IPreMember {
 }
 
 export declare interface IMember extends IPreMember {
-  more: number;
+  /** points, per day */
+  points: { [day: number]: number };
+  /** points for part 1, per day */
+  parta_points: { [day: number]: number };
+  /** points for part 2, per day */
+  partb_points: { [day: number]: number };
+  /** ranks for part 1, per day */
+  parta_ranks: { [day: number]: number | null };
+  /** ranks for part 2, per day */
+  partb_ranks: { [day: number]: number | null };
+  /** ranks for delta time, per day */
+  delta_ranks: { [day: number]: number | null };
+  /** number of times part 1 was completed with rank 1 */
+  parta_first: number;
+  /** number of times part 2 was completed with rank 1 */
+  partb_first: number;
+  /** number of times part 1 & part 2 was completed with rank 1 */
+  day_first: number;
 }
 
 const ALL_DAYS = Array.from(new Array(25), (_, i) => i + 1);
@@ -177,11 +199,95 @@ function processMember(member: IApiMember, year: number): IPreMember {
  * @returns an `IMember` object holding the original metadata plus additional metadata
  */
 function processAllMembers(members: IPreMember[], year: number): IMember[] {
-  // attach new metadata
-  const result = members.map((member) => {
+  const numMembers = members.length;
+
+  // initialize a map, that, for each member id, maps a metric of that day, per metric
+  type IMemberDayMetricMap<T> = { [id: number]: { [day: number]: number | T } };
+  const newDayMetricMap: <T>(init: T) => { [day: number]: number | T } = <T>(init: T) =>
+    Object.fromEntries(ALL_DAYS.map((day) => [day, init]));
+  const newMemberDayMetricMap: <T>(init: T) => IMemberDayMetricMap<T> = <T>(init: T) =>
+    Object.fromEntries(members.map((mem) => [mem.id, newDayMetricMap(init)]));
+
+  // ... for points
+  const points = newMemberDayMetricMap(0);
+  const parta_points = newMemberDayMetricMap(0);
+  const partb_points = newMemberDayMetricMap(0);
+
+  // ... for ranks
+  const parta_ranks = newMemberDayMetricMap<number | null>(null);
+  const partb_ranks = newMemberDayMetricMap<number | null>(null);
+  const delta_ranks = newMemberDayMetricMap<number | null>(null);
+
+  // compute day-wise metrics
+  type IBoardEle = { id: number; time: Duration };
+  for (const day of ALL_DAYS) {
+    const [all_parta, all_partb, all_delta]: IBoardEle[][] = [[], [], []];
+
+    // fill data store with values from all members
+    for (const m of members) {
+      if (m.parta_times[day]) all_parta.push({ id: m.id, time: m.parta_times[day]! });
+      if (m.partb_times[day]) all_partb.push({ id: m.id, time: m.partb_times[day]! });
+      if (m.delta_times[day]) all_delta.push({ id: m.id, time: m.delta_times[day]! });
+    }
+
+    // sort all board metrics
+    const duration_sort = (a: IBoardEle, b: IBoardEle) =>
+      a.time.subtract(b.time).asMilliseconds();
+    all_parta.sort(duration_sort);
+    all_partb.sort(duration_sort);
+    all_delta.sort(duration_sort);
+
+    // assign rank values to individual members
+    const assign_ranks =
+      (obj: IMemberDayMetricMap<number | null>) => (ele: IBoardEle, rank: number) =>
+        (obj[ele.id][day] = rank + 1);
+    all_parta.forEach(assign_ranks(parta_ranks));
+    all_partb.forEach(assign_ranks(partb_ranks));
+    all_delta.forEach(assign_ranks(delta_ranks));
+
+    // compute points per parts (based on sorted part times)
+    const compute_points =
+      (obj: IMemberDayMetricMap<number | null>) => (ele: IBoardEle, rank: number) =>
+        (obj[ele.id][day] = numMembers - rank);
+    all_parta.forEach(compute_points(parta_points));
+    all_partb.forEach(compute_points(partb_points));
+
+    // sum points for both parts, for that day
+    members.forEach(
+      (m) => (points[m.id][day] = parta_points[m.id][day] + partb_points[m.id][day])
+    );
+  }
+
+  // attach new metadata, per member
+  // and compute some further overall statistics
+  const result = members.map((m) => {
+    // assert that we computed the points correctly
+    const score = Object.values(points[m.id]).reduce((a, b) => a + b, 0);
+    console.assert(
+      score === m.local_score,
+      `score computation yielded wrong score ${score} (expected ${m.local_score}) for ${m.name}`
+    );
+
+    // how often did the member finish part 1 or 2 first?
+    const parta_first = Object.values(parta_ranks[m.id]).filter((r) => r === 1).length;
+    const partb_first = Object.values(partb_ranks[m.id]).filter((r) => r === 1).length;
+
+    // ... or both parts of a day?
+    const day_first = ALL_DAYS.filter(
+      (day) => parta_ranks[m.id][day] === 1 && partb_ranks[m.id][day] === 1
+    ).length;
+
     return {
-      ...member,
-      more: 1,
+      ...m,
+      points: points[m.id],
+      parta_points: parta_points[m.id],
+      partb_points: partb_points[m.id],
+      parta_ranks: parta_ranks[m.id],
+      partb_ranks: partb_ranks[m.id],
+      delta_ranks: delta_ranks[m.id],
+      parta_first,
+      partb_first,
+      day_first,
     };
   });
 
