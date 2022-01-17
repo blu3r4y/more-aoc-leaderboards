@@ -1437,15 +1437,6 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@babel/runtime@npm:^7.16.5":
-  version: 7.16.7
-  resolution: "@babel/runtime@npm:7.16.7"
-  dependencies:
-    regenerator-runtime: ^0.13.4
-  checksum: 47912f0aaacd1cab2e2552aaf3e6eaffbcaf2d5ac9b07a89a12ac0d42029cb92c070b0d16f825e4277c4a34677c54d8ffe85e1f7c6feb57de58f700eec67ce2f
-  languageName: node
-  linkType: hard
-
 "@babel/template@npm:^7.16.0, @babel/template@npm:^7.3.3":
   version: 7.16.0
   resolution: "@babel/template@npm:7.16.0"
@@ -3944,13 +3935,6 @@ __metadata:
   languageName: node
   linkType: hard
 
-"complex.js@npm:^2.0.15":
-  version: 2.0.15
-  resolution: "complex.js@npm:2.0.15"
-  checksum: f39b4ee8f8c507f896e0a0ff440fa52074c15fc4476644c5db730f5da8e6e81a010ef90ea9eda907758737062c944ac6abd4783ff14978a8976aa41e56572e12
-  languageName: node
-  linkType: hard
-
 "compressible@npm:~2.0.16":
   version: 2.0.18
   resolution: "compressible@npm:2.0.18"
@@ -4443,7 +4427,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"decimal.js@npm:^10.2.1, decimal.js@npm:^10.3.1":
+"decimal.js@npm:^10.2.1":
   version: 10.3.1
   resolution: "decimal.js@npm:10.3.1"
   checksum: 0351ac9f05fe050f23227aa6a4573bee2d58fa7378fcf28d969a8c789525032effb488a90320fd3fe86a66e17b4bc507d811b15eada5b7f0e7ec5d2af4c24a59
@@ -4973,13 +4957,6 @@ __metadata:
   version: 1.0.3
   resolution: "escape-html@npm:1.0.3"
   checksum: 6213ca9ae00d0ab8bccb6d8d4e0a98e76237b2410302cf7df70aaa6591d509a2a37ce8998008cbecae8fc8ffaadf3fb0229535e6a145f3ce0b211d060decbb24
-  languageName: node
-  linkType: hard
-
-"escape-latex@npm:^1.2.0":
-  version: 1.2.0
-  resolution: "escape-latex@npm:1.2.0"
-  checksum: 73a787319f0965ecb8244bb38bf3a3cba872f0b9a5d3da8821140e9f39fe977045dc953a62b1a2bed4d12bfccbe75a7d8ec786412bf00739eaa2f627d0a8e0d6
   languageName: node
   linkType: hard
 
@@ -5717,7 +5694,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"fraction.js@npm:^4.1.1, fraction.js@npm:^4.1.2":
+"fraction.js@npm:^4.1.1":
   version: 4.1.2
   resolution: "fraction.js@npm:4.1.2"
   checksum: a67eff2b599cb6546b77ce9c913bd0cccd646e1a525c793ba4e0bf5a399fc403f379227fca83423a6ea79d01e35c2f2b0f141ffa1d09e41377041268a53fb150
@@ -6799,13 +6776,6 @@ __metadata:
   languageName: node
   linkType: hard
 
-"javascript-natural-sort@npm:^0.7.1":
-  version: 0.7.1
-  resolution: "javascript-natural-sort@npm:0.7.1"
-  checksum: 161e2c512cc7884bc055a582c6645d9032cab88497a76123d73cb23bfb03d97a04cf7772ecdb8bd3366fc07192c2f996366f479f725c23ef073fffe03d6a586a
-  languageName: node
-  linkType: hard
-
 "jest-changed-files@npm:^27.4.2":
   version: 27.4.2
   resolution: "jest-changed-files@npm:27.4.2"
@@ -7798,25 +7768,6 @@ __metadata:
   languageName: node
   linkType: hard
 
-"mathjs@npm:^10.1.0":
-  version: 10.1.0
-  resolution: "mathjs@npm:10.1.0"
-  dependencies:
-    "@babel/runtime": ^7.16.5
-    complex.js: ^2.0.15
-    decimal.js: ^10.3.1
-    escape-latex: ^1.2.0
-    fraction.js: ^4.1.2
-    javascript-natural-sort: ^0.7.1
-    seedrandom: ^3.0.5
-    tiny-emitter: ^2.1.0
-    typed-function: ^2.0.0
-  bin:
-    mathjs: bin/cli.js
-  checksum: 4a59ccf5ad1c9a536d71287c1f967086644baab83748c7151ad650e0e11fc0778ff132e4269f70c49921867903c020e35be2e9af2e839fd27363843468ec6861
-  languageName: node
-  linkType: hard
-
 "mdn-data@npm:2.0.14":
   version: 2.0.14
   resolution: "mdn-data@npm:2.0.14"
@@ -8051,7 +8002,6 @@ __metadata:
     dayjs: ^1.10.7
     eslint-config-react-app: ^7.0.0
     joi: ^17.5.0
-    mathjs: ^10.1.0
     prettier: ^2.5.1
     react: ^17.0.2
     react-dom: ^17.0.2
@@ -10385,13 +10335,6 @@ __metadata:
   languageName: node
   linkType: hard
 
-"seedrandom@npm:^3.0.5":
-  version: 3.0.5
-  resolution: "seedrandom@npm:3.0.5"
-  checksum: 728b56bc3bc1b9ddeabd381e449b51cb31bdc0aa86e27fcd0190cea8c44613d5bcb2f6bb63ed79f78180cbe791c20b8ec31a9627f7b7fc7f476fd2bdb7e2da9f
-  languageName: node
-  linkType: hard
-
 "select-hose@npm:^2.0.0":
   version: 2.0.0
   resolution: "select-hose@npm:2.0.0"
@@ -11225,13 +11168,6 @@ __metadata:
   languageName: node
   linkType: hard
 
-"tiny-emitter@npm:^2.1.0":
-  version: 2.1.0
-  resolution: "tiny-emitter@npm:2.1.0"
-  checksum: fbcfb5145751a0e3b109507a828eb6d6d4501352ab7bb33eccef46e22e9d9ad3953158870a6966a59e57ab7c3f9cfac7cab8521db4de6a5e757012f4677df2dd
-  languageName: node
-  linkType: hard
-
 "tmp@npm:^0.2.1":
   version: 0.2.1
   resolution: "tmp@npm:0.2.1"
@@ -11397,13 +11333,6 @@ __metadata:
     media-typer: 0.3.0
     mime-types: ~2.1.24
   checksum: 2c8e47675d55f8b4e404bcf529abdf5036c537a04c2b20177bcf78c9e3c1da69da3942b1346e6edb09e823228c0ee656ef0e033765ec39a70d496ef601a0c657
-  languageName: node
-  linkType: hard
-
-"typed-function@npm:^2.0.0":
-  version: 2.0.0
-  resolution: "typed-function@npm:2.0.0"
-  checksum: 8abb39dff088706f454cd3fa3e884ed98b61f28fcae6ea8b0f3b83225ca130d0ee5ab20acc91f820b41773532f0fd4308e25b5b346c9ab6a626bd8b4e83c59dc
   languageName: node
   linkType: hard
 

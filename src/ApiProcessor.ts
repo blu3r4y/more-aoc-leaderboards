@@ -1,9 +1,8 @@
-import { median } from "mathjs";
 import dayjs, { Dayjs } from "dayjs";
 import duration, { Duration } from "dayjs/plugin/duration";
 
 import { IApiData, IApiMember } from "./ApiTypes";
-import { mapValues } from "./Utils";
+import { mapValues, median } from "./Utils";
 
 dayjs.extend(duration);
 
