@@ -8,14 +8,23 @@
   box-shadow: 0 0 1vmin var(--color-font);
 }
 
-.Leaderboard > div {
+.Leaderboard > .Title {
   padding: 0 1em;
-  margin-bottom: 1em;
   font-weight: var(--font-weight-bold);
+  margin-bottom: 0.25em;
+}
+
+.Leaderboard > .Description {
+  padding: 0 1em;
+  height: 2.2em;
+  line-height: 1.1em;
+  font-size: var(--font-size-small);
+  font-weight: var(--font-weight-normal);
 }
 
 .Leaderboard > table {
   width: 100%;
+  margin-top: 1em;
   table-layout: fixed;
   border-collapse: collapse;
 }
@@ -23,7 +32,7 @@
 /* rank, name, value */
 
 .Leaderboard td.Name {
-  text-align: left;
+  text-align: start;
   padding: 0 0.75em;
   overflow: hidden;
   white-space: nowrap;
@@ -36,13 +45,15 @@
 
 .Leaderboard td.Value {
   width: 4em;
+  height: 2.2em;
+  line-height: 1.1em;
   padding-right: 0.5em;
-  font-family: "Inconsolata", monospace;
+  font-family: "Share Tech Mono", monospace;
 }
 
 .Leaderboard td.Rank,
 .Leaderboard td.Value {
-  text-align: right;
+  text-align: end;
   color: var(--color-dim);
   font-size: var(--font-size-small);
   font-weight: var(--font-weight-light);

@@ -13,13 +13,18 @@ function LeaderboardSet(props: ILeaderboardSetProps) {
   for (const member of Object.values(props.members)) {
     board.push({
       name: member.name,
-      score: member.local_score,
+      value: member.local_score,
     });
   }
 
   return (
     <AppMasonry>
-      <Leaderboard title="Local Leaderboard" items={board} limit={10} sort />
+      <Leaderboard
+        title="Local Leaderboard"
+        description="official scoring schema"
+        items={board}
+        limit={10}
+      />
     </AppMasonry>
   );
 }

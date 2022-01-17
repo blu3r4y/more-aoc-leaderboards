@@ -2,19 +2,34 @@ import { useMemo } from "react";
 
 import "./Leaderboard.css";
 
+export declare interface ILeaderboardRow {
+  /** the name of the member to represent */
+  name: string;
+  /** the value to display */
+  value: string | number;
+  /** (optional) raw value, by which sorting should happen */
+  rawValue?: number;
+  /** (optional) a detailed value that is presented when one hovers over the value */
+  detailValue?: string | number;
+}
+
 declare interface ILeaderboardProps {
-  items: { name: string; score: number }[];
+  items: ILeaderboardRow[];
   title?: string;
-  sort?: boolean;
+  description?: string;
   limit?: number;
+  unsorted?: boolean;
+  reverse?: boolean;
 }
 
 function Leaderboard(props: ILeaderboardProps) {
-  const { items, title, sort, limit } = props;
+  const { items, title, description, limit, unsorted, reverse } = props;
 
   const rows = useMemo(() => {
-    // sort the items unless avoided (ensure to copy items before mutating them)
-    const values = sort ? [...items].sort((a, b) => b.score - a.score) : items;
+    // sort and possibly reverse values
+    let values = [...items];
+    if (!unsorted) values.sort(sortValues);
+    if (reverse) values.reverse();
 
     const result = [];
     let scorePre = null;
@@ -23,26 +38,36 @@ function Leaderboard(props: ILeaderboardProps) {
     // prepare entries
     for (const [rank, element] of values.entries()) {
       // adjust rank if scores are equal
-      rankDelta = scorePre !== null && scorePre === element.score ? rankDelta + 1 : 0;
+      const score = element.rawValue ?? element.value;
+      rankDelta = scorePre !== null && scorePre === score ? rankDelta + 1 : 0;
       const displayRank = rankDelta > 0 ? "." : rank + 1;
 
       result.push(
         <tr key={rank} data-rank={rank + 1 - rankDelta}>
           <td className="Rank">{displayRank}</td>
-          <td className="Name">{element.name}</td>
-          <td className="Value">{formatScore(element.score)}</td>
+          <td className="Name" title={element.name}>
+            {element.name}
+          </td>
+          <td
+            className="Value"
+            title={element.detailValue?.toString()}
+            data-raw={element.rawValue}
+          >
+            {formatScore(element.value)}
+          </td>
         </tr>
       );
 
-      scorePre = element.score;
+      scorePre = element.value;
     }
 
     return result;
-  }, [items, sort]);
+  }, [items, unsorted, reverse]);
 
   return (
     <div className="Leaderboard">
-      <div>{title}</div>
+      <div className="Title">{title}</div>
+      <div className="Description">{description}</div>
       <table>
         <tbody>{rows.slice(0, limit)}</tbody>
       </table>
@@ -50,7 +75,13 @@ function Leaderboard(props: ILeaderboardProps) {
   );
 }
 
-function formatScore(x: number): string {
+function sortValues(a: ILeaderboardRow, b: ILeaderboardRow) {
+  // sort by raw value if available, fall-back to value
+  if (a.rawValue && b.rawValue) return b.rawValue - a.rawValue;
+  else return Number(b.value) - Number(a.value);
+}
+
+function formatScore(x: string | number): string {
   // add a thousand separator to numbers
   // (c) https://stackoverflow.com/a/2901298/927377
   return x.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
