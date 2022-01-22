@@ -39,7 +39,7 @@ function getLeaderboardProps(title: string, description: string, limit: number =
 /* leaderboards */
 
 function getLocalLeaderboard(members: IMember[]) {
-  const items = members.map((m) => ({ name: m.name, value: m.local_score }));
+  const items = members.map((m) => ({ name: m.name, value: m.localScore }));
 
   return (
     <Leaderboard
@@ -51,12 +51,12 @@ function getLocalLeaderboard(members: IMember[]) {
 
 function getPrimeCoders(members: IMember[]) {
   const items = members
-    .filter((m) => m.finished && m.last_ts)
+    .filter((m) => m.finished && m.lastTimestamp)
     .map((m) => ({
       name: m.name,
-      value: m.last_ts!.format("MMM D HH:mm:ss"),
-      rawValue: m.last_ts!.unix(),
-      detailValue: m.last_ts!.format(),
+      value: m.lastTimestamp!.format("MMM D HH:mm:ss"),
+      rawValue: m.lastTimestamp!.unix(),
+      detailValue: m.lastTimestamp!.format(),
     }));
 
   return (
@@ -70,15 +70,15 @@ function getPrimeCoders(members: IMember[]) {
 
 function getRapidCoders(members: IMember[]) {
   const items = members
-    .filter((m) => m.finished && m.total_time)
+    .filter((m) => m.finished && m.totalTime)
     .map((m) => ({
       name: m.name,
       value:
-        m.total_time!.asHours() < 24
-          ? m.total_time!.format("HH:mm:ss")
-          : `~${Math.floor(m.total_time!.asHours())}h`,
-      rawValue: m.total_time!.asSeconds(),
-      detailValue: m.total_time!.format(),
+        m.totalTime!.asHours() < 24
+          ? m.totalTime!.format("HH:mm:ss")
+          : `~${Math.floor(m.totalTime!.asHours())}h`,
+      rawValue: m.totalTime!.asSeconds(),
+      detailValue: m.totalTime!.format(),
     }));
 
   return (
@@ -92,15 +92,15 @@ function getRapidCoders(members: IMember[]) {
 
 function getOverachievingAdapters(members: IMember[], minStars: number = 25) {
   const items = members
-    .filter((m) => m.finished && m.total_delta)
+    .filter((m) => m.finished && m.totalDelta)
     .map((m) => ({
       name: m.name,
       value:
-        m.total_delta!.asHours() < 24
-          ? m.total_delta!.format("HH:mm:ss")
-          : `~${Math.floor(m.total_delta!.asHours())}h`,
-      rawValue: m.total_delta!.asSeconds(),
-      detailValue: m.total_delta!.format(),
+        m.totalDelta!.asHours() < 24
+          ? m.totalDelta!.format("HH:mm:ss")
+          : `~${Math.floor(m.totalDelta!.asHours())}h`,
+      rawValue: m.totalDelta!.asSeconds(),
+      detailValue: m.totalDelta!.format(),
     }));
 
   return (
@@ -117,15 +117,15 @@ function getOverachievingAdapters(members: IMember[], minStars: number = 25) {
 
 function getSteadyPerformers(members: IMember[], minStars: number = 25) {
   const items = members
-    .filter((m) => m.finished && m.median_delta)
+    .filter((m) => m.finished && m.medianDelta)
     .map((m) => ({
       name: m.name,
       value:
-        m.median_delta!.asHours() < 24
-          ? m.median_delta!.format("HH:mm:ss")
-          : `~${Math.floor(m.median_delta!.asHours())}h`,
-      rawValue: m.median_delta!.asSeconds(),
-      detailValue: m.median_delta!.format(),
+        m.medianDelta!.asHours() < 24
+          ? m.medianDelta!.format("HH:mm:ss")
+          : `~${Math.floor(m.medianDelta!.asHours())}h`,
+      rawValue: m.medianDelta!.asSeconds(),
+      detailValue: m.medianDelta!.format(),
     }));
 
   return (
@@ -142,15 +142,15 @@ function getSteadyPerformers(members: IMember[], minStars: number = 25) {
 
 function getStarEfficientCoders(members: IMember[], minStars: number = 25) {
   const items = members
-    .filter((m) => m.total_stars >= minStars && m.time_per_star)
+    .filter((m) => m.totalStars >= minStars && m.timePerStar)
     .map((m) => ({
       name: m.name,
       value:
-        m.time_per_star!.asHours() < 24
-          ? `${m.time_per_star!.format("HH:mm:ss")} ★ ${m.total_stars}`
-          : `~${Math.floor(m.time_per_star!.asHours())}h`,
-      rawValue: m.time_per_star!.asSeconds(),
-      detailValue: `${m.time_per_star!.format()} for ${m.total_stars} stars`,
+        m.timePerStar!.asHours() < 24
+          ? `${m.timePerStar!.format("HH:mm:ss")} ★ ${m.totalStars}`
+          : `~${Math.floor(m.timePerStar!.asHours())}h`,
+      rawValue: m.timePerStar!.asSeconds(),
+      detailValue: `${m.timePerStar!.format()} for ${m.totalStars} stars`,
     }));
 
   return (
@@ -167,8 +167,8 @@ function getStarEfficientCoders(members: IMember[], minStars: number = 25) {
 
 function getEarlyBirds(members: IMember[], minStars: number = 25) {
   const items = members
-    .filter((m) => m.parta_first)
-    .map((m) => ({ name: m.name, value: m.parta_first }));
+    .filter((m) => m.partaFirst)
+    .map((m) => ({ name: m.name, value: m.partaFirst }));
 
   return (
     <Leaderboard
@@ -183,8 +183,8 @@ function getEarlyBirds(members: IMember[], minStars: number = 25) {
 
 function getEarlyOwls(members: IMember[], minStars: number = 25) {
   const items = members
-    .filter((m) => m.partb_first)
-    .map((m) => ({ name: m.name, value: m.partb_first }));
+    .filter((m) => m.partbFirst)
+    .map((m) => ({ name: m.name, value: m.partbFirst }));
 
   return (
     <Leaderboard
@@ -199,8 +199,8 @@ function getEarlyOwls(members: IMember[], minStars: number = 25) {
 
 function getSleepyArchitects(members: IMember[], minStars: number = 25) {
   const items = members
-    .filter((m) => m.day_first)
-    .map((m) => ({ name: m.name, value: m.day_first }));
+    .filter((m) => m.dayFirst)
+    .map((m) => ({ name: m.name, value: m.dayFirst }));
 
   return (
     <Leaderboard

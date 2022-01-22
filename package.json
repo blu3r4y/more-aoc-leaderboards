@@ -19,13 +19,9 @@
   "scripts": {
     "start": "react-scripts start",
     "build": "rimraf build && react-scripts build",
+    "lint": "eslint . --ext .js,.jsx,.ts,.tsx --fix",
     "format": "prettier --write .",
-    "check": "prettier --check ."
-  },
-  "eslintConfig": {
-    "extends": [
-      "react-app"
-    ]
+    "gate": "eslint . --ext .js,.jsx,.ts,.tsx && prettier --check ."
   },
   "browserslist": {
     "production": [
@@ -40,6 +36,7 @@
     ]
   },
   "devDependencies": {
+    "eslint": "^8.7.0",
     "eslint-config-react-app": "^7.0.0",
     "prettier": "^2.5.1",
     "rimraf": "^3.0.2"

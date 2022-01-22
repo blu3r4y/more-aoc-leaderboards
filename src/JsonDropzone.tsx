@@ -1,7 +1,7 @@
 import { useState, useCallback, useMemo } from "react";
 import { useDropzone } from "react-dropzone";
 
-import { IApiData, schema } from "./ApiTypes";
+import { IApiData, Schema } from "./ApiTypes";
 import ChristmasBall from "./ChristmasBall";
 
 import "./JsonDropzone.css";
@@ -27,7 +27,7 @@ function JsonDropzone(props: IJsonDropzoneProps) {
       // read, parse, validate
       await readFile(acceptedFiles[0])
         .then(JSON.parse)
-        .then((obj) => schema.validateAsync(obj))
+        .then((obj) => Schema.validateAsync(obj))
         .then((obj) => {
           if (onSuccess) onSuccess(obj as IApiData);
           setError(null);

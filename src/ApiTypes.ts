@@ -1,3 +1,5 @@
+/* eslint-disable @typescript-eslint/naming-convention */
+
 import Joi from "joi";
 
 export declare interface IApiData {
@@ -27,7 +29,7 @@ export declare interface IApiCompletion {
 }
 
 // schema to validate any wild payload
-export const schema = Joi.object({
+export const Schema = Joi.object({
   owner_id: Joi.number().required(),
   event: Joi.number().required(),
   members: Joi.object().pattern(

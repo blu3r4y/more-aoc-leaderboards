@@ -18,7 +18,7 @@ jobs:
       - name: Install dependencies
         run: yarn install --immutable
       - name: Check code style
-        run: yarn check
+        run: yarn gate
       - name: Build app
         run: yarn build
       - name: Deploy to GitHub Pages

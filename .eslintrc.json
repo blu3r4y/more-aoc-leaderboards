@@ -1,0 +1,46 @@
+{
+  "root": true,
+  "extends": ["react-app"],
+  "ignorePatterns": ["build/*"],
+  "overrides": [
+    {
+      "files": ["**/*.ts?(x)"],
+      "rules": {
+        "@typescript-eslint/naming-convention": [
+          "error",
+          {
+            // variables, functions and properties must be camelCase
+            "selector": "variableLike",
+            "format": ["camelCase"],
+            "leadingUnderscore": "allow"
+          },
+          {
+            // properties, methods, accessors and enum members must be camelCase
+            "selector": "memberLike",
+            "format": ["camelCase"]
+          },
+          {
+            // functions must be camelCase or PascalCase
+            "selector": "function",
+            "format": ["camelCase", "PascalCase"]
+          },
+          {
+            // global constants must be UPPER_CASE or PascalCase
+            "selector": "variable",
+            "modifiers": ["global", "const"],
+            "format": ["UPPER_CASE", "PascalCase"]
+          },
+          {
+            // interfaces must be PascalCase and start with I
+            "selector": "interface",
+            "format": ["PascalCase"],
+            "custom": {
+              "regex": "^I[A-Z]",
+              "match": true
+            }
+          }
+        ]
+      }
+    }
+  ]
+}
