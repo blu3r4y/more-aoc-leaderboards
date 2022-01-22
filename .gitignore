@@ -11,6 +11,9 @@
 # production
 /build
 
+# local data
+/data
+
 # yarn without zero-install
 .pnp.*
 .yarn/*
