@@ -16,7 +16,8 @@ Create a production build
 
     yarn build
 
-Lint and format your code before commits
+Test, lint and format your code before commits
 
+    yarn test
     yarn lint
     yarn format

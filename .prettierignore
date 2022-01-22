@@ -2,4 +2,5 @@
 .yarn/*
 build/*
 node_modules/*
+coverage/*
 .pnp.*
