@@ -11,10 +11,6 @@ dayjs.extend(duration);
  * we don't give them equal points at the moment!
  */
 
-/**
- * TODO: user lowerCamelCase for variables
- */
-
 declare interface IPreMember {
   /** the unique id of the member */
   id: number;
@@ -161,13 +157,20 @@ function processMember(member: IApiMember, year: number): IPreMember {
   const deltaMs = dropNull(Object.values(deltaTimes)).map((d) => d.asMilliseconds());
   const medianDelta = deltaMs.length > 0 ? dayjs.duration(median(deltaMs)) : null;
 
-  // total duration and delta time
+  // total delta time
   const sumDuration = (a: Duration, b: Duration) => a.add(b);
-  const totalTime = active
-    ? dropNull(Object.values(partbTimes)).reduce(sumDuration, dayjs.duration(0))
-    : null;
   const totalDelta = active
     ? dropNull(Object.values(deltaTimes)).reduce(sumDuration, dayjs.duration(0))
+    : null;
+
+  // total duration
+  const latestPartTime = (day: number) => {
+    if (partbTimes[day]) return partbTimes[day];
+    if (partaTimes[day]) return partaTimes[day];
+    return null;
+  };
+  const totalTime = active
+    ? dropNull(ALL_DAYS.map(latestPartTime)).reduce(sumDuration, dayjs.duration(0))
     : null;
 
   // average time it took to retrieve a star
