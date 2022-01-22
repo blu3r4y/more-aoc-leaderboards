@@ -1,6 +1,6 @@
 import { useCallback, useState } from "react";
 
-import { IMember, processData } from "./ApiProcessor";
+import { IProcessedData, processData } from "./ApiProcessor";
 import LeaderboardSet from "./LeaderboardSet";
 import JsonDropzone from "./JsonDropzone";
 import BlobUrl from "./BlobUrl";
@@ -8,7 +8,7 @@ import BlobUrl from "./BlobUrl";
 import "./App.css";
 
 function App() {
-  const [members, setMembers] = useState<IMember[] | null>(null);
+  const [members, setMembers] = useState<IProcessedData | null>(null);
   const onSuccess = useCallback((data) => setMembers(processData(data)), []);
 
   return (

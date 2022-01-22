@@ -60,6 +60,8 @@ declare interface IPreMember {
   timePerStar: Duration | null;
 }
 
+export declare type IProcessedData = { [id: number]: IMember };
+
 export declare interface IMember extends IPreMember {
   /** points, per day */
   points: { [day: number]: number };
@@ -87,16 +89,17 @@ function unlockDate(year: number, day: number): Dayjs {
   return dayjs(`${year}-12-${day.toString().padStart(2, "0")}T05:00:00.000Z`);
 }
 
-export function processData(apiData: IApiData | null): IMember[] | null {
-  if (!apiData) return null;
+export function processData(apiData: IApiData): IProcessedData {
   const { event: year, members: apiMembers } = apiData;
 
-  // retrieve metadata in a two-pass process
-  const preMembers = Object.values(apiMembers).map((m) => processMember(m, year));
+  // retrieve metadata for each individual member
+  const preMembers = Object.fromEntries(
+    Object.values(apiMembers).map((m) => [m.id, processMember(m, year)])
+  );
+
+  // retrieve (rank-based) metadata for all members
   const members = processAllMembers(preMembers, year);
 
-  // TODO: remove debug log
-  console.log(members);
   return members;
 }
 
@@ -205,15 +208,18 @@ function processMember(member: IApiMember, year: number): IPreMember {
  * @param year the event year
  * @returns an `IMember` object holding the original metadata plus additional metadata
  */
-function processAllMembers(members: IPreMember[], year: number): IMember[] {
-  const numMembers = members.length;
+function processAllMembers(
+  members: { [id: number]: IPreMember },
+  year: number
+): IProcessedData {
+  const numMembers = Object.keys(members).length;
 
   // initialize a map, that, for each member id, maps a metric of that day, per metric
   type IMemberDayMetricMap<T> = { [id: number]: { [day: number]: number | T } };
   const newDayMetricMap: <T>(init: T) => { [day: number]: number | T } = <T>(init: T) =>
     Object.fromEntries(ALL_DAYS.map((day) => [day, init]));
   const newMemberDayMetricMap: <T>(init: T) => IMemberDayMetricMap<T> = <T>(init: T) =>
-    Object.fromEntries(members.map((mem) => [mem.id, newDayMetricMap(init)]));
+    mapValues(members, () => newDayMetricMap(init));
 
   // ... for points
   const points = newMemberDayMetricMap(0);
@@ -231,7 +237,7 @@ function processAllMembers(members: IPreMember[], year: number): IMember[] {
     const [allParta, allPartb, allDelta]: IBoardEle[][] = [[], [], []];
 
     // fill data store with values from all members
-    for (const m of members) {
+    for (const m of Object.values(members)) {
       if (m.partaTimes[day]) allParta.push({ id: m.id, time: m.partaTimes[day]! });
       if (m.partbTimes[day]) allPartb.push({ id: m.id, time: m.partbTimes[day]! });
       if (m.deltaTimes[day]) allDelta.push({ id: m.id, time: m.deltaTimes[day]! });
@@ -260,14 +266,14 @@ function processAllMembers(members: IPreMember[], year: number): IMember[] {
     allPartb.forEach(computePoints(partbPoints));
 
     // sum points for both parts, for that day
-    members.forEach(
+    Object.values(members).forEach(
       (m) => (points[m.id][day] = partaPoints[m.id][day] + partbPoints[m.id][day])
     );
   }
 
   // attach new metadata, per member
   // and compute some further overall statistics
-  const result = members.map((m) => {
+  const result = mapValues(members, (id: number, m: IPreMember) => {
     // assert that we computed the points correctly
     const score = Object.values(points[m.id]).reduce((a, b) => a + b, 0);
     console.assert(

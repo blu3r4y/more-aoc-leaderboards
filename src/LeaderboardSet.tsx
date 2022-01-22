@@ -1,14 +1,14 @@
 import dayjs from "dayjs";
 import duration from "dayjs/plugin/duration";
 
-import { IMember } from "./ApiProcessor";
+import { IProcessedData } from "./ApiProcessor";
 import AppMasonry from "./AppMasonry";
 import Leaderboard from "./Leaderboard";
 
 dayjs.extend(duration);
 
 declare interface ILeaderboardSetProps {
-  members: IMember[];
+  members: IProcessedData;
 }
 
 function LeaderboardSet(props: ILeaderboardSetProps) {
@@ -38,8 +38,11 @@ function getLeaderboardProps(title: string, description: string, limit: number =
 
 /* leaderboards */
 
-function getLocalLeaderboard(members: IMember[]) {
-  const items = members.map((m) => ({ name: m.name, value: m.localScore }));
+function getLocalLeaderboard(members: IProcessedData) {
+  const items = Object.values(members).map((m) => ({
+    name: m.name,
+    value: m.localScore,
+  }));
 
   return (
     <Leaderboard
@@ -49,8 +52,8 @@ function getLocalLeaderboard(members: IMember[]) {
   );
 }
 
-function getPrimeCoders(members: IMember[]) {
-  const items = members
+function getPrimeCoders(members: IProcessedData) {
+  const items = Object.values(members)
     .filter((m) => m.finished && m.lastTimestamp)
     .map((m) => ({
       name: m.name,
@@ -68,8 +71,8 @@ function getPrimeCoders(members: IMember[]) {
   );
 }
 
-function getRapidCoders(members: IMember[]) {
-  const items = members
+function getRapidCoders(members: IProcessedData) {
+  const items = Object.values(members)
     .filter((m) => m.finished && m.totalTime)
     .map((m) => ({
       name: m.name,
@@ -90,8 +93,8 @@ function getRapidCoders(members: IMember[]) {
   );
 }
 
-function getOverachievingAdapters(members: IMember[], minStars: number = 25) {
-  const items = members
+function getOverachievingAdapters(members: IProcessedData, minStars: number = 25) {
+  const items = Object.values(members)
     .filter((m) => m.finished && m.totalDelta)
     .map((m) => ({
       name: m.name,
@@ -115,8 +118,8 @@ function getOverachievingAdapters(members: IMember[], minStars: number = 25) {
   );
 }
 
-function getSteadyPerformers(members: IMember[], minStars: number = 25) {
-  const items = members
+function getSteadyPerformers(members: IProcessedData, minStars: number = 25) {
+  const items = Object.values(members)
     .filter((m) => m.finished && m.medianDelta)
     .map((m) => ({
       name: m.name,
@@ -140,8 +143,8 @@ function getSteadyPerformers(members: IMember[], minStars: number = 25) {
   );
 }
 
-function getStarEfficientCoders(members: IMember[], minStars: number = 25) {
-  const items = members
+function getStarEfficientCoders(members: IProcessedData, minStars: number = 25) {
+  const items = Object.values(members)
     .filter((m) => m.totalStars >= minStars && m.timePerStar)
     .map((m) => ({
       name: m.name,
@@ -165,8 +168,8 @@ function getStarEfficientCoders(members: IMember[], minStars: number = 25) {
   );
 }
 
-function getEarlyBirds(members: IMember[], minStars: number = 25) {
-  const items = members
+function getEarlyBirds(members: IProcessedData, minStars: number = 25) {
+  const items = Object.values(members)
     .filter((m) => m.partaFirst)
     .map((m) => ({ name: m.name, value: m.partaFirst }));
 
@@ -181,8 +184,8 @@ function getEarlyBirds(members: IMember[], minStars: number = 25) {
   );
 }
 
-function getEarlyOwls(members: IMember[], minStars: number = 25) {
-  const items = members
+function getEarlyOwls(members: IProcessedData, minStars: number = 25) {
+  const items = Object.values(members)
     .filter((m) => m.partbFirst)
     .map((m) => ({ name: m.name, value: m.partbFirst }));
 
@@ -197,8 +200,8 @@ function getEarlyOwls(members: IMember[], minStars: number = 25) {
   );
 }
 
-function getSleepyArchitects(members: IMember[], minStars: number = 25) {
-  const items = members
+function getSleepyArchitects(members: IProcessedData, minStars: number = 25) {
+  const items = Object.values(members)
     .filter((m) => m.dayFirst)
     .map((m) => ({ name: m.name, value: m.dayFirst }));
 

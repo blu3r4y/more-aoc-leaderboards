@@ -1,11 +1,11 @@
 import { useEffect, useState } from "react";
 
-import { IMember } from "./ApiProcessor";
+import { IProcessedData } from "./ApiProcessor";
 
 import "./BlobUrl.css";
 
 declare interface IBlobUrlProps {
-  members: IMember[];
+  members: IProcessedData;
 }
 
 function BlobUrl(props: IBlobUrlProps) {
