@@ -11,7 +11,7 @@ export function mapValues<V, W>(
   fn: (key: number, value: V) => W
 ): { [key: number]: W } {
   return Object.fromEntries(
-    Object.entries(obj).map(([k, v]) => [k, fn(k as any as number, v)])
+    Object.entries(obj).map(([k, v]) => [k, fn(parseInt(k), v)])
   );
 }
 
