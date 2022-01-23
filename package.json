@@ -13,7 +13,7 @@
   },
   "scripts": {
     "start": "react-scripts start",
-    "test": "react-scripts test --coverage",
+    "test": "react-scripts test --coverage --verbose",
     "build": "rimraf build && react-scripts build",
     "lint": "eslint . --ext .js,.jsx,.ts,.tsx --fix",
     "format": "prettier --write .",
