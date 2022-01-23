@@ -2,14 +2,9 @@ import dayjs, { Dayjs } from "dayjs";
 import duration, { Duration } from "dayjs/plugin/duration";
 
 import { IApiData, IApiMember } from "./ApiTypes";
-import { mapValues, dropNull, median } from "./Utils";
+import { mapValues, dropNull, median, rankIndexes } from "./Utils";
 
 dayjs.extend(duration);
-
-/**
- * TODO: when members finished at the same time,
- * we don't give them equal points at the moment!
- */
 
 declare interface IPreMember {
   /** the unique id of the member */
@@ -246,25 +241,30 @@ function processAllMembers(
       if (m.deltaTimes[day]) allDelta.push({ id: m.id, time: m.deltaTimes[day]! });
     }
 
-    // sort all board metrics
-    const sortDuration = (a: IBoardEle, b: IBoardEle) =>
-      a.time.subtract(b.time).asMilliseconds();
+    // sort time-based board metrics (break ties by user id)
+    const sortDuration = (a: IBoardEle, b: IBoardEle) => {
+      const delta = a.time.subtract(b.time).asSeconds();
+      return delta !== 0 ? delta : a.id - b.id;
+    };
+
     allParta.sort(sortDuration);
     allPartb.sort(sortDuration);
     allDelta.sort(sortDuration);
 
-    // assign rank values to individual members
+    // assign true rank values to individual members
+    const selectTime = (e: IBoardEle) => e.time.asSeconds();
     const assignRanks =
-      (obj: IMemberDayMetricMap<number | null>) => (ele: IBoardEle, rank: number) =>
-        (obj[ele.id][day] = rank + 1);
-    allParta.forEach(assignRanks(partaRanks));
-    allPartb.forEach(assignRanks(partbRanks));
-    allDelta.forEach(assignRanks(deltaRanks));
+      (obj: IMemberDayMetricMap<number | null>) =>
+      (it: [rank: number, ele: IBoardEle]) =>
+        (obj[it[1].id][day] = it[0]);
+    rankIndexes(allParta, { key: selectTime }).forEach(assignRanks(partaRanks));
+    rankIndexes(allPartb, { key: selectTime }).forEach(assignRanks(partbRanks));
+    rankIndexes(allDelta, { key: selectTime }).forEach(assignRanks(deltaRanks));
 
     // compute points per parts (based on sorted part times)
     const computePoints =
-      (obj: IMemberDayMetricMap<number | null>) => (ele: IBoardEle, rank: number) =>
-        (obj[ele.id][day] = numMembers - rank);
+      (obj: IMemberDayMetricMap<number | null>) => (ele: IBoardEle, index: number) =>
+        (obj[ele.id][day] = numMembers - index);
     allParta.forEach(computePoints(partaPoints));
     allPartb.forEach(computePoints(partbPoints));
 

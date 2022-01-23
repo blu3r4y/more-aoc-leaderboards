@@ -530,3 +530,628 @@ it("timePerStar", () => {
 
   expect(processData(data)[1].timePerStar).toEqual(average);
 });
+
+it("points", () => {
+  const data: IApiData = {
+    ...defaultDataProps,
+    members: {
+      1: {
+        ...defaultMemberProps,
+        id: 1,
+        completion_day_level: {
+          10: { 1: { get_star_ts: 10 } },
+          20: { 1: { get_star_ts: 20 }, 2: { get_star_ts: 23 } },
+        },
+      },
+      2: {
+        ...defaultMemberProps,
+        id: 2,
+        completion_day_level: {
+          10: { 1: { get_star_ts: 11 } },
+          20: { 1: { get_star_ts: 21 }, 2: { get_star_ts: 22 } },
+        },
+      },
+    },
+  };
+
+  const result = processData(data);
+
+  expect(Object.keys(result[1].points).length).toBe(25);
+  expect(result[1].points[0]).toBe(undefined);
+  expect(result[1].points[10]).toBe(2);
+  expect(result[1].points[20]).toBe(3);
+  expect(result[1].points[25]).toBe(0);
+
+  expect(Object.keys(result[2].points).length).toBe(25);
+  expect(result[2].points[0]).toBe(undefined);
+  expect(result[2].points[10]).toBe(1);
+  expect(result[2].points[20]).toBe(3);
+  expect(result[2].points[25]).toBe(0);
+});
+
+it("points [ex aequo]", () => {
+  const data: IApiData = {
+    ...defaultDataProps,
+    members: {
+      1: {
+        ...defaultMemberProps,
+        id: 1,
+        completion_day_level: {
+          10: { 1: { get_star_ts: 10 } },
+        },
+      },
+      2: {
+        ...defaultMemberProps,
+        id: 2,
+        completion_day_level: {
+          10: { 1: { get_star_ts: 10 } },
+        },
+      },
+      3: {
+        ...defaultMemberProps,
+        id: 3,
+        completion_day_level: {
+          10: { 1: { get_star_ts: 11 } },
+        },
+      },
+    },
+  };
+
+  const result = processData(data);
+
+  // AoC breaks timestamp ties via the user id
+  // https://www.reddit.com/r/adventofcode/comments/7krz2u/comment/drgqics/
+  expect(result[1].points[10]).toBe(3);
+  expect(result[2].points[10]).toBe(2);
+  expect(result[3].points[10]).toBe(1);
+});
+
+it("partaPoints", () => {
+  const data: IApiData = {
+    ...defaultDataProps,
+    members: {
+      1: {
+        ...defaultMemberProps,
+        id: 1,
+        completion_day_level: {
+          10: { 1: { get_star_ts: 10 } },
+          20: { 1: { get_star_ts: 20 }, 2: { get_star_ts: 23 } },
+        },
+      },
+      2: {
+        ...defaultMemberProps,
+        id: 2,
+        completion_day_level: {
+          10: { 1: { get_star_ts: 11 } },
+          20: { 1: { get_star_ts: 21 }, 2: { get_star_ts: 22 } },
+        },
+      },
+    },
+  };
+
+  const result = processData(data);
+
+  expect(Object.keys(result[1].partaPoints).length).toBe(25);
+  expect(result[1].partaPoints[0]).toBe(undefined);
+  expect(result[1].partaPoints[10]).toBe(2);
+  expect(result[1].partaPoints[20]).toBe(2);
+  expect(result[1].partaPoints[25]).toBe(0);
+
+  expect(Object.keys(result[2].partaPoints).length).toBe(25);
+  expect(result[2].partaPoints[0]).toBe(undefined);
+  expect(result[2].partaPoints[10]).toBe(1);
+  expect(result[2].partaPoints[20]).toBe(1);
+  expect(result[2].partaPoints[25]).toBe(0);
+});
+
+it("partaPoints [ex aequo]", () => {
+  const data: IApiData = {
+    ...defaultDataProps,
+    members: {
+      1: {
+        ...defaultMemberProps,
+        id: 1,
+        completion_day_level: {
+          10: { 1: { get_star_ts: 10 } },
+        },
+      },
+      2: {
+        ...defaultMemberProps,
+        id: 2,
+        completion_day_level: {
+          10: { 1: { get_star_ts: 10 } },
+        },
+      },
+      3: {
+        ...defaultMemberProps,
+        id: 3,
+        completion_day_level: {
+          10: { 1: { get_star_ts: 11 } },
+        },
+      },
+    },
+  };
+
+  const result = processData(data);
+
+  // AoC breaks timestamp ties via the user id
+  // https://www.reddit.com/r/adventofcode/comments/7krz2u/comment/drgqics/
+  expect(result[1].partaPoints[10]).toBe(3);
+  expect(result[2].partaPoints[10]).toBe(2);
+  expect(result[3].partaPoints[10]).toBe(1);
+});
+
+it("partbPoints", () => {
+  const data: IApiData = {
+    ...defaultDataProps,
+    members: {
+      1: {
+        ...defaultMemberProps,
+        id: 1,
+        completion_day_level: {
+          10: { 1: { get_star_ts: 10 } },
+          20: { 1: { get_star_ts: 20 }, 2: { get_star_ts: 23 } },
+        },
+      },
+      2: {
+        ...defaultMemberProps,
+        id: 2,
+        completion_day_level: {
+          10: { 1: { get_star_ts: 11 } },
+          20: { 1: { get_star_ts: 21 }, 2: { get_star_ts: 22 } },
+        },
+      },
+    },
+  };
+
+  const result = processData(data);
+
+  expect(Object.keys(result[1].partbPoints).length).toBe(25);
+  expect(result[1].partbPoints[0]).toBe(undefined);
+  expect(result[1].partbPoints[10]).toBe(0);
+  expect(result[1].partbPoints[20]).toBe(1);
+  expect(result[1].partbPoints[25]).toBe(0);
+
+  expect(Object.keys(result[2].partbPoints).length).toBe(25);
+  expect(result[2].partbPoints[0]).toBe(undefined);
+  expect(result[2].partbPoints[10]).toBe(0);
+  expect(result[2].partbPoints[20]).toBe(2);
+  expect(result[2].partbPoints[25]).toBe(0);
+});
+
+it("partbPoints [ex aequo]", () => {
+  const data: IApiData = {
+    ...defaultDataProps,
+    members: {
+      1: {
+        ...defaultMemberProps,
+        id: 1,
+        completion_day_level: {
+          10: { 1: { get_star_ts: 1 }, 2: { get_star_ts: 10 } },
+        },
+      },
+      2: {
+        ...defaultMemberProps,
+        id: 2,
+        completion_day_level: {
+          10: { 1: { get_star_ts: 2 }, 2: { get_star_ts: 10 } },
+        },
+      },
+      3: {
+        ...defaultMemberProps,
+        id: 3,
+        completion_day_level: {
+          10: { 1: { get_star_ts: 3 }, 2: { get_star_ts: 11 } },
+        },
+      },
+    },
+  };
+
+  const result = processData(data);
+
+  // AoC breaks timestamp ties via the user id
+  // https://www.reddit.com/r/adventofcode/comments/7krz2u/comment/drgqics/
+  expect(result[1].partbPoints[10]).toBe(3);
+  expect(result[2].partbPoints[10]).toBe(2);
+  expect(result[3].partbPoints[10]).toBe(1);
+});
+
+it("partaRanks", () => {
+  const data: IApiData = {
+    ...defaultDataProps,
+    members: {
+      1: {
+        ...defaultMemberProps,
+        id: 1,
+        completion_day_level: {
+          10: { 1: { get_star_ts: 10 } },
+          20: { 1: { get_star_ts: 20 }, 2: { get_star_ts: 23 } },
+        },
+      },
+      2: {
+        ...defaultMemberProps,
+        id: 2,
+        completion_day_level: {
+          10: { 1: { get_star_ts: 11 } },
+          20: { 1: { get_star_ts: 21 }, 2: { get_star_ts: 22 } },
+        },
+      },
+    },
+  };
+
+  const result = processData(data);
+
+  expect(Object.keys(result[1].partaRanks).length).toBe(25);
+  expect(result[1].partaRanks[0]).toBe(undefined);
+  expect(result[1].partaRanks[10]).toBe(1);
+  expect(result[1].partaRanks[20]).toBe(1);
+  expect(result[1].partaRanks[25]).toBe(null);
+
+  expect(Object.keys(result[2].partaRanks).length).toBe(25);
+  expect(result[2].partaRanks[0]).toBe(undefined);
+  expect(result[2].partaRanks[10]).toBe(2);
+  expect(result[2].partaRanks[20]).toBe(2);
+  expect(result[2].partaRanks[25]).toBe(null);
+});
+
+it("partaRanks [ex aequo]", () => {
+  const data: IApiData = {
+    ...defaultDataProps,
+    members: {
+      1: {
+        ...defaultMemberProps,
+        id: 1,
+        completion_day_level: {
+          10: { 1: { get_star_ts: 10 } },
+        },
+      },
+      2: {
+        ...defaultMemberProps,
+        id: 2,
+        completion_day_level: {
+          10: { 1: { get_star_ts: 10 } },
+        },
+      },
+      3: {
+        ...defaultMemberProps,
+        id: 3,
+        completion_day_level: {
+          10: { 1: { get_star_ts: 11 } },
+        },
+      },
+    },
+  };
+
+  const result = processData(data);
+
+  expect(result[1].partaRanks[10]).toBe(1);
+  expect(result[2].partaRanks[10]).toBe(1);
+  expect(result[3].partaRanks[10]).toBe(3);
+});
+
+it("partbRanks", () => {
+  const data: IApiData = {
+    ...defaultDataProps,
+    members: {
+      1: {
+        ...defaultMemberProps,
+        id: 1,
+        completion_day_level: {
+          10: { 1: { get_star_ts: 10 } },
+          20: { 1: { get_star_ts: 20 }, 2: { get_star_ts: 23 } },
+        },
+      },
+      2: {
+        ...defaultMemberProps,
+        id: 2,
+        completion_day_level: {
+          10: { 1: { get_star_ts: 11 } },
+          20: { 1: { get_star_ts: 21 }, 2: { get_star_ts: 22 } },
+        },
+      },
+    },
+  };
+
+  const result = processData(data);
+
+  expect(Object.keys(result[1].partbRanks).length).toBe(25);
+  expect(result[1].partbRanks[0]).toBe(undefined);
+  expect(result[1].partbRanks[10]).toBe(null);
+  expect(result[1].partbRanks[20]).toBe(2);
+  expect(result[1].partbRanks[25]).toBe(null);
+
+  expect(Object.keys(result[2].partbRanks).length).toBe(25);
+  expect(result[2].partbRanks[0]).toBe(undefined);
+  expect(result[2].partbRanks[10]).toBe(null);
+  expect(result[2].partbRanks[20]).toBe(1);
+  expect(result[2].partbRanks[25]).toBe(null);
+});
+
+it("partbRanks [ex aequo]", () => {
+  const data: IApiData = {
+    ...defaultDataProps,
+    members: {
+      1: {
+        ...defaultMemberProps,
+        id: 1,
+        completion_day_level: {
+          10: { 1: { get_star_ts: 1 }, 2: { get_star_ts: 10 } },
+        },
+      },
+      2: {
+        ...defaultMemberProps,
+        id: 2,
+        completion_day_level: {
+          10: { 1: { get_star_ts: 2 }, 2: { get_star_ts: 10 } },
+        },
+      },
+      3: {
+        ...defaultMemberProps,
+        id: 3,
+        completion_day_level: {
+          10: { 1: { get_star_ts: 3 }, 2: { get_star_ts: 11 } },
+        },
+      },
+    },
+  };
+
+  const result = processData(data);
+
+  expect(result[1].partbRanks[10]).toBe(1);
+  expect(result[2].partbRanks[10]).toBe(1);
+  expect(result[3].partbRanks[10]).toBe(3);
+});
+
+it("deltaRanks", () => {
+  const data: IApiData = {
+    ...defaultDataProps,
+    members: {
+      1: {
+        ...defaultMemberProps,
+        id: 1,
+        completion_day_level: {
+          10: { 1: { get_star_ts: 100 } },
+          20: { 1: { get_star_ts: 200 }, 2: { get_star_ts: 209 } },
+          21: { 1: { get_star_ts: 210 }, 2: { get_star_ts: 212 } },
+        },
+      },
+      2: {
+        ...defaultMemberProps,
+        id: 2,
+        completion_day_level: {
+          10: { 1: { get_star_ts: 101 } },
+          20: { 1: { get_star_ts: 205 }, 2: { get_star_ts: 206 } },
+          21: { 1: { get_star_ts: 210 }, 2: { get_star_ts: 219 } },
+        },
+      },
+    },
+  };
+
+  const result = processData(data);
+
+  expect(Object.keys(result[1].deltaRanks).length).toBe(25);
+  expect(result[1].deltaRanks[0]).toBe(undefined);
+  expect(result[1].deltaRanks[10]).toBe(null);
+  expect(result[1].deltaRanks[20]).toBe(2);
+  expect(result[1].deltaRanks[21]).toBe(1);
+  expect(result[1].deltaRanks[25]).toBe(null);
+
+  expect(Object.keys(result[2].deltaRanks).length).toBe(25);
+  expect(result[2].deltaRanks[0]).toBe(undefined);
+  expect(result[2].deltaRanks[10]).toBe(null);
+  expect(result[2].deltaRanks[20]).toBe(1);
+  expect(result[2].deltaRanks[21]).toBe(2);
+  expect(result[2].deltaRanks[25]).toBe(null);
+});
+
+it("deltaRanks [ex aequo]", () => {
+  const data: IApiData = {
+    ...defaultDataProps,
+    members: {
+      1: {
+        ...defaultMemberProps,
+        id: 1,
+        completion_day_level: {
+          10: { 1: { get_star_ts: 200 }, 2: { get_star_ts: 210 } },
+        },
+      },
+      2: {
+        ...defaultMemberProps,
+        id: 2,
+        completion_day_level: {
+          10: { 1: { get_star_ts: 220 }, 2: { get_star_ts: 230 } },
+        },
+      },
+      3: {
+        ...defaultMemberProps,
+        id: 3,
+        completion_day_level: {
+          10: { 1: { get_star_ts: 240 }, 2: { get_star_ts: 300 } },
+        },
+      },
+    },
+  };
+
+  const result = processData(data);
+
+  expect(result[1].deltaRanks[10]).toBe(1);
+  expect(result[2].deltaRanks[10]).toBe(1);
+  expect(result[3].deltaRanks[10]).toBe(3);
+});
+
+it("partaFirst", () => {
+  const data: IApiData = {
+    ...defaultDataProps,
+    members: {
+      1: {
+        ...defaultMemberProps,
+        id: 1,
+        completion_day_level: {
+          10: { 1: { get_star_ts: 10 } },
+          20: { 1: { get_star_ts: 20 }, 2: { get_star_ts: 23 } },
+        },
+      },
+      2: {
+        ...defaultMemberProps,
+        id: 2,
+        completion_day_level: {
+          10: { 1: { get_star_ts: 11 } },
+          20: { 1: { get_star_ts: 21 }, 2: { get_star_ts: 22 } },
+        },
+      },
+      3: {
+        ...defaultMemberProps,
+        id: 3,
+      },
+    },
+  };
+
+  const result = processData(data);
+  expect(result[1].partaFirst).toBe(2);
+  expect(result[2].partaFirst).toBe(0);
+  expect(result[2].partaFirst).toBe(0);
+});
+
+it("partaFirst [ex aequo]", () => {
+  const data: IApiData = {
+    ...defaultDataProps,
+    members: {
+      1: {
+        ...defaultMemberProps,
+        id: 1,
+        completion_day_level: {
+          10: { 1: { get_star_ts: 10 } },
+        },
+      },
+      2: {
+        ...defaultMemberProps,
+        id: 2,
+        completion_day_level: {
+          10: { 1: { get_star_ts: 10 } },
+        },
+      },
+    },
+  };
+
+  const result = processData(data);
+  expect(result[1].partaFirst).toBe(1);
+  expect(result[2].partaFirst).toBe(1);
+});
+
+it("partbFirst", () => {
+  const data: IApiData = {
+    ...defaultDataProps,
+    members: {
+      1: {
+        ...defaultMemberProps,
+        id: 1,
+        completion_day_level: {
+          10: { 1: { get_star_ts: 100 } },
+          20: { 1: { get_star_ts: 200 }, 2: { get_star_ts: 201 } },
+          21: { 1: { get_star_ts: 210 }, 2: { get_star_ts: 219 } },
+          22: { 1: { get_star_ts: 220 }, 2: { get_star_ts: 221 } },
+        },
+      },
+      2: {
+        ...defaultMemberProps,
+        id: 2,
+        completion_day_level: {
+          10: { 1: { get_star_ts: 101 } },
+          20: { 1: { get_star_ts: 201 }, 2: { get_star_ts: 202 } },
+          21: { 1: { get_star_ts: 211 }, 2: { get_star_ts: 211 } },
+          22: { 1: { get_star_ts: 221 }, 2: { get_star_ts: 229 } },
+        },
+      },
+    },
+  };
+
+  const result = processData(data);
+  expect(result[1].partbFirst).toBe(2);
+  expect(result[2].partbFirst).toBe(1);
+});
+
+it("partbFirst [ex aequo]", () => {
+  const data: IApiData = {
+    ...defaultDataProps,
+    members: {
+      1: {
+        ...defaultMemberProps,
+        id: 1,
+        completion_day_level: {
+          10: { 1: { get_star_ts: 10 }, 2: { get_star_ts: 20 } },
+        },
+      },
+      2: {
+        ...defaultMemberProps,
+        id: 2,
+        completion_day_level: {
+          10: { 1: { get_star_ts: 11 }, 2: { get_star_ts: 20 } },
+        },
+      },
+    },
+  };
+
+  const result = processData(data);
+  expect(result[1].partbFirst).toBe(1);
+  expect(result[2].partbFirst).toBe(1);
+});
+
+it("dayFirst", () => {
+  const data: IApiData = {
+    ...defaultDataProps,
+    members: {
+      1: {
+        ...defaultMemberProps,
+        id: 1,
+        completion_day_level: {
+          10: { 1: { get_star_ts: 100 } },
+          20: { 1: { get_star_ts: 200 }, 2: { get_star_ts: 205 } },
+          21: { 1: { get_star_ts: 211 }, 2: { get_star_ts: 215 } },
+          22: { 1: { get_star_ts: 220 }, 2: { get_star_ts: 226 } },
+          23: { 1: { get_star_ts: 231 }, 2: { get_star_ts: 236 } },
+        },
+      },
+      2: {
+        ...defaultMemberProps,
+        id: 2,
+        completion_day_level: {
+          10: { 1: { get_star_ts: 101 } },
+          20: { 1: { get_star_ts: 201 }, 2: { get_star_ts: 206 } },
+          21: { 1: { get_star_ts: 210 }, 2: { get_star_ts: 216 } },
+          22: { 1: { get_star_ts: 221 }, 2: { get_star_ts: 225 } },
+          23: { 1: { get_star_ts: 230 }, 2: { get_star_ts: 235 } },
+        },
+      },
+    },
+  };
+
+  const result = processData(data);
+  expect(result[1].dayFirst).toBe(1);
+  expect(result[2].dayFirst).toBe(1);
+});
+
+it("dayFirst [ex aequo]", () => {
+  const data: IApiData = {
+    ...defaultDataProps,
+    members: {
+      1: {
+        ...defaultMemberProps,
+        id: 1,
+        completion_day_level: {
+          10: { 1: { get_star_ts: 10 }, 2: { get_star_ts: 20 } },
+        },
+      },
+      2: {
+        ...defaultMemberProps,
+        id: 2,
+        completion_day_level: {
+          10: { 1: { get_star_ts: 10 }, 2: { get_star_ts: 20 } },
+        },
+      },
+    },
+  };
+
+  const result = processData(data);
+  expect(result[1].dayFirst).toBe(1);
+  expect(result[2].dayFirst).toBe(1);
+});
