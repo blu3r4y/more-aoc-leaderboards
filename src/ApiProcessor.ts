@@ -80,6 +80,10 @@ function unlockDate(year: number, day: number): Dayjs {
   return dayjs(`${year}-12-${day.toString().padStart(2, "0")}T05:00:00.000Z`);
 }
 
+function isOutageDay(year: number, day: number): boolean {
+  return (year === 2018 && day === 6) || (year === 2020 && day === 1);
+}
+
 export function processData(apiData: IApiData): IProcessedData {
   const { event: year, members: apiMembers } = apiData;
 
@@ -261,12 +265,15 @@ function processAllMembers(
     rankIndexes(allPartb, { key: selectTime }).forEach(assignRanks(partbRanks));
     rankIndexes(allDelta, { key: selectTime }).forEach(assignRanks(deltaRanks));
 
-    // compute points per parts (based on sorted part times)
-    const computePoints =
-      (obj: IMemberDayMetricMap<number | null>) => (ele: IBoardEle, index: number) =>
-        (obj[ele.id][day] = numMembers - index);
-    allParta.forEach(computePoints(partaPoints));
-    allPartb.forEach(computePoints(partbPoints));
+    // do not compute points for outage days
+    if (!isOutageDay(year, day)) {
+      // compute points per parts (based on sorted part times)
+      const computePoints =
+        (obj: IMemberDayMetricMap<number | null>) => (ele: IBoardEle, index: number) =>
+          (obj[ele.id][day] = numMembers - index);
+      allParta.forEach(computePoints(partaPoints));
+      allPartb.forEach(computePoints(partbPoints));
+    }
 
     // sum points for both parts, for that day
     Object.values(members).forEach(
