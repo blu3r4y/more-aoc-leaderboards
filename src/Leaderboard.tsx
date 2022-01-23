@@ -1,8 +1,12 @@
 import { useMemo } from "react";
 
+import { rankIndexes } from "./Utils";
+
 import "./Leaderboard.css";
 
 export declare interface ILeaderboardRow {
+  /** the id of the member to represent */
+  id: number;
   /** the name of the member to represent */
   name: string;
   /** the value to display */
@@ -31,20 +35,13 @@ function Leaderboard(props: ILeaderboardProps) {
     if (!unsorted) values.sort(sortValues);
     if (reverse) values.reverse();
 
-    const result = [];
-    let scorePre = null;
-    let rankDelta = 0;
-
     // prepare entries
-    for (const [rank, element] of values.entries()) {
-      // adjust rank if scores are equal
-      const score = element.rawValue ?? element.value;
-      rankDelta = scorePre !== null && scorePre === score ? rankDelta + 1 : 0;
-      const displayRank = rankDelta > 0 ? "." : rank + 1;
-
+    const result = [];
+    const ranked = rankIndexes(values, { key: (e) => e.rawValue ?? e.value });
+    for (const [i, [rank, element]] of ranked.entries()) {
       result.push(
-        <tr key={rank} data-rank={rank + 1 - rankDelta}>
-          <td className="Rank">{displayRank}</td>
+        <tr key={i} data-rank={rank} data-id={element.id}>
+          <td className="Rank">{rank}</td>
           <td className="Name" title={element.name}>
             {element.name}
           </td>
@@ -57,8 +54,6 @@ function Leaderboard(props: ILeaderboardProps) {
           </td>
         </tr>
       );
-
-      scorePre = element.value;
     }
 
     return result;
@@ -77,8 +72,14 @@ function Leaderboard(props: ILeaderboardProps) {
 
 function sortValues(a: ILeaderboardRow, b: ILeaderboardRow) {
   // sort by raw value if available, fall-back to value
-  if (a.rawValue && b.rawValue) return b.rawValue - a.rawValue;
-  else return Number(b.value) - Number(a.value);
+  const avalue = a.rawValue ?? Number(a.value);
+  const bvalue = b.rawValue ?? Number(b.value);
+
+  // sort by user id (ascending order), if values are equal
+  if (avalue === bvalue) return a.id - b.id;
+
+  // sort in descending order
+  return bvalue - avalue;
 }
 
 function formatScore(x: string | number): string {

@@ -41,3 +41,39 @@ export function median(values: number[]): number {
   if (items.length % 2) return items[half];
   return (items[half - 1] + items[half]) / 2.0;
 }
+
+/**
+ * computes the ranks for each element, assuming a sorted list of numbers.
+ * ranks start at 1, consecutive elements are assigned the same rank.
+ *
+ * @param values an array of values
+ * @param opts.key optional mapper to extract the value to rank from each element
+ * @param opts.nogaps if true, ranks, following a consecutive rank, won't skip ranks,
+ * i.e. ranks will be [1, 2, 2, 3] and not [1, 2, 2, 4]
+ */
+export function rankIndexes<T>(
+  values: T[],
+  opts?: { key?: (element: T) => any; nogaps?: boolean }
+): [number, T][] {
+  const result: [number, T][] = [];
+  const nogaps = opts?.nogaps ?? false;
+  const key = opts?.key ?? ((x) => x);
+
+  let metricPre = null;
+  let [index, rank] = [0, 0];
+
+  for (const element of values) {
+    const metric = key(element);
+    const exaequo = metricPre !== null && metricPre === metric;
+    metricPre = metric;
+
+    // ranks only on non-consecutive values
+    if (!exaequo) rank++;
+    index++;
+    const i = exaequo ? rank : nogaps ? rank : index;
+
+    result.push([i, element]);
+  }
+
+  return result;
+}

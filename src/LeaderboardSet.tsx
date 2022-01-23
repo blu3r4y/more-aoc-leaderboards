@@ -40,6 +40,7 @@ function getLeaderboardProps(title: string, description: string, limit: number =
 
 function getLocalLeaderboard(members: IProcessedData) {
   const items = Object.values(members).map((m) => ({
+    id: m.id,
     name: m.name,
     value: m.localScore,
   }));
@@ -56,6 +57,7 @@ function getPrimeCoders(members: IProcessedData) {
   const items = Object.values(members)
     .filter((m) => m.finished && m.lastTimestamp)
     .map((m) => ({
+      id: m.id,
       name: m.name,
       value: m.lastTimestamp!.format("MMM D HH:mm:ss"),
       rawValue: m.lastTimestamp!.unix(),
@@ -75,6 +77,7 @@ function getRapidCoders(members: IProcessedData) {
   const items = Object.values(members)
     .filter((m) => m.finished && m.totalTime)
     .map((m) => ({
+      id: m.id,
       name: m.name,
       value:
         m.totalTime!.asHours() < 24
@@ -97,6 +100,7 @@ function getOverachievingAdapters(members: IProcessedData, minStars: number = 25
   const items = Object.values(members)
     .filter((m) => m.finished && m.totalDelta)
     .map((m) => ({
+      id: m.id,
       name: m.name,
       value:
         m.totalDelta!.asHours() < 24
@@ -122,6 +126,7 @@ function getSteadyPerformers(members: IProcessedData, minStars: number = 25) {
   const items = Object.values(members)
     .filter((m) => m.finished && m.medianDelta)
     .map((m) => ({
+      id: m.id,
       name: m.name,
       value:
         m.medianDelta!.asHours() < 24
@@ -147,6 +152,7 @@ function getStarEfficientCoders(members: IProcessedData, minStars: number = 25) 
   const items = Object.values(members)
     .filter((m) => m.totalStars >= minStars && m.timePerStar)
     .map((m) => ({
+      id: m.id,
       name: m.name,
       value:
         m.timePerStar!.asHours() < 24
@@ -171,7 +177,7 @@ function getStarEfficientCoders(members: IProcessedData, minStars: number = 25) 
 function getEarlyBirds(members: IProcessedData, minStars: number = 25) {
   const items = Object.values(members)
     .filter((m) => m.partaFirst)
-    .map((m) => ({ name: m.name, value: m.partaFirst }));
+    .map((m) => ({ id: m.id, name: m.name, value: m.partaFirst }));
 
   return (
     <Leaderboard
@@ -187,7 +193,7 @@ function getEarlyBirds(members: IProcessedData, minStars: number = 25) {
 function getEarlyOwls(members: IProcessedData, minStars: number = 25) {
   const items = Object.values(members)
     .filter((m) => m.partbFirst)
-    .map((m) => ({ name: m.name, value: m.partbFirst }));
+    .map((m) => ({ id: m.id, name: m.name, value: m.partbFirst }));
 
   return (
     <Leaderboard
@@ -203,7 +209,7 @@ function getEarlyOwls(members: IProcessedData, minStars: number = 25) {
 function getSleepyArchitects(members: IProcessedData, minStars: number = 25) {
   const items = Object.values(members)
     .filter((m) => m.dayFirst)
-    .map((m) => ({ name: m.name, value: m.dayFirst }));
+    .map((m) => ({ id: m.id, name: m.name, value: m.dayFirst }));
 
   return (
     <Leaderboard

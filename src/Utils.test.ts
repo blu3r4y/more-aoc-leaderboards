@@ -1,4 +1,4 @@
-import { mapValues, dropNull, median } from "./Utils";
+import { mapValues, dropNull, median, rankIndexes } from "./Utils";
 
 describe("mapValues()", () => {
   it("passes numeric values", () => {
@@ -57,5 +57,114 @@ describe("median()", () => {
 
   it("throws on empty arrays", () => {
     expect(() => median([])).toThrow();
+  });
+});
+
+describe("rankIndexes()", () => {
+  it("ranks numeric values", () => {
+    const obj = [10, 20, 30];
+    const result = [
+      [1, 10],
+      [2, 20],
+      [3, 30],
+    ];
+
+    expect(rankIndexes(obj)).toEqual(result);
+  });
+
+  it("ranks numeric values [ex aequo]", () => {
+    const obj = [10, 10, 30, 40];
+    const result = [
+      [1, 10],
+      [1, 10],
+      [3, 30],
+      [4, 40],
+    ];
+
+    expect(rankIndexes(obj)).toEqual(result);
+  });
+
+  it("ranks numeric values [ex aequo, no gaps]", () => {
+    const obj = [10, 10, 30, 40];
+    const result = [
+      [1, 10],
+      [1, 10],
+      [2, 30],
+      [3, 40],
+    ];
+
+    expect(rankIndexes(obj, { nogaps: true })).toEqual(result);
+  });
+
+  it("ranks string values", () => {
+    const obj = ["a", "b", "c"];
+    const result = [
+      [1, "a"],
+      [2, "b"],
+      [3, "c"],
+    ];
+
+    expect(rankIndexes(obj)).toEqual(result);
+  });
+
+  it("ranks string values [ex aequo]", () => {
+    const obj = ["a", "a", "c", "d"];
+    const result = [
+      [1, "a"],
+      [1, "a"],
+      [3, "c"],
+      [4, "d"],
+    ];
+
+    expect(rankIndexes(obj)).toEqual(result);
+  });
+
+  it("ranks object values with key mapper", () => {
+    const obj = [
+      { a: 10, b: "u" },
+      { a: 20, b: "v" },
+      { a: 30, b: "w" },
+    ];
+    const result = [
+      [1, { a: 10, b: "u" }],
+      [2, { a: 20, b: "v" }],
+      [3, { a: 30, b: "w" }],
+    ];
+
+    expect(rankIndexes(obj, { key: (e) => e.a })).toEqual(result);
+  });
+
+  it("ranks object values with key mapper [ex aequo]", () => {
+    const obj = [
+      { a: 10, b: "u" },
+      { a: 10, b: "v" },
+      { a: 30, b: "w" },
+      { a: 40, b: "x" },
+    ];
+    const result = [
+      [1, { a: 10, b: "u" }],
+      [1, { a: 10, b: "v" }],
+      [3, { a: 30, b: "w" }],
+      [4, { a: 40, b: "x" }],
+    ];
+
+    expect(rankIndexes(obj, { key: (e) => e.a })).toEqual(result);
+  });
+
+  it("ranks object values with key mapper [ex aequo, no gaps]", () => {
+    const obj = [
+      { a: 10, b: "u" },
+      { a: 10, b: "v" },
+      { a: 30, b: "w" },
+      { a: 40, b: "x" },
+    ];
+    const result = [
+      [1, { a: 10, b: "u" }],
+      [1, { a: 10, b: "v" }],
+      [2, { a: 30, b: "w" }],
+      [3, { a: 40, b: "x" }],
+    ];
+
+    expect(rankIndexes(obj, { key: (e) => e.a, nogaps: true })).toEqual(result);
   });
 });
