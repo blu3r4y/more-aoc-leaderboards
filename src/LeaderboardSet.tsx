@@ -1,5 +1,5 @@
 import dayjs from "dayjs";
-import duration from "dayjs/plugin/duration";
+import duration, { Duration } from "dayjs/plugin/duration";
 
 import { IProcessedData } from "./ApiProcessor";
 import AppMasonry from "./AppMasonry";
@@ -34,6 +34,12 @@ function LeaderboardSet(props: ILeaderboardSetProps) {
 function getLeaderboardProps(title: string, description: string, limit: number = 10) {
   const key = title.toLowerCase().replace(/ /g, "-");
   return { key, title, description, limit };
+}
+
+function formatDuration(duration: Duration) {
+  if (duration.asHours() < 24) return duration.format("HH:mm:ss");
+  if (duration.asHours() < 24 * 365) return `~${Math.floor(duration.asHours())}h`;
+  return `~${Math.floor(duration.asYears())}y`;
 }
 
 /* leaderboards */
@@ -79,10 +85,7 @@ function getRapidCoders(members: IProcessedData) {
     .map((m) => ({
       id: m.id,
       name: m.name,
-      value:
-        m.totalTime!.asHours() < 24
-          ? m.totalTime!.format("HH:mm:ss")
-          : `~${Math.floor(m.totalTime!.asHours())}h`,
+      value: formatDuration(m.totalTime!),
       rawValue: m.totalTime!.asSeconds(),
       detailValue: m.totalTime!.format(),
     }));
@@ -102,10 +105,7 @@ function getOverachievingAdapters(members: IProcessedData, minStars: number = 25
     .map((m) => ({
       id: m.id,
       name: m.name,
-      value:
-        m.totalDelta!.asHours() < 24
-          ? m.totalDelta!.format("HH:mm:ss")
-          : `~${Math.floor(m.totalDelta!.asHours())}h`,
+      value: formatDuration(m.totalDelta!),
       rawValue: m.totalDelta!.asSeconds(),
       detailValue: m.totalDelta!.format(),
     }));
@@ -128,10 +128,7 @@ function getSteadyPerformers(members: IProcessedData, minStars: number = 25) {
     .map((m) => ({
       id: m.id,
       name: m.name,
-      value:
-        m.medianDelta!.asHours() < 24
-          ? m.medianDelta!.format("HH:mm:ss")
-          : `~${Math.floor(m.medianDelta!.asHours())}h`,
+      value: formatDuration(m.medianDelta!),
       rawValue: m.medianDelta!.asSeconds(),
       detailValue: m.medianDelta!.format(),
     }));
@@ -154,10 +151,7 @@ function getStarEfficientCoders(members: IProcessedData, minStars: number = 25) 
     .map((m) => ({
       id: m.id,
       name: m.name,
-      value:
-        m.timePerStar!.asHours() < 24
-          ? `${m.timePerStar!.format("HH:mm:ss")} ★ ${m.totalStars}`
-          : `~${Math.floor(m.timePerStar!.asHours())}h`,
+      value: `${formatDuration(m.timePerStar!)} ★ ${m.totalStars}`,
       rawValue: m.timePerStar!.asSeconds(),
       detailValue: `${m.timePerStar!.format()} for ${m.totalStars} stars`,
     }));
