@@ -30,6 +30,7 @@ function BlobUrl(props: IBlobUrlProps) {
       <a href={url ?? "#"} download>
         here
       </a>
+      .
     </p>
   );
 }

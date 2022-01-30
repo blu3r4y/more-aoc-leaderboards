@@ -74,6 +74,7 @@ function JsonDropzone(props: IJsonDropzoneProps) {
       >
         private leaderboard
       </a>
+      .
     </p>
   );
 
