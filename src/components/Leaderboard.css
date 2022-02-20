@@ -27,6 +27,12 @@
   border-collapse: collapse;
 }
 
+.Leaderboard > p {
+  margin: 1em 0 0 0;
+  font-size: var(--font-size-small);
+  color: var(--color-bronze);
+}
+
 /* rank, name, value */
 
 .Leaderboard td.Name {

@@ -59,13 +59,18 @@ function Leaderboard(props: ILeaderboardProps) {
     return result;
   }, [items, unsorted, reverse]);
 
+  const emptyMessage = <p>- no players -</p>;
+  const memberTable = (
+    <table>
+      <tbody>{rows.slice(0, limit)}</tbody>
+    </table>
+  );
+
   return (
     <div className="Leaderboard">
       <div className="Title">{title}</div>
       <div className="Description">{description}</div>
-      <table>
-        <tbody>{rows.slice(0, limit)}</tbody>
-      </table>
+      {rows.length > 0 ? memberTable : emptyMessage}
     </div>
   );
 }
