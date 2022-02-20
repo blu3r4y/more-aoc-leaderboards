@@ -31,9 +31,9 @@ function LeaderboardSet(props: ILeaderboardSetProps) {
   );
 }
 
-function getLeaderboardProps(title: string, description: string, limit: number = 10) {
+function getLeaderboardProps(title: string, description: string) {
   const key = title.toLowerCase().replace(/ /g, "-");
-  return { key, title, description, limit };
+  return { key, title, description };
 }
 
 function formatDuration(duration: Duration) {

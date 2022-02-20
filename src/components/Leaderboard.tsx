@@ -1,4 +1,9 @@
-import { useMemo } from "react";
+import { useMemo, useState } from "react";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import {
+  faChevronUp as faUp,
+  faChevronDown as faDown,
+} from "@fortawesome/free-solid-svg-icons";
 
 import { rankIndexes } from "../utils/Utils";
 
@@ -21,13 +26,20 @@ declare interface ILeaderboardProps {
   items: ILeaderboardRow[];
   title?: string;
   description?: string;
-  limit?: number;
   unsorted?: boolean;
   reverse?: boolean;
 }
 
+/* number of items to show initially */
+const LIMIT_MIN: number = 10;
+/* step size of the expand button */
+const LIMIT_STEP: number = 100;
+
 function Leaderboard(props: ILeaderboardProps) {
-  const { items, title, description, limit, unsorted, reverse } = props;
+  const { items, title, description, unsorted, reverse } = props;
+
+  // number of items that are currently shown
+  const [limit, setLimit] = useState<number>(LIMIT_MIN);
 
   const rows = useMemo(() => {
     // sort and possibly reverse values
@@ -59,8 +71,21 @@ function Leaderboard(props: ILeaderboardProps) {
     return result;
   }, [items, unsorted, reverse]);
 
-  const emptyMessage = <p>- no players -</p>;
-  const memberTable = (
+  const canExpand = rows.length > limit;
+  const canContract = Math.min(limit, rows.length) > LIMIT_MIN;
+
+  const expandTable = () => setLimit(Math.min(rows.length, limit + LIMIT_STEP));
+  const contractTable = () => setLimit(Math.max(LIMIT_MIN, limit - LIMIT_STEP));
+
+  const chevronIcons = (
+    <div className="ChevronIcons">
+      {canExpand ? <FontAwesomeIcon onClick={expandTable} icon={faDown} /> : null}
+      {canContract ? <FontAwesomeIcon onClick={contractTable} icon={faUp} /> : null}
+    </div>
+  );
+
+  const emptyMessage = <div className="Empty">- no players -</div>;
+  const table = (
     <table>
       <tbody>{rows.slice(0, limit)}</tbody>
     </table>
@@ -70,7 +95,8 @@ function Leaderboard(props: ILeaderboardProps) {
     <div className="Leaderboard">
       <div className="Title">{title}</div>
       <div className="Description">{description}</div>
-      {rows.length > 0 ? memberTable : emptyMessage}
+      {rows.length > 0 ? table : emptyMessage}
+      {chevronIcons}
     </div>
   );
 }
