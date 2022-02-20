@@ -1,15 +1,11 @@
 /* share url style */
 
-.ShareUrl {
-  font-size: var(--font-size-small);
-}
-
 .ShareUrl > .UrlField {
   width: 50vw;
   padding: 0.7em 3.7em 0.7em 0.7em;
   text-overflow: ellipsis;
   font-family: inherit;
-  font-size: inherit;
+  font-size: var(--font-size-small);
   font-weight: inherit;
   color: inherit;
   background: transparent;

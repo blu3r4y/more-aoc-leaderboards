@@ -27,7 +27,7 @@ function BlobUrl(props: IBlobUrlProps) {
   return (
     <div className="BlobUrl">
       <p>
-        🤓 Data nerd? Get all computed metrics{" "}
+        🤓 Data nerd? Get all metrics{" "}
         <a href={url ?? "#"} download>
           here
         </a>

@@ -68,19 +68,19 @@
 .Leaderboard tr[data-rank="1"] > td.Name {
   color: var(--color-gold);
   font-weight: var(--font-weight-normal);
-  filter: drop-shadow(0 0 0.5vmin var(--color-gold));
+  /* filter: drop-shadow(0 0 6px var(--color-gold)); */
 }
 
 .Leaderboard tr[data-rank="2"] > td.Rank,
 .Leaderboard tr[data-rank="2"] > td.Name {
   color: var(--color-silver);
   font-weight: var(--font-weight-normal);
-  filter: drop-shadow(0 0 0.5vmin var(--color-silver));
+  /* filter: drop-shadow(0 0 6px var(--color-silver)); */
 }
 
 .Leaderboard tr[data-rank="3"] > td.Rank,
 .Leaderboard tr[data-rank="3"] > td.Name {
   color: var(--color-bronze);
   font-weight: var(--font-weight-normal);
-  filter: drop-shadow(0 0 0.5vmin var(--color-bronze));
+  /* filter: drop-shadow(0 0 6px var(--color-bronze)); */
 }

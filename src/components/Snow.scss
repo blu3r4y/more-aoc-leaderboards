@@ -19,7 +19,7 @@
       height: 0.5em;
       border-radius: 50%;
       background-color: var(--color-font);
-      box-shadow: 0 0 1vmin var(--color-font);
+      /* box-shadow: 0 0 1vmin var(--color-font); */
 
       @for $i from 1 through 200 {
         $scale: random();

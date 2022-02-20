@@ -3,6 +3,7 @@
 .DropzoneField > .ChristmasBall {
   height: 100%;
   user-select: none;
+  will-change: translate, rotate;
 }
 
 .DropzoneField > .ChristmasBall:hover {
