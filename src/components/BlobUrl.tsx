@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 
-import { IProcessedData } from "./ApiProcessor";
+import { IProcessedData } from "../api/ApiProcessor";
 
 import "./BlobUrl.css";
 

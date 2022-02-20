@@ -1,7 +1,7 @@
 import { Buffer } from "buffer";
 
 import { IApiData, Schema } from "./ApiTypes";
-import { compress, decompress } from "./LzmaUtils";
+import { compress, decompress } from "../utils/LzmaUtils";
 
 export async function encodeData(apiData: IApiData): Promise<string> {
   const pack = JSON.stringify({ version: 1, payload: apiData });

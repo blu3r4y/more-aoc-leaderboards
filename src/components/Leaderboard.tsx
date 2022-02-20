@@ -1,6 +1,6 @@
 import { useMemo } from "react";
 
-import { rankIndexes } from "./Utils";
+import { rankIndexes } from "../utils/Utils";
 
 import "./Leaderboard.css";
 

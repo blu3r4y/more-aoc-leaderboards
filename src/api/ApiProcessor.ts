@@ -2,7 +2,7 @@ import dayjs, { Dayjs } from "dayjs";
 import duration, { Duration } from "dayjs/plugin/duration";
 
 import { IApiData, IApiMember } from "./ApiTypes";
-import { mapValues, dropNull, median, rankIndexes } from "./Utils";
+import { mapValues, dropNull, median, rankIndexes } from "../utils/Utils";
 
 dayjs.extend(duration);
 

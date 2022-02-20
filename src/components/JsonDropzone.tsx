@@ -1,7 +1,7 @@
 import { useState, useCallback, useMemo } from "react";
 import { useDropzone } from "react-dropzone";
 
-import { IApiData, Schema } from "./ApiTypes";
+import { IApiData, Schema } from "../api/ApiTypes";
 import ChristmasBall from "./ChristmasBall";
 
 import "./JsonDropzone.css";

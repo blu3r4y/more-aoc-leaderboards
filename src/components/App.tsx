@@ -1,9 +1,9 @@
 import { useCallback, useState, useEffect, useRef } from "react";
 import { Toaster } from "react-hot-toast";
 
-import { IProcessedData, processData } from "./ApiProcessor";
-import { encodeData, decodeData } from "./ApiEncoder";
-import { IApiData } from "./ApiTypes";
+import { IProcessedData, processData } from "../api/ApiProcessor";
+import { encodeData, decodeData } from "../api/ApiEncoder";
+import { IApiData } from "../api/ApiTypes";
 import LeaderboardSet from "./LeaderboardSet";
 import JsonDropzone from "./JsonDropzone";
 import ShareUrl from "./ShareUrl";

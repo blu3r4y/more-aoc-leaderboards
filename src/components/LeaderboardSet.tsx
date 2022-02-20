@@ -1,7 +1,7 @@
 import dayjs from "dayjs";
 import duration, { Duration } from "dayjs/plugin/duration";
 
-import { IProcessedData } from "./ApiProcessor";
+import { IProcessedData } from "../api/ApiProcessor";
 import AppMasonry from "./AppMasonry";
 import Leaderboard from "./Leaderboard";
 
