@@ -72,7 +72,7 @@ function getPrimeCoders(members: IProcessedData) {
 
   return (
     <Leaderboard
-      {...getLeaderboardProps("Prime Coders", "first to complete all puzzles")}
+      {...getLeaderboardProps("Prime Coders", "first to get 50 stars")}
       items={items}
       reverse
     />
@@ -92,7 +92,7 @@ function getRapidCoders(members: IProcessedData) {
 
   return (
     <Leaderboard
-      {...getLeaderboardProps("Rapid Coders", "total time spent on all days")}
+      {...getLeaderboardProps("Rapid Coders", "total time spent to get 50 stars")}
       items={items}
       reverse
     />
@@ -114,7 +114,7 @@ function getOverachievingAdapters(members: IProcessedData, minStars: number = 25
     <Leaderboard
       {...getLeaderboardProps(
         "Overachieving Adapters",
-        `total time spent to finish the second part`
+        `total time spent to finish the second part of all 25 puzzles`
       )}
       items={items}
       reverse
@@ -137,7 +137,7 @@ function getSteadyPerformers(members: IProcessedData, minStars: number = 25) {
     <Leaderboard
       {...getLeaderboardProps(
         "Steady Performers",
-        `median time spent to finish the second part`
+        `median time spent to finish the second part of all 25 puzzles`
       )}
       items={items}
       reverse
@@ -160,7 +160,7 @@ function getStarEfficientCoders(members: IProcessedData, minStars: number = 25) 
     <Leaderboard
       {...getLeaderboardProps(
         "Star-Efficient Coders",
-        `total time spent per star (for coders with at least ${minStars} stars)`
+        `total time spent per star, for coders with at least ${minStars} stars`
       )}
       items={items}
       reverse
