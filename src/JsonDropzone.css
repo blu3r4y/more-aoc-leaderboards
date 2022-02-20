@@ -15,16 +15,16 @@
   margin-top: 5vh;
 }
 
-.JsonDropzone p.Title {
+.JsonDropzone > p.Title {
   margin-top: 5vh;
   font-size: var(--font-size-large);
 }
 
-.JsonDropzone p.Description {
+.JsonDropzone > p.Description {
   font-weight: var(--font-weight-light);
 }
 
-.JsonDropzone p.Error {
+.JsonDropzone > p.Error {
   font-weight: var(--font-weight-light);
   color: var(--color-error);
 }

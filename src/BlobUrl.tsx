@@ -25,13 +25,15 @@ function BlobUrl(props: IBlobUrlProps) {
   }, [members]);
 
   return (
-    <p className="BlobUrl">
-      🤓 Data nerd? Get all computed metrics for these leaderboards{" "}
-      <a href={url ?? "#"} download>
-        here
-      </a>
-      .
-    </p>
+    <div className="BlobUrl">
+      <p>
+        🤓 Data nerd? Get all computed metrics for these leaderboards{" "}
+        <a href={url ?? "#"} download>
+          here
+        </a>
+        .
+      </p>
+    </div>
   );
 }
 

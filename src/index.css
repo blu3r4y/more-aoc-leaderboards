@@ -54,7 +54,6 @@ a:hover {
   color: var(--color-background) !important;
 }
 
-
 /* hide scrollbar */
 
 ::-webkit-scrollbar {
@@ -65,7 +64,7 @@ a:hover {
 /* github corner */
 
 .github-corner svg {
-  fill: var(--color-silver);
+  fill: var(--color-font);
   color: var(--color-background);
   position: absolute;
   top: 0;

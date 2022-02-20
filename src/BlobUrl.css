@@ -1,6 +1,6 @@
 /* blob url style*/
 
-.BlobUrl {
+.BlobUrl > p {
   font-size: var(--font-size-small);
   font-weight: var(--font-weight-light);
 }
