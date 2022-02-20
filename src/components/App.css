@@ -1,7 +1,6 @@
 /* base app layout */
 
 .App {
-  --app-margin: 3vmax;
   margin: var(--app-margin);
   min-height: calc(99vh - 2 * var(--app-margin));
   display: flex;

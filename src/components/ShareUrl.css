@@ -2,14 +2,13 @@
 
 .ShareUrl {
   font-size: var(--font-size-small);
-  font-weight: var(--font-weight-normal);
 }
 
 .ShareUrl > .UrlField {
   width: 50vw;
   padding: 0.7em 3.7em 0.7em 0.7em;
   text-overflow: ellipsis;
-  font-family: "Share Tech Mono", monospace;
+  font-family: inherit;
   font-size: inherit;
   font-weight: inherit;
   color: inherit;

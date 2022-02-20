@@ -18,13 +18,9 @@
 .JsonDropzone > p.Title {
   margin-top: 5vh;
   font-size: var(--font-size-large);
-}
-
-.JsonDropzone > p.Description {
-  font-weight: var(--font-weight-light);
+  font-weight: var(--font-weight-bold);
 }
 
 .JsonDropzone > p.Error {
-  font-weight: var(--font-weight-light);
   color: var(--color-error);
 }
