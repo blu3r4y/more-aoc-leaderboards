@@ -8,6 +8,7 @@ import LeaderboardSet from "./LeaderboardSet";
 import JsonDropzone from "./JsonDropzone";
 import ShareUrl from "./ShareUrl";
 import BlobUrl from "./BlobUrl";
+import Snow from "./Snow";
 
 import "./App.css";
 
@@ -64,12 +65,13 @@ function App() {
 
   return (
     <div className="Container">
-      <Toaster toastOptions={{ className: "ToastMessage" }} />
       <div className="App">
         <JsonDropzone onSuccess={onSuccess} small={!!members} />
         {members ? <LeaderboardSet members={members} /> : null}
         {members ? shareContainer : null}
       </div>
+      <Toaster toastOptions={{ className: "ToastMessage" }} />
+      <Snow count={200} />
     </div>
   );
 }

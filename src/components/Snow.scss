@@ -1,0 +1,59 @@
+/* snow css */
+
+.Snow {
+  position: fixed;
+  z-index: -1;
+  inset: 1em;
+}
+
+/**
+  * the following snow animation is based on a codepen from alphardex.
+  * MIT License (c) https://codepen.io/alphardex/pen/dyPorwJ
+  */
+
+@media (prefers-reduced-motion: no-preference) {
+  @media only screen and (min-width: 500px) {
+    .Snowflake {
+      position: absolute;
+      width: 0.5em;
+      height: 0.5em;
+      border-radius: 50%;
+      background-color: var(--color-font);
+      box-shadow: 0 0 1vmin var(--color-font);
+
+      @for $i from 1 through 200 {
+        $scale: random();
+        $x-start: calc(random() * 100vw);
+
+        /* vertical fall */
+
+        $yoyo-time: calc(0.33 + random() / 2);
+        $x-offset: calc((2 * random() - 1) * 10vw);
+
+        $x-end-from: calc($x-start + $x-offset);
+        $x-end-to: calc($x-start + ($x-offset / 2));
+        $y-end-from: calc($yoyo-time * 100vh);
+        $y-end-to: 100vh;
+
+        $fall-duration: calc((15 + random(20)) * 1s);
+        $fall-delay: calc(random(30) * -1s);
+
+        &:nth-child(#{$i}) {
+          opacity: random();
+          transform: translate($x-start, -10px) scale($scale);
+          animation: fall-#{$i} $fall-duration $fall-delay linear infinite;
+        }
+
+        @keyframes fall-#{$i} {
+          #{percentage($yoyo-time)} {
+            transform: translate($x-end-from, $y-end-from) scale($scale);
+          }
+
+          to {
+            transform: translate($x-end-to, $y-end-to) scale($scale);
+          }
+        }
+      }
+    }
+  }
+}
