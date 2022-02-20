@@ -1,7 +1,7 @@
 import { FocusEvent } from "react";
 import toast from "react-hot-toast";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faCopy as farCopy } from "@fortawesome/free-regular-svg-icons";
+import { faCopy } from "@fortawesome/free-regular-svg-icons";
 
 import "./ShareUrl.css";
 
@@ -25,7 +25,7 @@ function BlobUrl(props: IShareUrlProps) {
     <div className="ShareUrl">
       <p>📣 Share a link to this leaderboard with your friends!</p>
       <input className="UrlField" readOnly value={url} onFocus={selectUrl} />
-      <FontAwesomeIcon className="CopyIcon" onClick={copyUrl} icon={farCopy} />
+      <FontAwesomeIcon className="CopyIcon" onClick={copyUrl} icon={faCopy} />
     </div>
   );
 }
