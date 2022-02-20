@@ -1541,15 +1541,6 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@fortawesome/free-solid-svg-icons@npm:^5.15.4":
-  version: 5.15.4
-  resolution: "@fortawesome/free-solid-svg-icons@npm:5.15.4"
-  dependencies:
-    "@fortawesome/fontawesome-common-types": ^0.2.36
-  checksum: eb037b703827ee37af3387a964afc7a190ff42a674ef46f4a6c295b634a38e849741eca78306b6423eaf3062d6ab1e7372aac5be2aec06f0fd9e8bd8110efcf9
-  languageName: node
-  linkType: hard
-
 "@fortawesome/react-fontawesome@npm:^0.1.17":
   version: 0.1.17
   resolution: "@fortawesome/react-fontawesome@npm:0.1.17"
@@ -6225,6 +6216,15 @@ __metadata:
   languageName: node
   linkType: hard
 
+"goober@npm:^2.1.1":
+  version: 2.1.8
+  resolution: "goober@npm:2.1.8"
+  peerDependencies:
+    csstype: ^3.0.10
+  checksum: c877e854814e29c085c0d3f7879492788ceff9b1a0a0d731bfe22e59a2d206f991c3fb44ad14a32a9c2f396e3280ad6a8e597a95bb2d052c59dd7c25814f1c67
+  languageName: node
+  linkType: hard
+
 "graceful-fs@npm:^4.1.2, graceful-fs@npm:^4.1.6, graceful-fs@npm:^4.2.0, graceful-fs@npm:^4.2.4, graceful-fs@npm:^4.2.6":
   version: 4.2.8
   resolution: "graceful-fs@npm:4.2.8"
@@ -8335,7 +8335,6 @@ __metadata:
   dependencies:
     "@fortawesome/fontawesome-svg-core": ^1.2.36
     "@fortawesome/free-regular-svg-icons": ^5.15.4
-    "@fortawesome/free-solid-svg-icons": ^5.15.4
     "@fortawesome/react-fontawesome": ^0.1.17
     "@testing-library/jest-dom": ^5.16.1
     "@testing-library/react": ^12.1.2
@@ -8356,6 +8355,7 @@ __metadata:
     react: ^17.0.2
     react-dom: ^17.0.2
     react-dropzone: ^11.4.2
+    react-hot-toast: ^2.2.0
     react-masonry-css: ^1.0.16
     react-scripts: 5.0.0
     rimraf: ^3.0.2
@@ -10143,6 +10143,18 @@ __metadata:
   version: 6.0.10
   resolution: "react-error-overlay@npm:6.0.10"
   checksum: e7384f086a0162eecac8e081fe3c79b32f4ac8690c56bde35ab6b6380d10e6c8375bbb689a450902b6615261fcf6c95ea016fc0b200934667089ca83536bc4a7
+  languageName: node
+  linkType: hard
+
+"react-hot-toast@npm:^2.2.0":
+  version: 2.2.0
+  resolution: "react-hot-toast@npm:2.2.0"
+  dependencies:
+    goober: ^2.1.1
+  peerDependencies:
+    react: ">=16"
+    react-dom: ">=16"
+  checksum: bb34ddc8ada14cbd75a37f14d2563412174e23276eb05e9fb23a031b6d8374ca190cefa1940692f4371529ddafeb2d4b8d3e5023187c2851ec8cb247461553ee
   languageName: node
   linkType: hard
 

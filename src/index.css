@@ -47,6 +47,14 @@ a:hover {
   text-decoration: underline;
 }
 
+/* toast messages */
+
+.ToastMessage {
+  background: var(--color-font) !important;
+  color: var(--color-background) !important;
+}
+
+
 /* hide scrollbar */
 
 ::-webkit-scrollbar {

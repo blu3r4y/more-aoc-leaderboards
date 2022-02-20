@@ -1,4 +1,5 @@
 import { useCallback, useState, useEffect, useRef } from "react";
+import { Toaster } from "react-hot-toast";
 
 import { IProcessedData, processData } from "./ApiProcessor";
 import { encodeData, decodeData } from "./ApiEncoder";
@@ -62,10 +63,13 @@ function App() {
   );
 
   return (
-    <div className="App">
-      <JsonDropzone onSuccess={onSuccess} small={!!members} />
-      {members ? <LeaderboardSet members={members} /> : null}
-      {members ? shareContainer : null}
+    <div className="Container">
+      <Toaster toastOptions={{ className: "ToastMessage" }} />
+      <div className="App">
+        <JsonDropzone onSuccess={onSuccess} small={!!members} />
+        {members ? <LeaderboardSet members={members} /> : null}
+        {members ? shareContainer : null}
+      </div>
     </div>
   );
 }
