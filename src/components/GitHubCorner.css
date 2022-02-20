@@ -1,0 +1,49 @@
+/* github corner */
+
+.GitHubCorner svg {
+  fill: var(--color-font);
+  color: var(--color-background);
+  position: absolute;
+  top: 0;
+  border: 0;
+  right: 0;
+}
+
+.GitHubCorner .OctoArm {
+  transform-origin: 130px 106px;
+}
+
+.GitHubCorner:hover .OctoArm {
+  animation: wave 560ms ease-in-out;
+}
+
+@media (max-width: 500px) {
+  .GitHubCorner:hover .OctoArm {
+    animation: none;
+  }
+
+  .GitHubCorner .OctoArm {
+    animation: wave 560ms ease-in-out;
+  }
+}
+
+@keyframes wave {
+  0% {
+    transform: rotate(0deg);
+  }
+  20% {
+    transform: rotate(-25deg);
+  }
+  40% {
+    transform: rotate(10deg);
+  }
+  60% {
+    transform: rotate(-25deg);
+  }
+  80% {
+    transform: rotate(10deg);
+  }
+  100% {
+    transform: rotate(0deg);
+  }
+}

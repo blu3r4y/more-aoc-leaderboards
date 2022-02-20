@@ -11,6 +11,7 @@ import BlobUrl from "./BlobUrl";
 import Snow from "./Snow";
 
 import "./App.css";
+import GitHubCorner from "./GitHubCorner";
 
 function App() {
   // raw api data
@@ -72,6 +73,7 @@ function App() {
       </div>
       <Toaster toastOptions={{ className: "ToastMessage" }} />
       <Snow count={200} />
+      <GitHubCorner />
     </div>
   );
 }
