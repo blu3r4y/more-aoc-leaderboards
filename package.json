@@ -10,7 +10,7 @@
     "buffer": "^6.0.3",
     "dayjs": "^1.10.8",
     "joi": "^17.6.0",
-    "lzma": "https://github.com/blu3r4y/LZMA-JS.git#es6-bundle",
+    "lzma": "https://github.com/blu3r4y/LZMA-JS.git#commit=374f637661e43726c8c32116d26dfa328361578f",
     "react": "^17.0.2",
     "react-dom": "^17.0.2",
     "react-dropzone": "^12.0.4",
