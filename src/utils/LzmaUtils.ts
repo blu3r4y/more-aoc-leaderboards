@@ -1,4 +1,4 @@
-import { compress as lzmaCompress, decompress as lzmaDecompress } from "lzma";
+import { compress as lzmaCompress, decompress as lzmaDecompress } from "@blu3r4y/lzma";
 
 export async function compress(data: string): Promise<Uint8Array> {
   return new Promise((resolve, reject) => {
