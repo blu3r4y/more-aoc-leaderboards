@@ -66,6 +66,10 @@ export declare interface IMember extends IPreMember {
   partbRanks: { [day: number]: number | null };
   /** ranks for delta time, per day */
   deltaRanks: { [day: number]: number | null };
+  /** total points that where achieved by only solving part 1 */
+  scoreParta: number;
+  /** total points that where achieved by only solving part 2 */
+  scorePartb: number;
   /** number of times part 1 was completed with rank 1 */
   partaFirst: number;
   /** number of times part 2 was completed with rank 1 */
@@ -283,7 +287,7 @@ function processAllMembers(
 
   // attach new metadata, per member
   // and compute some further overall statistics
-  const result = mapValues(members, (id: number, m: IPreMember) => {
+  return mapValues(members, (id: number, m: IPreMember) => {
     // assert that we computed the points correctly
     const score = Object.values(points[m.id]).reduce((a, b) => a + b, 0);
     console.assert(
@@ -300,6 +304,10 @@ function processAllMembers(
       (day) => partaRanks[m.id][day] === 1 && partbRanks[m.id][day] === 1
     ).length;
 
+    // how much of the points came from part 1 or 2?
+    const scoreParta = Object.values(partaPoints[m.id]).reduce((a, b) => a + b, 0);
+    const scorePartb = Object.values(partbPoints[m.id]).reduce((a, b) => a + b, 0);
+
     return {
       ...m,
       points: points[m.id],
@@ -308,11 +316,11 @@ function processAllMembers(
       partaRanks: partaRanks[m.id],
       partbRanks: partbRanks[m.id],
       deltaRanks: deltaRanks[m.id],
+      scoreParta: scoreParta,
+      scorePartb: scorePartb,
       partaFirst: partaFirst,
       partbFirst: partbFirst,
       dayFirst: dayFirst,
     };
   });
-
-  return result;
 }

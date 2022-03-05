@@ -982,6 +982,60 @@ describe("processAllMembers()", () => {
     expect(result[3].deltaRanks[10]).toBe(3);
   });
 
+  it("sets totalPartaPoints", () => {
+    const data: IApiData = {
+      ...defaultDataProps,
+      members: {
+        1: {
+          ...defaultMemberProps,
+          id: 1,
+          completion_day_level: {
+            10: { 1: { get_star_ts: 10 } },
+            20: { 1: { get_star_ts: 20 }, 2: { get_star_ts: 23 } },
+          },
+        },
+        2: {
+          ...defaultMemberProps,
+          id: 2,
+          completion_day_level: {
+            10: { 1: { get_star_ts: 11 } },
+            20: { 1: { get_star_ts: 21 }, 2: { get_star_ts: 22 } },
+          },
+        },
+      },
+    };
+
+    expect(processData(data)[1].scoreParta).toBe(4);
+    expect(processData(data)[2].scoreParta).toBe(2);
+  });
+
+  it("sets totalPartbPoints", () => {
+    const data: IApiData = {
+      ...defaultDataProps,
+      members: {
+        1: {
+          ...defaultMemberProps,
+          id: 1,
+          completion_day_level: {
+            10: { 1: { get_star_ts: 10 } },
+            20: { 1: { get_star_ts: 20 }, 2: { get_star_ts: 23 } },
+          },
+        },
+        2: {
+          ...defaultMemberProps,
+          id: 2,
+          completion_day_level: {
+            10: { 1: { get_star_ts: 11 } },
+            20: { 1: { get_star_ts: 21 }, 2: { get_star_ts: 22 } },
+          },
+        },
+      },
+    };
+
+    expect(processData(data)[1].scorePartb).toBe(1);
+    expect(processData(data)[2].scorePartb).toBe(2);
+  });
+
   it("sets partaFirst", () => {
     const data: IApiData = {
       ...defaultDataProps,
