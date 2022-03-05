@@ -60,7 +60,7 @@ export function rankIndexes<T>(
   const key = opts?.key ?? ((x) => x);
 
   let metricPre = null;
-  let [index, rank] = [0, 0];
+  let [rank, delta] = [0, 1];
 
   for (const element of values) {
     const metric = key(element);
@@ -68,11 +68,13 @@ export function rankIndexes<T>(
     metricPre = metric;
 
     // ranks only on non-consecutive values
-    if (!exaequo) rank++;
-    index++;
-    const i = exaequo ? rank : nogaps ? rank : index;
+    if (exaequo) delta++;
+    else {
+      rank += nogaps ? 1 : delta;
+      delta = 1;
+    }
 
-    result.push([i, element]);
+    result.push([rank, element]);
   }
 
   return result;

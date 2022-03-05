@@ -84,6 +84,36 @@ describe("rankIndexes()", () => {
     expect(rankIndexes(obj)).toEqual(result);
   });
 
+  it("ranks numeric values [ex aequo, consecutive]", () => {
+    const obj = [10, 10, 20, 20, 30];
+    const result = [
+      [1, 10],
+      [1, 10],
+      [3, 20],
+      [3, 20],
+      [5, 30],
+    ];
+
+    expect(rankIndexes(obj)).toEqual(result);
+  });
+
+  it("ranks numeric values [ex aequo, mixed]", () => {
+    const obj = [10, 20, 20, 20, 30, 40, 40, 50, 60];
+    const result = [
+      [1, 10],
+      [2, 20],
+      [2, 20],
+      [2, 20],
+      [5, 30],
+      [6, 40],
+      [6, 40],
+      [8, 50],
+      [9, 60],
+    ];
+
+    expect(rankIndexes(obj)).toEqual(result);
+  });
+
   it("ranks numeric values [ex aequo, no gaps]", () => {
     const obj = [10, 10, 30, 40];
     const result = [
@@ -91,6 +121,36 @@ describe("rankIndexes()", () => {
       [1, 10],
       [2, 30],
       [3, 40],
+    ];
+
+    expect(rankIndexes(obj, { nogaps: true })).toEqual(result);
+  });
+
+  it("ranks numeric values [ex aequo, consecutive, no gaps]", () => {
+    const obj = [10, 10, 20, 20, 30];
+    const result = [
+      [1, 10],
+      [1, 10],
+      [2, 20],
+      [2, 20],
+      [3, 30],
+    ];
+
+    expect(rankIndexes(obj, { nogaps: true })).toEqual(result);
+  });
+
+  it("ranks numeric values [ex aequo, mixed, no gaps]", () => {
+    const obj = [10, 20, 20, 20, 30, 40, 40, 50, 60];
+    const result = [
+      [1, 10],
+      [2, 20],
+      [2, 20],
+      [2, 20],
+      [3, 30],
+      [4, 40],
+      [4, 40],
+      [5, 50],
+      [6, 60],
     ];
 
     expect(rankIndexes(obj, { nogaps: true })).toEqual(result);
