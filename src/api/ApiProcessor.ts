@@ -66,6 +66,10 @@ export declare interface IMember extends IPreMember {
   partbRanks: { [day: number]: number | null };
   /** ranks for delta time, per day */
   deltaRanks: { [day: number]: number | null };
+  /** number of times that at least some rank was achieved for part 1 */
+  partaMinRankCount: { [rank: number]: number };
+  /** number of times that at least some rank was achieved for part 2 */
+  partbMinRankCount: { [rank: number]: number };
   /** total points that where achieved by only solving part 1 */
   partaScore: number;
   /** total points that where achieved by only solving part 2 */
@@ -79,6 +83,7 @@ export declare interface IMember extends IPreMember {
 }
 
 const ALL_DAYS = Array.from(new Array(25), (_, i) => i + 1);
+const ALL_MIN_RANKS = Array.from(new Array(10), (_, i) => i + 1);
 
 function unlockDate(year: number, day: number): Dayjs {
   return dayjs(`${year}-12-${day.toString().padStart(2, "0")}T05:00:00.000Z`);
@@ -285,6 +290,10 @@ function processAllMembers(
     );
   }
 
+  // helper to initialize a map, that maps a metric for each rank index
+  const newRankCountMap: () => { [rank: number]: number } = () =>
+    Object.fromEntries(ALL_MIN_RANKS.map((rank) => [rank, 0]));
+
   // attach new metadata, per member
   // and compute some further overall statistics
   return mapValues(members, (id: number, m: IPreMember) => {
@@ -308,6 +317,15 @@ function processAllMembers(
     const partaScore = Object.values(partaPoints[m.id]).reduce((a, b) => a + b, 0);
     const partbScore = Object.values(partbPoints[m.id]).reduce((a, b) => a + b, 0);
 
+    // compute min rank counts
+    const partaMinRankCount = newRankCountMap();
+    const partbMinRankCount = newRankCountMap();
+    for (const mr of ALL_MIN_RANKS) {
+      const filterRank = (r: number | null) => r && r <= mr;
+      partaMinRankCount[mr] = Object.values(partaRanks[m.id]).filter(filterRank).length;
+      partbMinRankCount[mr] = Object.values(partbRanks[m.id]).filter(filterRank).length;
+    }
+
     return {
       ...m,
       points: points[m.id],
@@ -316,6 +334,8 @@ function processAllMembers(
       partaRanks: partaRanks[m.id],
       partbRanks: partbRanks[m.id],
       deltaRanks: deltaRanks[m.id],
+      partaMinRankCount: partaMinRankCount,
+      partbMinRankCount: partbMinRankCount,
       partaScore: partaScore,
       partbScore: partbScore,
       partaFirst: partaFirst,

@@ -982,6 +982,94 @@ describe("processAllMembers()", () => {
     expect(result[3].deltaRanks[10]).toBe(3);
   });
 
+  it("sets partaMinRankCount [up to 3]", () => {
+    const data: IApiData = {
+      ...defaultDataProps,
+      members: {
+        1: {
+          ...defaultMemberProps,
+          id: 1,
+          completion_day_level: {
+            10: { 1: { get_star_ts: 101 } },
+            11: { 1: { get_star_ts: 102 } },
+          },
+        },
+        2: {
+          ...defaultMemberProps,
+          id: 2,
+          completion_day_level: {
+            10: { 1: { get_star_ts: 103 } },
+            11: { 1: { get_star_ts: 104 } },
+          },
+        },
+        3: {
+          ...defaultMemberProps,
+          id: 3,
+          completion_day_level: {
+            10: { 1: { get_star_ts: 105 } },
+            11: { 1: { get_star_ts: 106 } },
+          },
+        },
+      },
+    };
+
+    expect(processData(data)[1].partaMinRankCount[1]).toBe(2);
+    expect(processData(data)[1].partaMinRankCount[2]).toBe(2);
+    expect(processData(data)[1].partaMinRankCount[3]).toBe(2);
+
+    expect(processData(data)[2].partaMinRankCount[1]).toBe(0);
+    expect(processData(data)[2].partaMinRankCount[2]).toBe(2);
+    expect(processData(data)[2].partaMinRankCount[3]).toBe(2);
+
+    expect(processData(data)[3].partaMinRankCount[1]).toBe(0);
+    expect(processData(data)[3].partaMinRankCount[2]).toBe(0);
+    expect(processData(data)[3].partaMinRankCount[3]).toBe(2);
+  });
+
+  it("sets partbMinRankCount [up to 3]", () => {
+    const data: IApiData = {
+      ...defaultDataProps,
+      members: {
+        1: {
+          ...defaultMemberProps,
+          id: 1,
+          completion_day_level: {
+            10: { 1: { get_star_ts: 10 }, 2: { get_star_ts: 100 } },
+            11: { 1: { get_star_ts: 11 }, 2: { get_star_ts: 101 } },
+          },
+        },
+        2: {
+          ...defaultMemberProps,
+          id: 2,
+          completion_day_level: {
+            10: { 1: { get_star_ts: 10 }, 2: { get_star_ts: 102 } },
+            11: { 1: { get_star_ts: 11 }, 2: { get_star_ts: 103 } },
+          },
+        },
+        3: {
+          ...defaultMemberProps,
+          id: 3,
+          completion_day_level: {
+            10: { 1: { get_star_ts: 10 }, 2: { get_star_ts: 104 } },
+            11: { 1: { get_star_ts: 11 }, 2: { get_star_ts: 105 } },
+          },
+        },
+      },
+    };
+
+    expect(processData(data)[1].partbMinRankCount[1]).toBe(2);
+    expect(processData(data)[1].partbMinRankCount[2]).toBe(2);
+    expect(processData(data)[1].partbMinRankCount[3]).toBe(2);
+
+    expect(processData(data)[2].partbMinRankCount[1]).toBe(0);
+    expect(processData(data)[2].partbMinRankCount[2]).toBe(2);
+    expect(processData(data)[2].partbMinRankCount[3]).toBe(2);
+
+    expect(processData(data)[3].partbMinRankCount[1]).toBe(0);
+    expect(processData(data)[3].partbMinRankCount[2]).toBe(0);
+    expect(processData(data)[3].partbMinRankCount[3]).toBe(2);
+  });
+
   it("sets partaScore", () => {
     const data: IApiData = {
       ...defaultDataProps,
