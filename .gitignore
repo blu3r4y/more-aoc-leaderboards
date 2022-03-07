@@ -12,7 +12,8 @@
 /build
 
 # local data
-/data
+/data/*
+!/data/anonymize.py
 
 # yarn without zero-install
 .pnp.*
