@@ -67,9 +67,9 @@ export declare interface IMember extends IPreMember {
   /** ranks for delta time, per day */
   deltaRanks: { [day: number]: number | null };
   /** total points that where achieved by only solving part 1 */
-  scoreParta: number;
+  partaScore: number;
   /** total points that where achieved by only solving part 2 */
-  scorePartb: number;
+  partbScore: number;
   /** number of times part 1 was completed with rank 1 */
   partaFirst: number;
   /** number of times part 2 was completed with rank 1 */
@@ -305,8 +305,8 @@ function processAllMembers(
     ).length;
 
     // how much of the points came from part 1 or 2?
-    const scoreParta = Object.values(partaPoints[m.id]).reduce((a, b) => a + b, 0);
-    const scorePartb = Object.values(partbPoints[m.id]).reduce((a, b) => a + b, 0);
+    const partaScore = Object.values(partaPoints[m.id]).reduce((a, b) => a + b, 0);
+    const partbScore = Object.values(partbPoints[m.id]).reduce((a, b) => a + b, 0);
 
     return {
       ...m,
@@ -316,8 +316,8 @@ function processAllMembers(
       partaRanks: partaRanks[m.id],
       partbRanks: partbRanks[m.id],
       deltaRanks: deltaRanks[m.id],
-      scoreParta: scoreParta,
-      scorePartb: scorePartb,
+      partaScore: partaScore,
+      partbScore: partbScore,
       partaFirst: partaFirst,
       partbFirst: partbFirst,
       dayFirst: dayFirst,

@@ -982,7 +982,7 @@ describe("processAllMembers()", () => {
     expect(result[3].deltaRanks[10]).toBe(3);
   });
 
-  it("sets totalPartaPoints", () => {
+  it("sets partaScore", () => {
     const data: IApiData = {
       ...defaultDataProps,
       members: {
@@ -1005,11 +1005,11 @@ describe("processAllMembers()", () => {
       },
     };
 
-    expect(processData(data)[1].scoreParta).toBe(4);
-    expect(processData(data)[2].scoreParta).toBe(2);
+    expect(processData(data)[1].partaScore).toBe(4);
+    expect(processData(data)[2].partaScore).toBe(2);
   });
 
-  it("sets totalPartbPoints", () => {
+  it("sets partbScore", () => {
     const data: IApiData = {
       ...defaultDataProps,
       members: {
@@ -1032,8 +1032,8 @@ describe("processAllMembers()", () => {
       },
     };
 
-    expect(processData(data)[1].scorePartb).toBe(1);
-    expect(processData(data)[2].scorePartb).toBe(2);
+    expect(processData(data)[1].partbScore).toBe(1);
+    expect(processData(data)[2].partbScore).toBe(2);
   });
 
   it("sets partaFirst", () => {
