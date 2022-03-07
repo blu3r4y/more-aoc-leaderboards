@@ -5,7 +5,7 @@
   margin-left: calc(var(--masonry-gap) * -1);
   display: flex;
   justify-content: center;
-  width: auto;
+  width: 100%;
 }
 
 .AppMasonry > .AppMasonryColumn {
