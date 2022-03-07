@@ -26,6 +26,7 @@ declare interface ILeaderboardProps {
   items: ILeaderboardRow[];
   title?: string;
   description?: string;
+  help?: string;
   unsorted?: boolean;
   reverse?: boolean;
 }
@@ -36,7 +37,7 @@ const LIMIT_MIN: number = 10;
 const LIMIT_STEP: number = 100;
 
 function Leaderboard(props: ILeaderboardProps) {
-  const { items, title, description, unsorted, reverse } = props;
+  const { items, title, description, help, unsorted, reverse } = props;
 
   // number of items that are currently shown
   const [limit, setLimit] = useState<number>(LIMIT_MIN);
@@ -94,7 +95,9 @@ function Leaderboard(props: ILeaderboardProps) {
   return (
     <div className="Leaderboard">
       <div className="Title">{title}</div>
-      <div className="Description">{description}</div>
+      <div className="Description" title={help}>
+        {description}
+      </div>
       {rows.length > 0 ? table : emptyMessage}
       {chevronIcons}
     </div>
