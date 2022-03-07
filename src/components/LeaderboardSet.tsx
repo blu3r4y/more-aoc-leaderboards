@@ -25,7 +25,7 @@ function LeaderboardSet(props: ILeaderboardSetProps) {
         getStarEfficientCoders(members),
         getEarlyBirds(members),
         getEarlyOwls(members),
-        getSleepyArchitects(members),
+        getSpeedRunners(members),
       ]}
     </AppMasonry>
   );
@@ -200,7 +200,7 @@ function getEarlyOwls(members: IProcessedData, minStars: number = 25) {
   );
 }
 
-function getSleepyArchitects(members: IProcessedData, minStars: number = 25) {
+function getSpeedRunners(members: IProcessedData, minStars: number = 25) {
   const items = Object.values(members)
     .filter((m) => m.dayFirst)
     .map((m) => ({ id: m.id, name: m.name, value: m.dayFirst }));
@@ -208,7 +208,7 @@ function getSleepyArchitects(members: IProcessedData, minStars: number = 25) {
   return (
     <Leaderboard
       {...getLeaderboardProps(
-        "Sleepy Architects",
+        "Speed Runners",
         `number of times to get both parts finished first`
       )}
       items={items}
