@@ -13,7 +13,8 @@ def anonymize_json(path):
 
     # new fake data
     fake = Faker()
-    samples = random.sample(range(1_000_000), 100)
+    num_members = len(payload["members"])
+    samples = random.sample(range(1_000_000), num_members)
 
     keys = list(payload["members"])
     for key, no in zip(keys, samples):
