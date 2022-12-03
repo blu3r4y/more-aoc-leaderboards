@@ -313,6 +313,156 @@ describe("processMember()", () => {
     expect(result[1].partbTimes[25]).toBe(null);
   });
 
+  it("sets partaIndex", () => {
+    const data: IApiData = {
+      ...defaultDataProps,
+      members: {
+        1: {
+          ...defaultMemberProps,
+          id: 1,
+          completion_day_level: {
+            1: { 1: { get_star_ts: 10, star_index: 10101 } },
+            15: {
+              1: { get_star_ts: 150, star_index: 11501 },
+              2: { get_star_ts: 151, star_index: 11502 },
+            },
+            20: {
+              1: { get_star_ts: 200, star_index: 12001 },
+              2: { get_star_ts: 201, star_index: 12002 },
+            },
+          },
+        },
+      },
+    };
+
+    const result = processData(data);
+    expect(Object.keys(result[1].partaIndex).length).toBe(25);
+    expect(result[1].partaIndex[0]).toBe(undefined);
+    expect(result[1].partaIndex[1]).toEqual(10101);
+    expect(result[1].partaIndex[15]).toEqual(11501);
+    expect(result[1].partaIndex[20]).toEqual(12001);
+    expect(result[1].partaIndex[25]).toBe(null);
+  });
+
+  it("sets partaIndex [star_index: undefined]", () => {
+    const data: IApiData = {
+      ...defaultDataProps,
+      members: {
+        1: {
+          ...defaultMemberProps,
+          id: 1,
+          completion_day_level: {
+            10: { 1: { get_star_ts: 10 } },
+            20: {
+              1: { get_star_ts: 20 },
+              2: { get_star_ts: 23 },
+            },
+          },
+        },
+        2: {
+          ...defaultMemberProps,
+          id: 2,
+          completion_day_level: {
+            10: { 1: { get_star_ts: 11 } },
+            20: {
+              1: { get_star_ts: 21 },
+              2: { get_star_ts: 22 },
+            },
+          },
+        },
+      },
+    };
+
+    const result = processData(data);
+
+    expect(Object.keys(result[1].partaIndex).length).toBe(25);
+    expect(result[1].partaIndex[0]).toBe(undefined);
+    expect(result[1].partaIndex[10]).toEqual(1);
+    expect(result[1].partaIndex[20]).toEqual(1);
+    expect(result[1].partaIndex[25]).toBe(null);
+
+    expect(Object.keys(result[2].partaIndex).length).toBe(25);
+    expect(result[2].partaIndex[0]).toBe(undefined);
+    expect(result[2].partaIndex[10]).toEqual(2);
+    expect(result[2].partaIndex[20]).toEqual(2);
+    expect(result[2].partaIndex[25]).toBe(null);
+  });
+
+  it("sets partbIndex", () => {
+    const data: IApiData = {
+      ...defaultDataProps,
+      members: {
+        1: {
+          ...defaultMemberProps,
+          id: 1,
+          completion_day_level: {
+            1: { 1: { get_star_ts: 10, star_index: 10101 } },
+            15: {
+              1: { get_star_ts: 150, star_index: 11501 },
+              2: { get_star_ts: 151, star_index: 11502 },
+            },
+            20: {
+              1: { get_star_ts: 200, star_index: 12001 },
+              2: { get_star_ts: 201, star_index: 12002 },
+            },
+          },
+        },
+      },
+    };
+
+    const result = processData(data);
+    expect(Object.keys(result[1].partbIndex).length).toBe(25);
+    expect(result[1].partbIndex[0]).toBe(undefined);
+    expect(result[1].partbIndex[1]).toEqual(null);
+    expect(result[1].partbIndex[15]).toEqual(11502);
+    expect(result[1].partbIndex[20]).toEqual(12002);
+    expect(result[1].partbIndex[25]).toBe(null);
+  });
+
+  it("sets partbIndex [star_index: undefined]", () => {
+    const data: IApiData = {
+      ...defaultDataProps,
+      members: {
+        1: {
+          ...defaultMemberProps,
+          id: 1,
+          completion_day_level: {
+            10: { 1: { get_star_ts: 10 } },
+            20: {
+              1: { get_star_ts: 20 },
+              2: { get_star_ts: 23 },
+            },
+          },
+        },
+        2: {
+          ...defaultMemberProps,
+          id: 2,
+          completion_day_level: {
+            10: { 1: { get_star_ts: 11 } },
+            20: {
+              1: { get_star_ts: 21 },
+              2: { get_star_ts: 22 },
+            },
+          },
+        },
+      },
+    };
+
+    const result = processData(data);
+
+    expect(Object.keys(result[1].partbIndex).length).toBe(25);
+    expect(result[1].partbIndex[0]).toBe(undefined);
+    expect(result[1].partbIndex[10]).toEqual(null);
+    expect(result[1].partbIndex[20]).toEqual(1);
+    expect(result[1].partbIndex[25]).toBe(null);
+
+    expect(Object.keys(result[2].partbIndex).length).toBe(25);
+    expect(result[2].partbIndex[0]).toBe(undefined);
+    expect(result[2].partbIndex[10]).toEqual(null);
+    expect(result[2].partbIndex[20]).toEqual(2);
+    expect(result[2].partbIndex[25]).toBe(null);
+  });
+
   it("sets partaCompleted", () => {
     const data: IApiData = {
       ...defaultDataProps,
@@ -580,6 +730,43 @@ describe("processAllMembers()", () => {
           ...defaultMemberProps,
           id: 1,
           completion_day_level: {
+            10: { 1: { get_star_ts: 10, star_index: 100 } },
+          },
+        },
+        2: {
+          ...defaultMemberProps,
+          id: 2,
+          completion_day_level: {
+            10: { 1: { get_star_ts: 10, star_index: 99 } },
+          },
+        },
+        3: {
+          ...defaultMemberProps,
+          id: 3,
+          completion_day_level: {
+            10: { 1: { get_star_ts: 11, star_index: 98 } },
+          },
+        },
+      },
+    };
+
+    const result = processData(data);
+
+    // AoC breaks timestamp ties via the star index
+    // https://www.reddit.com/r/adventofcode/comments/za0ruh/comment/iykiuyw/
+    expect(result[1].points[10]).toBe(2);
+    expect(result[2].points[10]).toBe(3);
+    expect(result[3].points[10]).toBe(1);
+  });
+
+  it("sets points [ex aequo, star_index: undefined]", () => {
+    const data: IApiData = {
+      ...defaultDataProps,
+      members: {
+        1: {
+          ...defaultMemberProps,
+          id: 1,
+          completion_day_level: {
             10: { 1: { get_star_ts: 10 } },
           },
         },
@@ -602,7 +789,7 @@ describe("processAllMembers()", () => {
 
     const result = processData(data);
 
-    // AoC breaks timestamp ties via the user id
+    // AoC breaks timestamp ties via the user id in the absence of a star index
     // https://www.reddit.com/r/adventofcode/comments/7krz2u/comment/drgqics/
     expect(result[1].points[10]).toBe(3);
     expect(result[2].points[10]).toBe(2);
@@ -655,6 +842,43 @@ describe("processAllMembers()", () => {
           ...defaultMemberProps,
           id: 1,
           completion_day_level: {
+            10: { 1: { get_star_ts: 10, star_index: 100 } },
+          },
+        },
+        2: {
+          ...defaultMemberProps,
+          id: 2,
+          completion_day_level: {
+            10: { 1: { get_star_ts: 10, star_index: 99 } },
+          },
+        },
+        3: {
+          ...defaultMemberProps,
+          id: 3,
+          completion_day_level: {
+            10: { 1: { get_star_ts: 11, star_index: 98 } },
+          },
+        },
+      },
+    };
+
+    const result = processData(data);
+
+    // AoC breaks timestamp ties via the star index
+    // https://www.reddit.com/r/adventofcode/comments/za0ruh/comment/iykiuyw/
+    expect(result[1].partaPoints[10]).toBe(2);
+    expect(result[2].partaPoints[10]).toBe(3);
+    expect(result[3].partaPoints[10]).toBe(1);
+  });
+
+  it("sets partaPoints [ex aequo, star_index: undefined]", () => {
+    const data: IApiData = {
+      ...defaultDataProps,
+      members: {
+        1: {
+          ...defaultMemberProps,
+          id: 1,
+          completion_day_level: {
             10: { 1: { get_star_ts: 10 } },
           },
         },
@@ -677,7 +901,7 @@ describe("processAllMembers()", () => {
 
     const result = processData(data);
 
-    // AoC breaks timestamp ties via the user id
+    // AoC breaks timestamp ties via the user id in the absence of a star index
     // https://www.reddit.com/r/adventofcode/comments/7krz2u/comment/drgqics/
     expect(result[1].partaPoints[10]).toBe(3);
     expect(result[2].partaPoints[10]).toBe(2);
@@ -730,6 +954,43 @@ describe("processAllMembers()", () => {
           ...defaultMemberProps,
           id: 1,
           completion_day_level: {
+            10: { 1: { get_star_ts: 1 }, 2: { get_star_ts: 10, star_index: 100 } },
+          },
+        },
+        2: {
+          ...defaultMemberProps,
+          id: 2,
+          completion_day_level: {
+            10: { 1: { get_star_ts: 2 }, 2: { get_star_ts: 10, star_index: 99 } },
+          },
+        },
+        3: {
+          ...defaultMemberProps,
+          id: 3,
+          completion_day_level: {
+            10: { 1: { get_star_ts: 3 }, 2: { get_star_ts: 11, star_index: 98 } },
+          },
+        },
+      },
+    };
+
+    const result = processData(data);
+
+    // AoC breaks timestamp ties via the star index
+    // https://www.reddit.com/r/adventofcode/comments/za0ruh/comment/iykiuyw/
+    expect(result[1].partbPoints[10]).toBe(2);
+    expect(result[2].partbPoints[10]).toBe(3);
+    expect(result[3].partbPoints[10]).toBe(1);
+  });
+
+  it("sets partbPoints [ex aequo, star_index: undefined]", () => {
+    const data: IApiData = {
+      ...defaultDataProps,
+      members: {
+        1: {
+          ...defaultMemberProps,
+          id: 1,
+          completion_day_level: {
             10: { 1: { get_star_ts: 1 }, 2: { get_star_ts: 10 } },
           },
         },
@@ -752,7 +1013,7 @@ describe("processAllMembers()", () => {
 
     const result = processData(data);
 
-    // AoC breaks timestamp ties via the user id
+    // AoC breaks timestamp ties via the user id in the absence of a star index
     // https://www.reddit.com/r/adventofcode/comments/7krz2u/comment/drgqics/
     expect(result[1].partbPoints[10]).toBe(3);
     expect(result[2].partbPoints[10]).toBe(2);
@@ -1097,6 +1358,35 @@ describe("processAllMembers()", () => {
     expect(processData(data)[2].partaScore).toBe(2);
   });
 
+  it("sets partaScore [ex aequo]", () => {
+    const data: IApiData = {
+      ...defaultDataProps,
+      members: {
+        1: {
+          ...defaultMemberProps,
+          id: 1,
+          completion_day_level: {
+            10: { 1: { get_star_ts: 10, star_index: 100 } },
+            20: { 1: { get_star_ts: 20 }, 2: { get_star_ts: 23 } },
+          },
+        },
+        2: {
+          ...defaultMemberProps,
+          id: 2,
+          completion_day_level: {
+            10: { 1: { get_star_ts: 10, star_index: 99 } },
+            20: { 1: { get_star_ts: 21 }, 2: { get_star_ts: 22 } },
+          },
+        },
+      },
+    };
+
+    // AoC breaks timestamp ties via the star index
+    // https://www.reddit.com/r/adventofcode/comments/za0ruh/comment/iykiuyw/
+    expect(processData(data)[1].partaScore).toBe(3);
+    expect(processData(data)[2].partaScore).toBe(3);
+  });
+
   it("sets partbScore", () => {
     const data: IApiData = {
       ...defaultDataProps,
@@ -1122,6 +1412,35 @@ describe("processAllMembers()", () => {
 
     expect(processData(data)[1].partbScore).toBe(1);
     expect(processData(data)[2].partbScore).toBe(2);
+  });
+
+  it("sets partbScore [ex aequo]", () => {
+    const data: IApiData = {
+      ...defaultDataProps,
+      members: {
+        1: {
+          ...defaultMemberProps,
+          id: 1,
+          completion_day_level: {
+            10: { 1: { get_star_ts: 10 } },
+            20: { 1: { get_star_ts: 20 }, 2: { get_star_ts: 22, star_index: 99 } },
+          },
+        },
+        2: {
+          ...defaultMemberProps,
+          id: 2,
+          completion_day_level: {
+            10: { 1: { get_star_ts: 11 } },
+            20: { 1: { get_star_ts: 21 }, 2: { get_star_ts: 22, star_index: 100 } },
+          },
+        },
+      },
+    };
+
+    // AoC breaks timestamp ties via the star index
+    // https://www.reddit.com/r/adventofcode/comments/za0ruh/comment/iykiuyw/
+    expect(processData(data)[1].partbScore).toBe(2);
+    expect(processData(data)[2].partbScore).toBe(1);
   });
 
   it("sets partaFirst", () => {

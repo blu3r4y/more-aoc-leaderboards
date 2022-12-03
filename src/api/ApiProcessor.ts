@@ -35,6 +35,10 @@ declare interface IPreMember {
   partaTimes: { [day: number]: Duration | null };
   /** duration from unlock to completion of part 2, per day */
   partbTimes: { [day: number]: Duration | null };
+  /** tie-breaking star submission index of part 1, per day */
+  partaIndex: { [day: number]: number | null };
+  /** tie-breaking star submission index of part 2, per day */
+  partbIndex: { [day: number]: number | null };
   /** number of times part 1 was completed */
   partaCompleted: number;
   /** number of times part 2 was completed */
@@ -129,13 +133,19 @@ function processMember(member: IApiMember, year: number): IPreMember {
     ? dayjs.duration(lastTimestamp.diff(unlockDate(year, 1)))
     : null;
 
-  // transform completion timestamps, per day
+  // transform completion timestamps and star indexes, per day
   const partaTimestamp: IPreMember["partaTimestamp"] = {};
   const partbTimestamp: IPreMember["partbTimestamp"] = {};
+  const partaIndex: IPreMember["partaIndex"] = {};
+  const partbIndex: IPreMember["partbIndex"] = {};
   for (const day of ALL_DAYS) {
     const p = member.completion_day_level[day];
     partaTimestamp[day] = p && p["1"] ? dayjs.unix(p["1"].get_star_ts) : null;
     partbTimestamp[day] = p && p["2"] ? dayjs.unix(p["2"].get_star_ts) : null;
+
+    // the star index breaks timestamp ties, if available, otherwise fall-back to user id
+    partaIndex[day] = p && p["1"] ? p["1"].star_index ?? id : null;
+    partbIndex[day] = p && p["2"] ? p["2"].star_index ?? id : null;
   }
 
   // compute durations per part, per day
@@ -201,6 +211,8 @@ function processMember(member: IApiMember, year: number): IPreMember {
     partbTimestamp,
     partaTimes,
     partbTimes,
+    partaIndex,
+    partbIndex,
     partaCompleted,
     partbCompleted,
     deltaTimes,
@@ -243,21 +255,25 @@ function processAllMembers(
   const deltaRanks = newMemberDayMetricMap<number | null>(null);
 
   // compute day-wise metrics
-  type IBoardEle = { id: number; time: Duration };
+  type IBoardEle = { id: number; sid: number; time: Duration };
   for (const day of ALL_DAYS) {
     const [allParta, allPartb, allDelta]: IBoardEle[][] = [[], [], []];
 
     // fill data store with values from all members
     for (const m of Object.values(members)) {
-      if (m.partaTimes[day]) allParta.push({ id: m.id, time: m.partaTimes[day]! });
-      if (m.partbTimes[day]) allPartb.push({ id: m.id, time: m.partbTimes[day]! });
-      if (m.deltaTimes[day]) allDelta.push({ id: m.id, time: m.deltaTimes[day]! });
+      if (m.partaTimes[day])
+        allParta.push({ id: m.id, sid: m.partaIndex[day]!, time: m.partaTimes[day]! });
+      if (m.partbTimes[day])
+        allPartb.push({ id: m.id, sid: m.partbIndex[day]!, time: m.partbTimes[day]! });
+      if (m.deltaTimes[day])
+        // break delta time ties with part 2 star index, i.e., the earlier part 2 finisher wins
+        allDelta.push({ id: m.id, sid: m.partbIndex[day]!, time: m.deltaTimes[day]! });
     }
 
-    // sort time-based board metrics (break ties by user id)
+    // sort time-based board metrics (break ties by star index)
     const sortDuration = (a: IBoardEle, b: IBoardEle) => {
       const delta = a.time.subtract(b.time).asSeconds();
-      return delta !== 0 ? delta : a.id - b.id;
+      return delta !== 0 ? delta : a.sid - b.sid;
     };
 
     allParta.sort(sortDuration);
