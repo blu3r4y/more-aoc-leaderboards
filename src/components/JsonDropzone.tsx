@@ -42,7 +42,12 @@ function JsonDropzone(props: IJsonDropzoneProps) {
   );
 
   // initialize dropzone
-  const options = { accept: "application/json", maxFiles: 1, multiple: false, onDrop };
+  const options = {
+    accept: { "application/json": [".json"] },
+    maxFiles: 1,
+    multiple: false,
+    onDrop,
+  };
   const { getRootProps, getInputProps, isDragActive, isDragAccept, isDragReject } =
     useDropzone(options);
 
