@@ -112,15 +112,9 @@ describe("processMember()", () => {
           ...defaultMemberProps,
           id: 1,
           completion_day_level: {
-            1: { 1: { get_star_ts: 10, star_index: 0 } },
-            15: {
-              1: { get_star_ts: 150, star_index: 0 },
-              2: { get_star_ts: 151, star_index: 0 },
-            },
-            20: {
-              1: { get_star_ts: 200, star_index: 0 },
-              2: { get_star_ts: 201, star_index: 0 },
-            },
+            1: { 1: { get_star_ts: 10 } },
+            15: { 1: { get_star_ts: 150 }, 2: { get_star_ts: 151 } },
+            20: { 1: { get_star_ts: 200 }, 2: { get_star_ts: 201 } },
           },
         },
       },
@@ -213,15 +207,9 @@ describe("processMember()", () => {
           ...defaultMemberProps,
           id: 1,
           completion_day_level: {
-            1: { 1: { get_star_ts: 10, star_index: 0 } },
-            15: {
-              1: { get_star_ts: 150, star_index: 0 },
-              2: { get_star_ts: 151, star_index: 0 },
-            },
-            20: {
-              1: { get_star_ts: 200, star_index: 0 },
-              2: { get_star_ts: 201, star_index: 0 },
-            },
+            1: { 1: { get_star_ts: 10 } },
+            15: { 1: { get_star_ts: 150 }, 2: { get_star_ts: 151 } },
+            20: { 1: { get_star_ts: 200 }, 2: { get_star_ts: 201 } },
           },
         },
       },
@@ -244,15 +232,9 @@ describe("processMember()", () => {
           ...defaultMemberProps,
           id: 1,
           completion_day_level: {
-            1: { 1: { get_star_ts: 10, star_index: 0 } },
-            15: {
-              1: { get_star_ts: 150, star_index: 0 },
-              2: { get_star_ts: 151, star_index: 0 },
-            },
-            20: {
-              1: { get_star_ts: 200, star_index: 0 },
-              2: { get_star_ts: 201, star_index: 0 },
-            },
+            1: { 1: { get_star_ts: 10 } },
+            15: { 1: { get_star_ts: 150 }, 2: { get_star_ts: 151 } },
+            20: { 1: { get_star_ts: 200 }, 2: { get_star_ts: 201 } },
           },
         },
       },
@@ -283,15 +265,9 @@ describe("processMember()", () => {
           ...defaultMemberProps,
           id: 1,
           completion_day_level: {
-            1: { 1: { get_star_ts: ts1a.unix(), star_index: 0 } },
-            15: {
-              1: { get_star_ts: ts15a.unix(), star_index: 0 },
-              2: { get_star_ts: 151, star_index: 0 },
-            },
-            20: {
-              1: { get_star_ts: ts20a.unix(), star_index: 0 },
-              2: { get_star_ts: 201, star_index: 0 },
-            },
+            1: { 1: { get_star_ts: ts1a.unix() } },
+            15: { 1: { get_star_ts: ts15a.unix() }, 2: { get_star_ts: 151 } },
+            20: { 1: { get_star_ts: ts20a.unix() }, 2: { get_star_ts: 201 } },
           },
         },
       },
@@ -320,15 +296,9 @@ describe("processMember()", () => {
           ...defaultMemberProps,
           id: 1,
           completion_day_level: {
-            1: { 1: { get_star_ts: 10, star_index: 0 } },
-            15: {
-              1: { get_star_ts: 150, star_index: 0 },
-              2: { get_star_ts: ts15b.unix(), star_index: 0 },
-            },
-            20: {
-              1: { get_star_ts: 200, star_index: 0 },
-              2: { get_star_ts: ts20b.unix(), star_index: 0 },
-            },
+            1: { 1: { get_star_ts: 10 } },
+            15: { 1: { get_star_ts: 150 }, 2: { get_star_ts: ts15b.unix() } },
+            20: { 1: { get_star_ts: 200 }, 2: { get_star_ts: ts20b.unix() } },
           },
         },
       },
@@ -351,15 +321,9 @@ describe("processMember()", () => {
           ...defaultMemberProps,
           id: 1,
           completion_day_level: {
-            1: { 1: { get_star_ts: 10, star_index: 0 } },
-            15: {
-              1: { get_star_ts: 150, star_index: 0 },
-              2: { get_star_ts: 151, star_index: 0 },
-            },
-            20: {
-              1: { get_star_ts: 200, star_index: 0 },
-              2: { get_star_ts: 201, star_index: 0 },
-            },
+            1: { 1: { get_star_ts: 10 } },
+            15: { 1: { get_star_ts: 150 }, 2: { get_star_ts: 151 } },
+            20: { 1: { get_star_ts: 200 }, 2: { get_star_ts: 201 } },
           },
         },
       },
@@ -376,15 +340,9 @@ describe("processMember()", () => {
           ...defaultMemberProps,
           id: 1,
           completion_day_level: {
-            1: { 1: { get_star_ts: 10, star_index: 0 } },
-            15: {
-              1: { get_star_ts: 150, star_index: 0 },
-              2: { get_star_ts: 151, star_index: 0 },
-            },
-            20: {
-              1: { get_star_ts: 200, star_index: 0 },
-              2: { get_star_ts: 201, star_index: 0 },
-            },
+            1: { 1: { get_star_ts: 10 } },
+            15: { 1: { get_star_ts: 150 }, 2: { get_star_ts: 151 } },
+            20: { 1: { get_star_ts: 200 }, 2: { get_star_ts: 201 } },
           },
         },
       },
@@ -404,15 +362,9 @@ describe("processMember()", () => {
           ...defaultMemberProps,
           id: 1,
           completion_day_level: {
-            1: { 1: { get_star_ts: 10, star_index: 0 } },
-            15: {
-              1: { get_star_ts: 150, star_index: 0 },
-              2: { get_star_ts: 151, star_index: 0 },
-            },
-            20: {
-              1: { get_star_ts: 200, star_index: 0 },
-              2: { get_star_ts: 202, star_index: 0 },
-            },
+            1: { 1: { get_star_ts: 10 } },
+            15: { 1: { get_star_ts: 150 }, 2: { get_star_ts: 151 } },
+            20: { 1: { get_star_ts: 200 }, 2: { get_star_ts: 202 } },
           },
         },
       },
@@ -445,15 +397,9 @@ describe("processMember()", () => {
           id: 1,
           last_star_ts: 1,
           completion_day_level: {
-            1: { 1: { get_star_ts: 10, star_index: 0 } },
-            15: {
-              1: { get_star_ts: 150, star_index: 0 },
-              2: { get_star_ts: 151, star_index: 0 },
-            },
-            20: {
-              1: { get_star_ts: 200, star_index: 0 },
-              2: { get_star_ts: 202, star_index: 0 },
-            },
+            1: { 1: { get_star_ts: 10 } },
+            15: { 1: { get_star_ts: 150 }, 2: { get_star_ts: 151 } },
+            20: { 1: { get_star_ts: 200 }, 2: { get_star_ts: 202 } },
           },
         },
       },
@@ -480,15 +426,9 @@ describe("processMember()", () => {
           id: 1,
           last_star_ts: 1,
           completion_day_level: {
-            1: { 1: { get_star_ts: 10, star_index: 0 } },
-            15: {
-              1: { get_star_ts: 150, star_index: 0 },
-              2: { get_star_ts: 151, star_index: 0 },
-            },
-            20: {
-              1: { get_star_ts: 200, star_index: 0 },
-              2: { get_star_ts: 202, star_index: 0 },
-            },
+            1: { 1: { get_star_ts: 10 } },
+            15: { 1: { get_star_ts: 150 }, 2: { get_star_ts: 151 } },
+            20: { 1: { get_star_ts: 200 }, 2: { get_star_ts: 202 } },
           },
         },
       },
@@ -506,19 +446,10 @@ describe("processMember()", () => {
           id: 1,
           last_star_ts: 1,
           completion_day_level: {
-            1: { 1: { get_star_ts: 10, star_index: 0 } },
-            15: {
-              1: { get_star_ts: 150, star_index: 0 },
-              2: { get_star_ts: 151, star_index: 0 },
-            },
-            20: {
-              1: { get_star_ts: 200, star_index: 0 },
-              2: { get_star_ts: 202, star_index: 0 },
-            },
-            21: {
-              1: { get_star_ts: 210, star_index: 0 },
-              2: { get_star_ts: 213, star_index: 0 },
-            },
+            1: { 1: { get_star_ts: 10 } },
+            15: { 1: { get_star_ts: 150 }, 2: { get_star_ts: 151 } },
+            20: { 1: { get_star_ts: 200 }, 2: { get_star_ts: 202 } },
+            21: { 1: { get_star_ts: 210 }, 2: { get_star_ts: 213 } },
           },
         },
       },
@@ -551,15 +482,9 @@ describe("processMember()", () => {
           id: 1,
           last_star_ts: 1,
           completion_day_level: {
-            1: { 1: { get_star_ts: ts1a.unix(), star_index: 0 } },
-            15: {
-              1: { get_star_ts: 150, star_index: 0 },
-              2: { get_star_ts: ts15b.unix(), star_index: 0 },
-            },
-            20: {
-              1: { get_star_ts: 200, star_index: 0 },
-              2: { get_star_ts: ts20b.unix(), star_index: 0 },
-            },
+            1: { 1: { get_star_ts: ts1a.unix() } },
+            15: { 1: { get_star_ts: 150 }, 2: { get_star_ts: ts15b.unix() } },
+            20: { 1: { get_star_ts: 200 }, 2: { get_star_ts: ts20b.unix() } },
           },
         },
       },
@@ -596,15 +521,9 @@ describe("processMember()", () => {
           stars: 5,
           last_star_ts: 1,
           completion_day_level: {
-            1: { 1: { get_star_ts: ts1a.unix(), star_index: 0 } },
-            15: {
-              1: { get_star_ts: ts15a.unix(), star_index: 0 },
-              2: { get_star_ts: ts15b.unix(), star_index: 0 },
-            },
-            20: {
-              1: { get_star_ts: ts20a.unix(), star_index: 0 },
-              2: { get_star_ts: ts20b.unix(), star_index: 0 },
-            },
+            1: { 1: { get_star_ts: ts1a.unix() } },
+            15: { 1: { get_star_ts: ts15a.unix() }, 2: { get_star_ts: ts15b.unix() } },
+            20: { 1: { get_star_ts: ts20a.unix() }, 2: { get_star_ts: ts20b.unix() } },
           },
         },
       },
@@ -623,22 +542,16 @@ describe("processAllMembers()", () => {
           ...defaultMemberProps,
           id: 1,
           completion_day_level: {
-            10: { 1: { get_star_ts: 10, star_index: 0 } },
-            20: {
-              1: { get_star_ts: 20, star_index: 0 },
-              2: { get_star_ts: 23, star_index: 0 },
-            },
+            10: { 1: { get_star_ts: 10 } },
+            20: { 1: { get_star_ts: 20 }, 2: { get_star_ts: 23 } },
           },
         },
         2: {
           ...defaultMemberProps,
           id: 2,
           completion_day_level: {
-            10: { 1: { get_star_ts: 11, star_index: 0 } },
-            20: {
-              1: { get_star_ts: 21, star_index: 0 },
-              2: { get_star_ts: 22, star_index: 0 },
-            },
+            10: { 1: { get_star_ts: 11 } },
+            20: { 1: { get_star_ts: 21 }, 2: { get_star_ts: 22 } },
           },
         },
       },
@@ -667,21 +580,21 @@ describe("processAllMembers()", () => {
           ...defaultMemberProps,
           id: 1,
           completion_day_level: {
-            10: { 1: { get_star_ts: 10, star_index: 0 } },
+            10: { 1: { get_star_ts: 10 } },
           },
         },
         2: {
           ...defaultMemberProps,
           id: 2,
           completion_day_level: {
-            10: { 1: { get_star_ts: 10, star_index: 0 } },
+            10: { 1: { get_star_ts: 10 } },
           },
         },
         3: {
           ...defaultMemberProps,
           id: 3,
           completion_day_level: {
-            10: { 1: { get_star_ts: 11, star_index: 0 } },
+            10: { 1: { get_star_ts: 11 } },
           },
         },
       },
@@ -704,22 +617,16 @@ describe("processAllMembers()", () => {
           ...defaultMemberProps,
           id: 1,
           completion_day_level: {
-            10: { 1: { get_star_ts: 10, star_index: 0 } },
-            20: {
-              1: { get_star_ts: 20, star_index: 0 },
-              2: { get_star_ts: 23, star_index: 0 },
-            },
+            10: { 1: { get_star_ts: 10 } },
+            20: { 1: { get_star_ts: 20 }, 2: { get_star_ts: 23 } },
           },
         },
         2: {
           ...defaultMemberProps,
           id: 2,
           completion_day_level: {
-            10: { 1: { get_star_ts: 11, star_index: 0 } },
-            20: {
-              1: { get_star_ts: 21, star_index: 0 },
-              2: { get_star_ts: 22, star_index: 0 },
-            },
+            10: { 1: { get_star_ts: 11 } },
+            20: { 1: { get_star_ts: 21 }, 2: { get_star_ts: 22 } },
           },
         },
       },
@@ -748,21 +655,21 @@ describe("processAllMembers()", () => {
           ...defaultMemberProps,
           id: 1,
           completion_day_level: {
-            10: { 1: { get_star_ts: 10, star_index: 0 } },
+            10: { 1: { get_star_ts: 10 } },
           },
         },
         2: {
           ...defaultMemberProps,
           id: 2,
           completion_day_level: {
-            10: { 1: { get_star_ts: 10, star_index: 0 } },
+            10: { 1: { get_star_ts: 10 } },
           },
         },
         3: {
           ...defaultMemberProps,
           id: 3,
           completion_day_level: {
-            10: { 1: { get_star_ts: 11, star_index: 0 } },
+            10: { 1: { get_star_ts: 11 } },
           },
         },
       },
@@ -785,22 +692,16 @@ describe("processAllMembers()", () => {
           ...defaultMemberProps,
           id: 1,
           completion_day_level: {
-            10: { 1: { get_star_ts: 10, star_index: 0 } },
-            20: {
-              1: { get_star_ts: 20, star_index: 0 },
-              2: { get_star_ts: 23, star_index: 0 },
-            },
+            10: { 1: { get_star_ts: 10 } },
+            20: { 1: { get_star_ts: 20 }, 2: { get_star_ts: 23 } },
           },
         },
         2: {
           ...defaultMemberProps,
           id: 2,
           completion_day_level: {
-            10: { 1: { get_star_ts: 11, star_index: 0 } },
-            20: {
-              1: { get_star_ts: 21, star_index: 0 },
-              2: { get_star_ts: 22, star_index: 0 },
-            },
+            10: { 1: { get_star_ts: 11 } },
+            20: { 1: { get_star_ts: 21 }, 2: { get_star_ts: 22 } },
           },
         },
       },
@@ -829,30 +730,21 @@ describe("processAllMembers()", () => {
           ...defaultMemberProps,
           id: 1,
           completion_day_level: {
-            10: {
-              1: { get_star_ts: 1, star_index: 0 },
-              2: { get_star_ts: 10, star_index: 0 },
-            },
+            10: { 1: { get_star_ts: 1 }, 2: { get_star_ts: 10 } },
           },
         },
         2: {
           ...defaultMemberProps,
           id: 2,
           completion_day_level: {
-            10: {
-              1: { get_star_ts: 2, star_index: 0 },
-              2: { get_star_ts: 10, star_index: 0 },
-            },
+            10: { 1: { get_star_ts: 2 }, 2: { get_star_ts: 10 } },
           },
         },
         3: {
           ...defaultMemberProps,
           id: 3,
           completion_day_level: {
-            10: {
-              1: { get_star_ts: 3, star_index: 0 },
-              2: { get_star_ts: 11, star_index: 0 },
-            },
+            10: { 1: { get_star_ts: 3 }, 2: { get_star_ts: 11 } },
           },
         },
       },
@@ -875,22 +767,16 @@ describe("processAllMembers()", () => {
           ...defaultMemberProps,
           id: 1,
           completion_day_level: {
-            10: { 1: { get_star_ts: 10, star_index: 0 } },
-            20: {
-              1: { get_star_ts: 20, star_index: 0 },
-              2: { get_star_ts: 23, star_index: 0 },
-            },
+            10: { 1: { get_star_ts: 10 } },
+            20: { 1: { get_star_ts: 20 }, 2: { get_star_ts: 23 } },
           },
         },
         2: {
           ...defaultMemberProps,
           id: 2,
           completion_day_level: {
-            10: { 1: { get_star_ts: 11, star_index: 0 } },
-            20: {
-              1: { get_star_ts: 21, star_index: 0 },
-              2: { get_star_ts: 22, star_index: 0 },
-            },
+            10: { 1: { get_star_ts: 11 } },
+            20: { 1: { get_star_ts: 21 }, 2: { get_star_ts: 22 } },
           },
         },
       },
@@ -919,21 +805,21 @@ describe("processAllMembers()", () => {
           ...defaultMemberProps,
           id: 1,
           completion_day_level: {
-            10: { 1: { get_star_ts: 10, star_index: 0 } },
+            10: { 1: { get_star_ts: 10 } },
           },
         },
         2: {
           ...defaultMemberProps,
           id: 2,
           completion_day_level: {
-            10: { 1: { get_star_ts: 10, star_index: 0 } },
+            10: { 1: { get_star_ts: 10 } },
           },
         },
         3: {
           ...defaultMemberProps,
           id: 3,
           completion_day_level: {
-            10: { 1: { get_star_ts: 11, star_index: 0 } },
+            10: { 1: { get_star_ts: 11 } },
           },
         },
       },
@@ -954,22 +840,16 @@ describe("processAllMembers()", () => {
           ...defaultMemberProps,
           id: 1,
           completion_day_level: {
-            10: { 1: { get_star_ts: 10, star_index: 0 } },
-            20: {
-              1: { get_star_ts: 20, star_index: 0 },
-              2: { get_star_ts: 23, star_index: 0 },
-            },
+            10: { 1: { get_star_ts: 10 } },
+            20: { 1: { get_star_ts: 20 }, 2: { get_star_ts: 23 } },
           },
         },
         2: {
           ...defaultMemberProps,
           id: 2,
           completion_day_level: {
-            10: { 1: { get_star_ts: 11, star_index: 0 } },
-            20: {
-              1: { get_star_ts: 21, star_index: 0 },
-              2: { get_star_ts: 22, star_index: 0 },
-            },
+            10: { 1: { get_star_ts: 11 } },
+            20: { 1: { get_star_ts: 21 }, 2: { get_star_ts: 22 } },
           },
         },
       },
@@ -998,30 +878,21 @@ describe("processAllMembers()", () => {
           ...defaultMemberProps,
           id: 1,
           completion_day_level: {
-            10: {
-              1: { get_star_ts: 1, star_index: 0 },
-              2: { get_star_ts: 10, star_index: 0 },
-            },
+            10: { 1: { get_star_ts: 1 }, 2: { get_star_ts: 10 } },
           },
         },
         2: {
           ...defaultMemberProps,
           id: 2,
           completion_day_level: {
-            10: {
-              1: { get_star_ts: 2, star_index: 0 },
-              2: { get_star_ts: 10, star_index: 0 },
-            },
+            10: { 1: { get_star_ts: 2 }, 2: { get_star_ts: 10 } },
           },
         },
         3: {
           ...defaultMemberProps,
           id: 3,
           completion_day_level: {
-            10: {
-              1: { get_star_ts: 3, star_index: 0 },
-              2: { get_star_ts: 11, star_index: 0 },
-            },
+            10: { 1: { get_star_ts: 3 }, 2: { get_star_ts: 11 } },
           },
         },
       },
@@ -1042,30 +913,18 @@ describe("processAllMembers()", () => {
           ...defaultMemberProps,
           id: 1,
           completion_day_level: {
-            10: { 1: { get_star_ts: 100, star_index: 0 } },
-            20: {
-              1: { get_star_ts: 200, star_index: 0 },
-              2: { get_star_ts: 209, star_index: 0 },
-            },
-            21: {
-              1: { get_star_ts: 210, star_index: 0 },
-              2: { get_star_ts: 212, star_index: 0 },
-            },
+            10: { 1: { get_star_ts: 100 } },
+            20: { 1: { get_star_ts: 200 }, 2: { get_star_ts: 209 } },
+            21: { 1: { get_star_ts: 210 }, 2: { get_star_ts: 212 } },
           },
         },
         2: {
           ...defaultMemberProps,
           id: 2,
           completion_day_level: {
-            10: { 1: { get_star_ts: 101, star_index: 0 } },
-            20: {
-              1: { get_star_ts: 205, star_index: 0 },
-              2: { get_star_ts: 206, star_index: 0 },
-            },
-            21: {
-              1: { get_star_ts: 210, star_index: 0 },
-              2: { get_star_ts: 219, star_index: 0 },
-            },
+            10: { 1: { get_star_ts: 101 } },
+            20: { 1: { get_star_ts: 205 }, 2: { get_star_ts: 206 } },
+            21: { 1: { get_star_ts: 210 }, 2: { get_star_ts: 219 } },
           },
         },
       },
@@ -1096,30 +955,21 @@ describe("processAllMembers()", () => {
           ...defaultMemberProps,
           id: 1,
           completion_day_level: {
-            10: {
-              1: { get_star_ts: 200, star_index: 0 },
-              2: { get_star_ts: 210, star_index: 0 },
-            },
+            10: { 1: { get_star_ts: 200 }, 2: { get_star_ts: 210 } },
           },
         },
         2: {
           ...defaultMemberProps,
           id: 2,
           completion_day_level: {
-            10: {
-              1: { get_star_ts: 220, star_index: 0 },
-              2: { get_star_ts: 230, star_index: 0 },
-            },
+            10: { 1: { get_star_ts: 220 }, 2: { get_star_ts: 230 } },
           },
         },
         3: {
           ...defaultMemberProps,
           id: 3,
           completion_day_level: {
-            10: {
-              1: { get_star_ts: 240, star_index: 0 },
-              2: { get_star_ts: 300, star_index: 0 },
-            },
+            10: { 1: { get_star_ts: 240 }, 2: { get_star_ts: 300 } },
           },
         },
       },
@@ -1140,24 +990,24 @@ describe("processAllMembers()", () => {
           ...defaultMemberProps,
           id: 1,
           completion_day_level: {
-            10: { 1: { get_star_ts: 101, star_index: 0 } },
-            11: { 1: { get_star_ts: 102, star_index: 0 } },
+            10: { 1: { get_star_ts: 101 } },
+            11: { 1: { get_star_ts: 102 } },
           },
         },
         2: {
           ...defaultMemberProps,
           id: 2,
           completion_day_level: {
-            10: { 1: { get_star_ts: 103, star_index: 0 } },
-            11: { 1: { get_star_ts: 104, star_index: 0 } },
+            10: { 1: { get_star_ts: 103 } },
+            11: { 1: { get_star_ts: 104 } },
           },
         },
         3: {
           ...defaultMemberProps,
           id: 3,
           completion_day_level: {
-            10: { 1: { get_star_ts: 105, star_index: 0 } },
-            11: { 1: { get_star_ts: 106, star_index: 0 } },
+            10: { 1: { get_star_ts: 105 } },
+            11: { 1: { get_star_ts: 106 } },
           },
         },
       },
@@ -1184,42 +1034,24 @@ describe("processAllMembers()", () => {
           ...defaultMemberProps,
           id: 1,
           completion_day_level: {
-            10: {
-              1: { get_star_ts: 10, star_index: 0 },
-              2: { get_star_ts: 100, star_index: 0 },
-            },
-            11: {
-              1: { get_star_ts: 11, star_index: 0 },
-              2: { get_star_ts: 101, star_index: 0 },
-            },
+            10: { 1: { get_star_ts: 10 }, 2: { get_star_ts: 100 } },
+            11: { 1: { get_star_ts: 11 }, 2: { get_star_ts: 101 } },
           },
         },
         2: {
           ...defaultMemberProps,
           id: 2,
           completion_day_level: {
-            10: {
-              1: { get_star_ts: 10, star_index: 0 },
-              2: { get_star_ts: 102, star_index: 0 },
-            },
-            11: {
-              1: { get_star_ts: 11, star_index: 0 },
-              2: { get_star_ts: 103, star_index: 0 },
-            },
+            10: { 1: { get_star_ts: 10 }, 2: { get_star_ts: 102 } },
+            11: { 1: { get_star_ts: 11 }, 2: { get_star_ts: 103 } },
           },
         },
         3: {
           ...defaultMemberProps,
           id: 3,
           completion_day_level: {
-            10: {
-              1: { get_star_ts: 10, star_index: 0 },
-              2: { get_star_ts: 104, star_index: 0 },
-            },
-            11: {
-              1: { get_star_ts: 11, star_index: 0 },
-              2: { get_star_ts: 105, star_index: 0 },
-            },
+            10: { 1: { get_star_ts: 10 }, 2: { get_star_ts: 104 } },
+            11: { 1: { get_star_ts: 11 }, 2: { get_star_ts: 105 } },
           },
         },
       },
@@ -1246,22 +1078,16 @@ describe("processAllMembers()", () => {
           ...defaultMemberProps,
           id: 1,
           completion_day_level: {
-            10: { 1: { get_star_ts: 10, star_index: 0 } },
-            20: {
-              1: { get_star_ts: 20, star_index: 0 },
-              2: { get_star_ts: 23, star_index: 0 },
-            },
+            10: { 1: { get_star_ts: 10 } },
+            20: { 1: { get_star_ts: 20 }, 2: { get_star_ts: 23 } },
           },
         },
         2: {
           ...defaultMemberProps,
           id: 2,
           completion_day_level: {
-            10: { 1: { get_star_ts: 11, star_index: 0 } },
-            20: {
-              1: { get_star_ts: 21, star_index: 0 },
-              2: { get_star_ts: 22, star_index: 0 },
-            },
+            10: { 1: { get_star_ts: 11 } },
+            20: { 1: { get_star_ts: 21 }, 2: { get_star_ts: 22 } },
           },
         },
       },
@@ -1279,22 +1105,16 @@ describe("processAllMembers()", () => {
           ...defaultMemberProps,
           id: 1,
           completion_day_level: {
-            10: { 1: { get_star_ts: 10, star_index: 0 } },
-            20: {
-              1: { get_star_ts: 20, star_index: 0 },
-              2: { get_star_ts: 23, star_index: 0 },
-            },
+            10: { 1: { get_star_ts: 10 } },
+            20: { 1: { get_star_ts: 20 }, 2: { get_star_ts: 23 } },
           },
         },
         2: {
           ...defaultMemberProps,
           id: 2,
           completion_day_level: {
-            10: { 1: { get_star_ts: 11, star_index: 0 } },
-            20: {
-              1: { get_star_ts: 21, star_index: 0 },
-              2: { get_star_ts: 22, star_index: 0 },
-            },
+            10: { 1: { get_star_ts: 11 } },
+            20: { 1: { get_star_ts: 21 }, 2: { get_star_ts: 22 } },
           },
         },
       },
@@ -1312,22 +1132,16 @@ describe("processAllMembers()", () => {
           ...defaultMemberProps,
           id: 1,
           completion_day_level: {
-            10: { 1: { get_star_ts: 10, star_index: 0 } },
-            20: {
-              1: { get_star_ts: 20, star_index: 0 },
-              2: { get_star_ts: 23, star_index: 0 },
-            },
+            10: { 1: { get_star_ts: 10 } },
+            20: { 1: { get_star_ts: 20 }, 2: { get_star_ts: 23 } },
           },
         },
         2: {
           ...defaultMemberProps,
           id: 2,
           completion_day_level: {
-            10: { 1: { get_star_ts: 11, star_index: 0 } },
-            20: {
-              1: { get_star_ts: 21, star_index: 0 },
-              2: { get_star_ts: 22, star_index: 0 },
-            },
+            10: { 1: { get_star_ts: 11 } },
+            20: { 1: { get_star_ts: 21 }, 2: { get_star_ts: 22 } },
           },
         },
         3: {
@@ -1351,14 +1165,14 @@ describe("processAllMembers()", () => {
           ...defaultMemberProps,
           id: 1,
           completion_day_level: {
-            10: { 1: { get_star_ts: 10, star_index: 0 } },
+            10: { 1: { get_star_ts: 10 } },
           },
         },
         2: {
           ...defaultMemberProps,
           id: 2,
           completion_day_level: {
-            10: { 1: { get_star_ts: 10, star_index: 0 } },
+            10: { 1: { get_star_ts: 10 } },
           },
         },
       },
@@ -1377,38 +1191,20 @@ describe("processAllMembers()", () => {
           ...defaultMemberProps,
           id: 1,
           completion_day_level: {
-            10: { 1: { get_star_ts: 100, star_index: 0 } },
-            20: {
-              1: { get_star_ts: 200, star_index: 0 },
-              2: { get_star_ts: 201, star_index: 0 },
-            },
-            21: {
-              1: { get_star_ts: 210, star_index: 0 },
-              2: { get_star_ts: 219, star_index: 0 },
-            },
-            22: {
-              1: { get_star_ts: 220, star_index: 0 },
-              2: { get_star_ts: 221, star_index: 0 },
-            },
+            10: { 1: { get_star_ts: 100 } },
+            20: { 1: { get_star_ts: 200 }, 2: { get_star_ts: 201 } },
+            21: { 1: { get_star_ts: 210 }, 2: { get_star_ts: 219 } },
+            22: { 1: { get_star_ts: 220 }, 2: { get_star_ts: 221 } },
           },
         },
         2: {
           ...defaultMemberProps,
           id: 2,
           completion_day_level: {
-            10: { 1: { get_star_ts: 101, star_index: 0 } },
-            20: {
-              1: { get_star_ts: 201, star_index: 0 },
-              2: { get_star_ts: 202, star_index: 0 },
-            },
-            21: {
-              1: { get_star_ts: 211, star_index: 0 },
-              2: { get_star_ts: 211, star_index: 0 },
-            },
-            22: {
-              1: { get_star_ts: 221, star_index: 0 },
-              2: { get_star_ts: 229, star_index: 0 },
-            },
+            10: { 1: { get_star_ts: 101 } },
+            20: { 1: { get_star_ts: 201 }, 2: { get_star_ts: 202 } },
+            21: { 1: { get_star_ts: 211 }, 2: { get_star_ts: 211 } },
+            22: { 1: { get_star_ts: 221 }, 2: { get_star_ts: 229 } },
           },
         },
       },
@@ -1427,20 +1223,14 @@ describe("processAllMembers()", () => {
           ...defaultMemberProps,
           id: 1,
           completion_day_level: {
-            10: {
-              1: { get_star_ts: 10, star_index: 0 },
-              2: { get_star_ts: 20, star_index: 0 },
-            },
+            10: { 1: { get_star_ts: 10 }, 2: { get_star_ts: 20 } },
           },
         },
         2: {
           ...defaultMemberProps,
           id: 2,
           completion_day_level: {
-            10: {
-              1: { get_star_ts: 11, star_index: 0 },
-              2: { get_star_ts: 20, star_index: 0 },
-            },
+            10: { 1: { get_star_ts: 11 }, 2: { get_star_ts: 20 } },
           },
         },
       },
@@ -1459,46 +1249,22 @@ describe("processAllMembers()", () => {
           ...defaultMemberProps,
           id: 1,
           completion_day_level: {
-            10: { 1: { get_star_ts: 100, star_index: 0 } },
-            20: {
-              1: { get_star_ts: 200, star_index: 0 },
-              2: { get_star_ts: 205, star_index: 0 },
-            },
-            21: {
-              1: { get_star_ts: 211, star_index: 0 },
-              2: { get_star_ts: 215, star_index: 0 },
-            },
-            22: {
-              1: { get_star_ts: 220, star_index: 0 },
-              2: { get_star_ts: 226, star_index: 0 },
-            },
-            23: {
-              1: { get_star_ts: 231, star_index: 0 },
-              2: { get_star_ts: 236, star_index: 0 },
-            },
+            10: { 1: { get_star_ts: 100 } },
+            20: { 1: { get_star_ts: 200 }, 2: { get_star_ts: 205 } },
+            21: { 1: { get_star_ts: 211 }, 2: { get_star_ts: 215 } },
+            22: { 1: { get_star_ts: 220 }, 2: { get_star_ts: 226 } },
+            23: { 1: { get_star_ts: 231 }, 2: { get_star_ts: 236 } },
           },
         },
         2: {
           ...defaultMemberProps,
           id: 2,
           completion_day_level: {
-            10: { 1: { get_star_ts: 101, star_index: 0 } },
-            20: {
-              1: { get_star_ts: 201, star_index: 0 },
-              2: { get_star_ts: 206, star_index: 0 },
-            },
-            21: {
-              1: { get_star_ts: 210, star_index: 0 },
-              2: { get_star_ts: 216, star_index: 0 },
-            },
-            22: {
-              1: { get_star_ts: 221, star_index: 0 },
-              2: { get_star_ts: 225, star_index: 0 },
-            },
-            23: {
-              1: { get_star_ts: 230, star_index: 0 },
-              2: { get_star_ts: 235, star_index: 0 },
-            },
+            10: { 1: { get_star_ts: 101 } },
+            20: { 1: { get_star_ts: 201 }, 2: { get_star_ts: 206 } },
+            21: { 1: { get_star_ts: 210 }, 2: { get_star_ts: 216 } },
+            22: { 1: { get_star_ts: 221 }, 2: { get_star_ts: 225 } },
+            23: { 1: { get_star_ts: 230 }, 2: { get_star_ts: 235 } },
           },
         },
       },
@@ -1517,20 +1283,14 @@ describe("processAllMembers()", () => {
           ...defaultMemberProps,
           id: 1,
           completion_day_level: {
-            10: {
-              1: { get_star_ts: 10, star_index: 0 },
-              2: { get_star_ts: 20, star_index: 0 },
-            },
+            10: { 1: { get_star_ts: 10 }, 2: { get_star_ts: 20 } },
           },
         },
         2: {
           ...defaultMemberProps,
           id: 2,
           completion_day_level: {
-            10: {
-              1: { get_star_ts: 10, star_index: 0 },
-              2: { get_star_ts: 20, star_index: 0 },
-            },
+            10: { 1: { get_star_ts: 10 }, 2: { get_star_ts: 20 } },
           },
         },
       },
