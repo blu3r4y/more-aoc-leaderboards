@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useEffect, useState, useMemo } from "react";
 
 import { IProcessedData } from "../api/ApiProcessor";
 
@@ -24,11 +24,18 @@ function BlobUrl(props: IBlobUrlProps) {
     return () => URL.revokeObjectURL(blobUrl);
   }, [members]);
 
+  // get basename of the blob URL
+  const filename = useMemo(() => {
+    if (!url) return null;
+    const parts = url.split("/");
+    return `${parts[parts.length - 1]}.json`;
+  }, [url]);
+
   return (
     <div className="BlobUrl">
       <p>
         🤓 Data nerd? Get all metrics{" "}
-        <a href={url ?? "#"} download>
+        <a href={url ?? "#"} download={filename}>
           here
         </a>
         .
