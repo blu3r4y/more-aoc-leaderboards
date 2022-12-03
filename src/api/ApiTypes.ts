@@ -24,6 +24,7 @@ export declare interface IApiCompletion {
   [day: number]: {
     [part: number]: {
       get_star_ts: number;
+      star_index: number;
     };
   };
 }
@@ -47,6 +48,7 @@ export const Schema = Joi.object({
           Joi.number().min(1).max(2),
           Joi.object({
             get_star_ts: Joi.number().required(),
+            star_index: Joi.number().required(),
           })
         )
       ),
