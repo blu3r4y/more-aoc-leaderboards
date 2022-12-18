@@ -3,12 +3,15 @@ import duration, { Duration } from "dayjs/plugin/duration";
 
 import { IApiData, IApiMember } from "./ApiTypes";
 import { mapValues, dropNull, median, rankIndexes } from "../utils/Utils";
+import { unlockDate, isOutageDay } from "../utils/StarUtils";
 
 dayjs.extend(duration);
 
 declare interface IPreMember {
   /** the unique id of the member */
   id: number;
+  /** the year of the event */
+  year: number;
   /** name of the member, or its id otherwise */
   name: string;
   /** whether this user did any puzzles */
@@ -88,14 +91,6 @@ export declare interface IMember extends IPreMember {
 
 const ALL_DAYS = Array.from(new Array(25), (_, i) => i + 1);
 const ALL_MIN_RANKS = Array.from(new Array(10), (_, i) => i + 1);
-
-function unlockDate(year: number, day: number): Dayjs {
-  return dayjs(`${year}-12-${day.toString().padStart(2, "0")}T05:00:00.000Z`);
-}
-
-function isOutageDay(year: number, day: number): boolean {
-  return (year === 2018 && day === 6) || (year === 2020 && day === 1);
-}
 
 export function processData(apiData: IApiData): IProcessedData {
   const { event: year, members: apiMembers } = apiData;
@@ -198,6 +193,7 @@ function processMember(member: IApiMember, year: number): IPreMember {
 
   return {
     id,
+    year,
     name,
     active,
     finished,

@@ -2,6 +2,7 @@ import dayjs from "dayjs";
 import duration, { Duration } from "dayjs/plugin/duration";
 
 import { IProcessedData } from "../api/ApiProcessor";
+import { achievableStars } from "../utils/StarUtils";
 import AppMasonry from "./AppMasonry";
 import Leaderboard from "./Leaderboard";
 
@@ -14,16 +15,21 @@ declare interface ILeaderboardSetProps {
 function LeaderboardSet(props: ILeaderboardSetProps) {
   const { members } = props;
 
+  // maximum number of stars that can be achieved right now
+  // TODO: if anyone achieved more, the clients local time is off, fix that?
+  const year = Object.values(members)[0].year || dayjs().year();
+  const maxStars = achievableStars(dayjs(), year);
+
   return (
     <AppMasonry>
       {[
         getLocalLeaderboard(members),
-        getPrimeCoders(members),
+        getPrimeCoders(members, maxStars),
         getLateBloomers(members),
-        getRapidCoders(members),
-        getOverachievingAdapters(members),
-        getSteadyPerformers(members),
-        getStarEfficientCoders(members),
+        getRapidCoders(members, maxStars),
+        getOverachievingAdapters(members, ~~(maxStars / 2)),
+        getSteadyPerformers(members, ~~(maxStars / 2)),
+        getStarEfficientCoders(members, Math.min(25, maxStars)),
         getSpeedRunners(members),
         getEarlyBirds(members),
         getEarlyOwls(members),
@@ -111,9 +117,9 @@ function getStarCollectors(members: IProcessedData) {
   );
 }
 
-function getPrimeCoders(members: IProcessedData) {
+function getPrimeCoders(members: IProcessedData, numStars: number = 50) {
   const items = Object.values(members)
-    .filter((m) => m.finished && m.lastTimestamp)
+    .filter((m) => m.totalStars === numStars && m.lastTimestamp)
     .map((m) => ({
       id: m.id,
       name: m.name,
@@ -126,8 +132,8 @@ function getPrimeCoders(members: IProcessedData) {
     <Leaderboard
       {...getLeaderboardProps(
         "Prime Coders",
-        "first to get 50 stars",
-        "the date indicates the moment when the 50th star was earned"
+        `first to get ${numStars} stars`,
+        `the date indicates the moment when the ${numStars}th star was earned`
       )}
       items={items}
       reverse
@@ -135,9 +141,9 @@ function getPrimeCoders(members: IProcessedData) {
   );
 }
 
-function getRapidCoders(members: IProcessedData) {
+function getRapidCoders(members: IProcessedData, numStars: number = 50) {
   const items = Object.values(members)
-    .filter((m) => m.finished && m.totalTime)
+    .filter((m) => m.totalStars === numStars && m.totalTime)
     .map((m) => ({
       id: m.id,
       name: m.name,
@@ -150,7 +156,7 @@ function getRapidCoders(members: IProcessedData) {
     <Leaderboard
       {...getLeaderboardProps(
         "Rapid Coders",
-        "time spent to get 50 stars",
+        `time spent to get ${numStars} stars`,
         "sum of the duration it took to complete the second part of each day.\n" +
           "the duration (per day) is measured from the moment when a puzzle was released, " +
           "until the second part of that puzzle was finished."
@@ -161,9 +167,9 @@ function getRapidCoders(members: IProcessedData) {
   );
 }
 
-function getOverachievingAdapters(members: IProcessedData, minStars: number = 25) {
+function getOverachievingAdapters(members: IProcessedData, numDays: number = 25) {
   const items = Object.values(members)
-    .filter((m) => m.finished && m.totalDelta)
+    .filter((m) => m.totalStars === 2 * numDays && m.totalDelta)
     .map((m) => ({
       id: m.id,
       name: m.name,
@@ -176,7 +182,7 @@ function getOverachievingAdapters(members: IProcessedData, minStars: number = 25
     <Leaderboard
       {...getLeaderboardProps(
         "Overachieving Adapters",
-        `delta time between the first and second part of all 25 puzzles`,
+        `delta time between the first and second part of all ${numDays} puzzles`,
         "sum of the delta times of each day.\n" +
           "the delta time (per day) is measured from the moment the first part of a day was finished, " +
           "until the second part was finished."
@@ -187,9 +193,9 @@ function getOverachievingAdapters(members: IProcessedData, minStars: number = 25
   );
 }
 
-function getSteadyPerformers(members: IProcessedData, minStars: number = 25) {
+function getSteadyPerformers(members: IProcessedData, numDays: number = 25) {
   const items = Object.values(members)
-    .filter((m) => m.finished && m.medianDelta)
+    .filter((m) => m.totalStars === 2 * numDays && m.medianDelta)
     .map((m) => ({
       id: m.id,
       name: m.name,
@@ -202,7 +208,7 @@ function getSteadyPerformers(members: IProcessedData, minStars: number = 25) {
     <Leaderboard
       {...getLeaderboardProps(
         "Steady Performers",
-        `median delta time between the first and second part of all 25 puzzles`,
+        `median delta time between the first and second part of all ${numDays} puzzles`,
         "median of the delta times of each day.\n" +
           "the delta time (per day) is measured from the moment the first part of a day was finished, " +
           "until the second part was finished."
@@ -238,7 +244,7 @@ function getStarEfficientCoders(members: IProcessedData, minStars: number = 25) 
   );
 }
 
-function getEarlyBirds(members: IProcessedData, minStars: number = 25) {
+function getEarlyBirds(members: IProcessedData) {
   const items = Object.values(members)
     .filter((m) => m.partaFirst)
     .map((m) => ({ id: m.id, name: m.name, value: m.partaFirst }));
@@ -254,7 +260,7 @@ function getEarlyBirds(members: IProcessedData, minStars: number = 25) {
   );
 }
 
-function getEarlyOwls(members: IProcessedData, minStars: number = 25) {
+function getEarlyOwls(members: IProcessedData) {
   const items = Object.values(members)
     .filter((m) => m.partbFirst)
     .map((m) => ({ id: m.id, name: m.name, value: m.partbFirst }));
@@ -270,7 +276,7 @@ function getEarlyOwls(members: IProcessedData, minStars: number = 25) {
   );
 }
 
-function getSpeedRunners(members: IProcessedData, minStars: number = 25) {
+function getSpeedRunners(members: IProcessedData) {
   const items = Object.values(members)
     .filter((m) => m.dayFirst)
     .map((m) => ({ id: m.id, name: m.name, value: m.dayFirst }));
