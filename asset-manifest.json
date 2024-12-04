@@ -1,0 +1,13 @@
+{
+  "files": {
+    "main.css": "/more-aoc-leaderboards/static/css/main.95f8d305.css",
+    "main.js": "/more-aoc-leaderboards/static/js/main.17994fd9.js",
+    "index.html": "/more-aoc-leaderboards/index.html",
+    "main.95f8d305.css.map": "/more-aoc-leaderboards/static/css/main.95f8d305.css.map",
+    "main.17994fd9.js.map": "/more-aoc-leaderboards/static/js/main.17994fd9.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.95f8d305.css",
+    "static/js/main.17994fd9.js"
+  ]
+}
