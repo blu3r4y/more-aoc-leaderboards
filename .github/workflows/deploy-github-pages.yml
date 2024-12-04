@@ -14,11 +14,11 @@ jobs:
       - name: Setup build environment
         uses: actions/setup-node@v3
         with:
-          node-version: "16"
+          node-version: "20"
       - name: Enable corepack and upgrade Yarn
         run: |
           corepack enable
-          yarn set version ./.yarn/releases/yarn-3.3.0.cjs
+          yarn set version ./.yarn/releases/yarn-4.5.3.cjs
       - name: Install dependencies
         run: yarn install --immutable
       - name: Check code style
