@@ -4,6 +4,7 @@ import Joi from "joi";
 
 export declare interface IApiData {
   owner_id: number;
+  day1_ts?: number;
   event: number;
   members: {
     [id: number]: IApiMember;
@@ -32,6 +33,7 @@ export declare interface IApiCompletion {
 // schema to validate any wild payload
 export const Schema = Joi.object({
   owner_id: Joi.number().required(),
+  day1_ts: Joi.number().optional(),
   event: Joi.number().required(),
   members: Joi.object().pattern(
     Joi.number(),
