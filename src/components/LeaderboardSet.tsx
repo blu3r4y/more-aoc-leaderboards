@@ -2,7 +2,11 @@ import dayjs from "dayjs";
 import duration, { Duration } from "dayjs/plugin/duration";
 
 import { IProcessedData } from "../api/ApiProcessor";
-import { achievableStars } from "../utils/StarUtils";
+import {
+  achievableStars,
+  hasGlobalLeaderboard,
+  totalNumberOfDays,
+} from "../utils/StarUtils";
 import AppMasonry from "./AppMasonry";
 import Leaderboard from "./Leaderboard";
 
@@ -18,6 +22,7 @@ function LeaderboardSet(props: ILeaderboardSetProps) {
   // maximum number of stars that can be achieved right now
   // TODO: if anyone achieved more, the clients local time is off, fix that?
   const year = Object.values(members)[0].year || dayjs().year();
+  const totalDays = totalNumberOfDays(year);
   const maxStars = achievableStars(dayjs(), year);
 
   return (
@@ -29,7 +34,7 @@ function LeaderboardSet(props: ILeaderboardSetProps) {
         getRapidCoders(members, maxStars),
         getOverachievingAdapters(members, ~~(maxStars / 2)),
         getSteadyPerformers(members, ~~(maxStars / 2)),
-        getStarEfficientCoders(members, Math.min(25, maxStars)),
+        getStarEfficientCoders(members, Math.min(totalDays, maxStars)),
         getSpeedRunners(members),
         getEarlyBirds(members),
         getEarlyOwls(members),
@@ -37,7 +42,7 @@ function LeaderboardSet(props: ILeaderboardSetProps) {
         getStarCollectors(members),
         getFastMinimalists(members),
         getFastPerfectionists(members),
-        getGlobalLeaderboard(members),
+        ...(hasGlobalLeaderboard(year) ? [getGlobalLeaderboard(members)] : []),
       ]}
     </AppMasonry>
   );
@@ -117,7 +122,7 @@ function getStarCollectors(members: IProcessedData) {
   );
 }
 
-function getPrimeCoders(members: IProcessedData, numStars: number = 50) {
+function getPrimeCoders(members: IProcessedData, numStars: number) {
   const items = Object.values(members)
     .filter((m) => m.totalStars === numStars && m.lastTimestamp)
     .map((m) => ({
@@ -141,7 +146,7 @@ function getPrimeCoders(members: IProcessedData, numStars: number = 50) {
   );
 }
 
-function getRapidCoders(members: IProcessedData, numStars: number = 50) {
+function getRapidCoders(members: IProcessedData, numStars: number) {
   const items = Object.values(members)
     .filter((m) => m.totalStars === numStars && m.totalTime)
     .map((m) => ({
@@ -167,7 +172,7 @@ function getRapidCoders(members: IProcessedData, numStars: number = 50) {
   );
 }
 
-function getOverachievingAdapters(members: IProcessedData, numDays: number = 25) {
+function getOverachievingAdapters(members: IProcessedData, numDays: number) {
   const items = Object.values(members)
     .filter((m) => m.totalStars === 2 * numDays && m.totalDelta)
     .map((m) => ({
@@ -193,7 +198,7 @@ function getOverachievingAdapters(members: IProcessedData, numDays: number = 25)
   );
 }
 
-function getSteadyPerformers(members: IProcessedData, numDays: number = 25) {
+function getSteadyPerformers(members: IProcessedData, numDays: number) {
   const items = Object.values(members)
     .filter((m) => m.totalStars === 2 * numDays && m.medianDelta)
     .map((m) => ({
@@ -219,7 +224,7 @@ function getSteadyPerformers(members: IProcessedData, numDays: number = 25) {
   );
 }
 
-function getStarEfficientCoders(members: IProcessedData, minStars: number = 25) {
+function getStarEfficientCoders(members: IProcessedData, minStars: number) {
   const items = Object.values(members)
     .filter((m) => m.totalStars >= minStars && m.timePerStar)
     .map((m) => ({
@@ -235,8 +240,8 @@ function getStarEfficientCoders(members: IProcessedData, minStars: number = 25) 
       {...getLeaderboardProps(
         "Star-Efficient Coders",
         `time spent per star, for coders with at least ${minStars} stars`,
-        `for coders with at least ${minStars} stars, the duration you get by dividing " +
-        "the time spent to earn them (see "Rapid Coders") by the number of stars earned`
+        `for coders with at least ${minStars} stars, the duration you get by dividing ` +
+          `the time spent to earn them (see "Rapid Coders") by the number of stars earned`
       )}
       items={items}
       reverse

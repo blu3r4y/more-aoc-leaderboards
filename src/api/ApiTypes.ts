@@ -25,7 +25,7 @@ export declare interface IApiCompletion {
   [day: number]: {
     [part: number]: {
       get_star_ts: number;
-      star_index?: number;
+      star_index?: number | null;
     };
   };
 }
@@ -35,6 +35,7 @@ export const Schema = Joi.object({
   owner_id: Joi.number().required(),
   day1_ts: Joi.number().optional(),
   event: Joi.number().required(),
+  num_days: Joi.number().optional(),
   members: Joi.object().pattern(
     Joi.number(),
     Joi.object({
@@ -42,7 +43,7 @@ export const Schema = Joi.object({
       name: Joi.string().allow(null),
       stars: Joi.number().required(),
       local_score: Joi.number().required(),
-      global_score: Joi.number().required(),
+      global_score: Joi.number().optional(),
       last_star_ts: Joi.number().required(),
       completion_day_level: Joi.object().pattern(
         Joi.number().min(1).max(25),
@@ -50,7 +51,7 @@ export const Schema = Joi.object({
           Joi.number().min(1).max(2),
           Joi.object({
             get_star_ts: Joi.number().required(),
-            star_index: Joi.number().optional(),
+            star_index: Joi.number().allow(null).optional(),
           })
         )
       ),

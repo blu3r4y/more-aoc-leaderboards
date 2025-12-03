@@ -6,15 +6,17 @@ import dayjs, { Dayjs } from "dayjs";
  *
  * @param time the point of time to check
  * @param year year of the event
+ * @param numDays number of days in that year's event
  * @returns the number of stars that can be achieved at that time
  */
 export function achievableStars(time: Dayjs, year: number): number {
+  const totalDays = totalNumberOfDays(year);
   const start = unlockDate(year, 1);
-  const end = unlockDate(year, 25);
+  const end = unlockDate(year, totalDays);
 
   // is this event over or didn't even start yet?
   if (time.isBefore(start)) return 0;
-  if (time.isAfter(end)) return 50;
+  if (time.isAfter(end)) return 2 * totalDays; // 2 per day
 
   // has the current day been unlocked yet?
   const todayUnlock = unlockDate(year, time.date());
@@ -43,4 +45,34 @@ export function unlockDate(year: number, day: number): Dayjs {
  */
 export function isOutageDay(year: number, day: number): boolean {
   return (year === 2018 && day === 6) || (year === 2020 && day === 1);
+}
+
+/**
+ * return the total number of days in the event for a given year
+ *
+ * @param year year of the event
+ * @returns the total number of days in the event for that year
+ */
+export function totalNumberOfDays(year: number): number {
+  return year < 2025 ? 25 : 12;
+}
+
+/**
+ * return the total number of stars in the event for a given year
+ *
+ * @param year year of the event
+ * @returns the total number of stars in the event for that year
+ */
+export function totalNumberOfStars(year: number): number {
+  return 2 * totalNumberOfDays(year);
+}
+
+/**
+ * returns whether the given year has a global leaderboard
+ *
+ * @param year year of the event
+ * @returns true if the year has a global leaderboard, false otherwise
+ */
+export function hasGlobalLeaderboard(year: number): boolean {
+  return year < 2025;
 }

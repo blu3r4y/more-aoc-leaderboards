@@ -3,7 +3,12 @@ import duration, { Duration } from "dayjs/plugin/duration";
 
 import { IApiData, IApiMember } from "./ApiTypes";
 import { mapValues, dropNull, median, rankIndexes } from "../utils/Utils";
-import { unlockDate, isOutageDay } from "../utils/StarUtils";
+import {
+  unlockDate,
+  isOutageDay,
+  totalNumberOfStars,
+  totalNumberOfDays,
+} from "../utils/StarUtils";
 
 dayjs.extend(duration);
 
@@ -16,7 +21,7 @@ declare interface IPreMember {
   name: string;
   /** whether this user did any puzzles */
   active: boolean;
-  /** whether this user did all puzzles (50 stars) */
+  /** whether this user did all puzzles */
   finished: boolean;
   /** total number of stars */
   totalStars: number;
@@ -89,8 +94,13 @@ export declare interface IMember extends IPreMember {
   dayFirst: number;
 }
 
-const ALL_DAYS = Array.from(new Array(25), (_, i) => i + 1);
 const ALL_MIN_RANKS = Array.from(new Array(10), (_, i) => i + 1);
+
+/** array with indices for all days in the event */
+function buildAllDaysArray(year: number): Array<number> {
+  const totalDays = totalNumberOfDays(year);
+  return Array.from(new Array(totalDays), (_, i) => i + 1);
+}
 
 export function processData(apiData: IApiData): IProcessedData {
   const { event: year, members: apiMembers } = apiData;
@@ -117,10 +127,10 @@ function processMember(member: IApiMember, year: number): IPreMember {
   const id = member.id;
   const name = member.name ?? `#${member.id}`;
   const active = member.last_star_ts !== 0;
-  const finished = member.stars === 50;
+  const finished = member.stars === totalNumberOfStars(year);
   const totalStars = member.stars;
   const localScore = member.local_score;
-  const globalScore = member.global_score;
+  const globalScore = member.global_score ?? 0;
 
   // last star timestamp and duration
   const lastTimestamp = active ? dayjs.unix(member.last_star_ts) : null;
@@ -128,12 +138,15 @@ function processMember(member: IApiMember, year: number): IPreMember {
     ? dayjs.duration(lastTimestamp.diff(unlockDate(year, 1)))
     : null;
 
+  // all days in the event, for easy indexing
+  const allDays = buildAllDaysArray(year);
+
   // transform completion timestamps and star indexes, per day
   const partaTimestamp: IPreMember["partaTimestamp"] = {};
   const partbTimestamp: IPreMember["partbTimestamp"] = {};
   const partaIndex: IPreMember["partaIndex"] = {};
   const partbIndex: IPreMember["partbIndex"] = {};
-  for (const day of ALL_DAYS) {
+  for (const day of allDays) {
     const p = member.completion_day_level[day];
     partaTimestamp[day] = p && p["1"] ? dayjs.unix(p["1"].get_star_ts) : null;
     partbTimestamp[day] = p && p["2"] ? dayjs.unix(p["2"].get_star_ts) : null;
@@ -156,11 +169,11 @@ function processMember(member: IApiMember, year: number): IPreMember {
   // number of stars, per day
   const sumParts = (day: number) =>
     (partaTimestamp[day] ? 1 : 0) + (partbTimestamp[day] ? 1 : 0);
-  const stars = Object.fromEntries(ALL_DAYS.map((day) => [day, sumParts(day)]));
+  const stars = Object.fromEntries(allDays.map((day) => [day, sumParts(day)]));
 
   // delta times, per day (for days, where part 2 was done)
   const deltaTimes: IPreMember["deltaTimes"] = {};
-  for (const day of ALL_DAYS) {
+  for (const day of allDays) {
     const parta = partaTimes[day];
     const partb = partbTimes[day];
     deltaTimes[day] = parta && partb ? partb.subtract(parta) : null;
@@ -183,7 +196,7 @@ function processMember(member: IApiMember, year: number): IPreMember {
     return null;
   };
   const totalTime = active
-    ? dropNull(ALL_DAYS.map(latestPartTime)).reduce(sumDuration, dayjs.duration(0))
+    ? dropNull(allDays.map(latestPartTime)).reduce(sumDuration, dayjs.duration(0))
     : null;
 
   // average time it took to retrieve a star
@@ -233,10 +246,13 @@ function processAllMembers(
 ): IProcessedData {
   const numMembers = Object.keys(members).length;
 
+  // all days in the event, for easy indexing
+  const allDays = buildAllDaysArray(year);
+
   // initialize a map, that, for each member id, maps a metric of that day, per metric
   type IMemberDayMetricMap<T> = { [id: number]: { [day: number]: number | T } };
   const newDayMetricMap: <T>(init: T) => { [day: number]: number | T } = <T>(init: T) =>
-    Object.fromEntries(ALL_DAYS.map((day) => [day, init]));
+    Object.fromEntries(allDays.map((day) => [day, init]));
   const newMemberDayMetricMap: <T>(init: T) => IMemberDayMetricMap<T> = <T>(init: T) =>
     mapValues(members, () => newDayMetricMap(init));
 
@@ -252,7 +268,7 @@ function processAllMembers(
 
   // compute day-wise metrics
   type IBoardEle = { id: number; sid: number; time: Duration };
-  for (const day of ALL_DAYS) {
+  for (const day of allDays) {
     const [allParta, allPartb, allDelta]: IBoardEle[][] = [[], [], []];
 
     // fill data store with values from all members
@@ -321,7 +337,7 @@ function processAllMembers(
     const partbFirst = Object.values(partbRanks[m.id]).filter((r) => r === 1).length;
 
     // ... or both parts of a day?
-    const dayFirst = ALL_DAYS.filter(
+    const dayFirst = allDays.filter(
       (day) => partaRanks[m.id][day] === 1 && partbRanks[m.id][day] === 1
     ).length;
 
