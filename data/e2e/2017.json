@@ -1,0 +1,2608 @@
+{
+  "num_days": 25,
+  "event": "2017",
+  "owner_id": 2556392,
+  "day1_ts": 1512104400,
+  "members": {
+    "322320": {
+      "last_star_ts": 0,
+      "completion_day_level": {},
+      "global_score": 0,
+      "local_score": 0,
+      "id": 322320,
+      "stars": 0,
+      "name": "Denise Weber"
+    },
+    "86323": {
+      "last_star_ts": 0,
+      "completion_day_level": {},
+      "local_score": 0,
+      "id": 86323,
+      "global_score": 0,
+      "name": "Andrew",
+      "stars": 0
+    },
+    "900048": {
+      "name": "Katherine Mcfarland",
+      "stars": 0,
+      "local_score": 0,
+      "completion_day_level": {},
+      "global_score": 0,
+      "id": 900048,
+      "last_star_ts": 0
+    },
+    "880991": {
+      "last_star_ts": 0,
+      "completion_day_level": {},
+      "local_score": 0,
+      "global_score": 0,
+      "id": 880991,
+      "stars": 0,
+      "name": "Henry"
+    },
+    "131052": {
+      "last_star_ts": 0,
+      "completion_day_level": {},
+      "local_score": 0,
+      "id": 131052,
+      "global_score": 0,
+      "name": "Jessica Smith",
+      "stars": 0
+    },
+    "875552": {
+      "last_star_ts": 1513198069,
+      "completion_day_level": {
+        "4": {
+          "1": {
+            "get_star_ts": 1512392815,
+            "star_index": 12
+          },
+          "2": {
+            "get_star_ts": 1512394591,
+            "star_index": 13
+          }
+        },
+        "3": {
+          "2": {
+            "star_index": 11,
+            "get_star_ts": 1512324087
+          },
+          "1": {
+            "get_star_ts": 1512309673,
+            "star_index": 10
+          }
+        },
+        "5": {
+          "2": {
+            "star_index": 19,
+            "get_star_ts": 1512461120
+          },
+          "1": {
+            "get_star_ts": 1512460621,
+            "star_index": 18
+          }
+        },
+        "13": {
+          "1": {
+            "get_star_ts": 1513198069,
+            "star_index": 38
+          }
+        },
+        "2": {
+          "2": {
+            "get_star_ts": 1512228699,
+            "star_index": 7
+          },
+          "1": {
+            "star_index": 6,
+            "get_star_ts": 1512228197
+          }
+        },
+        "1": {
+          "2": {
+            "get_star_ts": 1512148645,
+            "star_index": 1
+          },
+          "1": {
+            "star_index": 0,
+            "get_star_ts": 1512148229
+          }
+        },
+        "6": {
+          "2": {
+            "get_star_ts": 1512561141,
+            "star_index": 21
+          },
+          "1": {
+            "star_index": 20,
+            "get_star_ts": 1512560197
+          }
+        }
+      },
+      "local_score": 1892,
+      "id": 875552,
+      "global_score": 0,
+      "name": "Roberta Pitts",
+      "stars": 13
+    },
+    "18494": {
+      "name": "Andrea Reese",
+      "stars": 0,
+      "local_score": 0,
+      "completion_day_level": {},
+      "id": 18494,
+      "global_score": 0,
+      "last_star_ts": 0
+    },
+    "784485": {
+      "last_star_ts": 0,
+      "local_score": 0,
+      "completion_day_level": {},
+      "global_score": 0,
+      "id": 784485,
+      "stars": 0,
+      "name": "Veronica"
+    },
+    "260139": {
+      "completion_day_level": {},
+      "id": 260139,
+      "local_score": 0,
+      "global_score": 0,
+      "stars": 0,
+      "name": "Lisa",
+      "last_star_ts": 0
+    },
+    "446320": {
+      "last_star_ts": 0,
+      "name": "Wanda Smith",
+      "stars": 0,
+      "global_score": 0,
+      "completion_day_level": {},
+      "local_score": 0,
+      "id": 446320
+    },
+    "973945": {
+      "completion_day_level": {},
+      "id": 973945,
+      "local_score": 0,
+      "global_score": 0,
+      "name": "Curtis",
+      "stars": 0,
+      "last_star_ts": 0
+    },
+    "377843": {
+      "completion_day_level": {},
+      "global_score": 0,
+      "local_score": 0,
+      "id": 377843,
+      "name": "Kirsten",
+      "stars": 0,
+      "last_star_ts": 0
+    },
+    "350926": {
+      "global_score": 0,
+      "completion_day_level": {},
+      "local_score": 0,
+      "id": 350926,
+      "name": "Christina Griffin",
+      "stars": 0,
+      "last_star_ts": 0
+    },
+    "748753": {
+      "completion_day_level": {},
+      "local_score": 0,
+      "global_score": 0,
+      "id": 748753,
+      "name": "Sarah",
+      "stars": 0,
+      "last_star_ts": 0
+    },
+    "125648": {
+      "last_star_ts": 0,
+      "stars": 0,
+      "name": "Lori Bennett",
+      "id": 125648,
+      "completion_day_level": {},
+      "local_score": 0,
+      "global_score": 0
+    },
+    "706259": {
+      "id": 706259,
+      "completion_day_level": {},
+      "local_score": 0,
+      "global_score": 0,
+      "name": "Larry",
+      "stars": 0,
+      "last_star_ts": 0
+    },
+    "515124": {
+      "last_star_ts": 0,
+      "stars": 0,
+      "name": "Lisa Tran",
+      "completion_day_level": {},
+      "local_score": 0,
+      "id": 515124,
+      "global_score": 0
+    },
+    "862878": {
+      "completion_day_level": {},
+      "local_score": 0,
+      "global_score": 0,
+      "id": 862878,
+      "stars": 0,
+      "name": "Anthony Velez",
+      "last_star_ts": 0
+    },
+    "256360": {
+      "id": 256360,
+      "completion_day_level": {},
+      "local_score": 0,
+      "global_score": 0,
+      "stars": 0,
+      "name": "Jennifer Zavala",
+      "last_star_ts": 0
+    },
+    "616502": {
+      "last_star_ts": 0,
+      "local_score": 0,
+      "completion_day_level": {},
+      "id": 616502,
+      "global_score": 0,
+      "stars": 0,
+      "name": "Jason Shields"
+    },
+    "201091": {
+      "last_star_ts": 0,
+      "id": 201091,
+      "completion_day_level": {},
+      "local_score": 0,
+      "global_score": 0,
+      "name": "Richard",
+      "stars": 0
+    },
+    "426106": {
+      "last_star_ts": 1513408551,
+      "global_score": 0,
+      "completion_day_level": {
+        "8": {
+          "2": {
+            "star_index": 27,
+            "get_star_ts": 1512726238
+          },
+          "1": {
+            "star_index": 26,
+            "get_star_ts": 1512725804
+          }
+        },
+        "16": {
+          "1": {
+            "get_star_ts": 1513408551,
+            "star_index": 52
+          }
+        },
+        "12": {
+          "1": {
+            "get_star_ts": 1513057845,
+            "star_index": 36
+          },
+          "2": {
+            "get_star_ts": 1513058920,
+            "star_index": 37
+          }
+        },
+        "2": {
+          "1": {
+            "get_star_ts": 1512205010,
+            "star_index": 4
+          },
+          "2": {
+            "star_index": 5,
+            "get_star_ts": 1512206430
+          }
+        },
+        "13": {
+          "1": {
+            "get_star_ts": 1513272705,
+            "star_index": 40
+          },
+          "2": {
+            "get_star_ts": 1513280718,
+            "star_index": 42
+          }
+        },
+        "15": {
+          "1": {
+            "get_star_ts": 1513361752,
+            "star_index": 46
+          },
+          "2": {
+            "get_star_ts": 1513362282,
+            "star_index": 47
+          }
+        },
+        "7": {
+          "1": {
+            "get_star_ts": 1512671515,
+            "star_index": 24
+          },
+          "2": {
+            "get_star_ts": 1512673980,
+            "star_index": 25
+          }
+        },
+        "9": {
+          "1": {
+            "get_star_ts": 1512809943,
+            "star_index": 29
+          },
+          "2": {
+            "get_star_ts": 1512810318,
+            "star_index": 30
+          }
+        },
+        "4": {
+          "2": {
+            "get_star_ts": 1512414367,
+            "star_index": 15
+          },
+          "1": {
+            "star_index": 14,
+            "get_star_ts": 1512413864
+          }
+        },
+        "1": {
+          "1": {
+            "star_index": 2,
+            "get_star_ts": 1512162619
+          },
+          "2": {
+            "get_star_ts": 1512163418,
+            "star_index": 3
+          }
+        },
+        "10": {
+          "1": {
+            "get_star_ts": 1512900988,
+            "star_index": 31
+          },
+          "2": {
+            "star_index": 32,
+            "get_star_ts": 1512905395
+          }
+        },
+        "11": {
+          "1": {
+            "get_star_ts": 1513021006,
+            "star_index": 34
+          },
+          "2": {
+            "get_star_ts": 1513021554,
+            "star_index": 35
+          }
+        },
+        "3": {
+          "1": {
+            "get_star_ts": 1512296773,
+            "star_index": 8
+          },
+          "2": {
+            "get_star_ts": 1512304825,
+            "star_index": 9
+          }
+        },
+        "6": {
+          "2": {
+            "star_index": 23,
+            "get_star_ts": 1512583134
+          },
+          "1": {
+            "star_index": 22,
+            "get_star_ts": 1512582479
+          }
+        },
+        "14": {
+          "2": {
+            "get_star_ts": 1513283929,
+            "star_index": 44
+          },
+          "1": {
+            "star_index": 43,
+            "get_star_ts": 1513282534
+          }
+        },
+        "5": {
+          "2": {
+            "star_index": 17,
+            "get_star_ts": 1512453681
+          },
+          "1": {
+            "star_index": 16,
+            "get_star_ts": 1512452993
+          }
+        }
+      },
+      "local_score": 4519,
+      "id": 426106,
+      "stars": 31,
+      "name": "Angela Fischer"
+    },
+    "920786": {
+      "last_star_ts": 0,
+      "name": "Shannon Sanders",
+      "stars": 0,
+      "completion_day_level": {},
+      "local_score": 0,
+      "id": 920786,
+      "global_score": 0
+    },
+    "733313": {
+      "last_star_ts": 0,
+      "name": "Jeffrey",
+      "stars": 0,
+      "local_score": 0,
+      "completion_day_level": {},
+      "id": 733313,
+      "global_score": 0
+    },
+    "434851": {
+      "global_score": 0,
+      "completion_day_level": {},
+      "local_score": 0,
+      "id": 434851,
+      "stars": 0,
+      "name": "Ellen",
+      "last_star_ts": 0
+    },
+    "711475": {
+      "last_star_ts": 0,
+      "stars": 0,
+      "name": "Michael",
+      "local_score": 0,
+      "completion_day_level": {},
+      "global_score": 0,
+      "id": 711475
+    },
+    "521788": {
+      "last_star_ts": 0,
+      "stars": 0,
+      "name": "Caleb Johnson",
+      "completion_day_level": {},
+      "id": 521788,
+      "local_score": 0,
+      "global_score": 0
+    },
+    "143337": {
+      "last_star_ts": 0,
+      "stars": 0,
+      "name": "Melissa",
+      "id": 143337,
+      "completion_day_level": {},
+      "local_score": 0,
+      "global_score": 0
+    },
+    "751608": {
+      "last_star_ts": 1514240986,
+      "stars": 50,
+      "name": "Kelly White",
+      "completion_day_level": {
+        "5": {
+          "2": {
+            "star_index": 109,
+            "get_star_ts": 1514054452
+          },
+          "1": {
+            "star_index": 107,
+            "get_star_ts": 1514054149
+          }
+        },
+        "14": {
+          "1": {
+            "star_index": 62,
+            "get_star_ts": 1513530277
+          },
+          "2": {
+            "get_star_ts": 1513535507,
+            "star_index": 63
+          }
+        },
+        "21": {
+          "1": {
+            "get_star_ts": 1514240157,
+            "star_index": 136
+          },
+          "2": {
+            "star_index": 137,
+            "get_star_ts": 1514240861
+          }
+        },
+        "23": {
+          "2": {
+            "get_star_ts": 1514038015,
+            "star_index": 100
+          },
+          "1": {
+            "get_star_ts": 1514035491,
+            "star_index": 99
+          }
+        },
+        "6": {
+          "1": {
+            "star_index": 112,
+            "get_star_ts": 1514059234
+          },
+          "2": {
+            "get_star_ts": 1514059699,
+            "star_index": 113
+          }
+        },
+        "3": {
+          "1": {
+            "star_index": 53,
+            "get_star_ts": 1513432013
+          },
+          "2": {
+            "get_star_ts": 1514050874,
+            "star_index": 104
+          }
+        },
+        "18": {
+          "2": {
+            "get_star_ts": 1513662931,
+            "star_index": 73
+          },
+          "1": {
+            "star_index": 68,
+            "get_star_ts": 1513590547
+          }
+        },
+        "11": {
+          "2": {
+            "get_star_ts": 1514230070,
+            "star_index": 133
+          },
+          "1": {
+            "get_star_ts": 1514229869,
+            "star_index": 132
+          }
+        },
+        "17": {
+          "1": {
+            "star_index": 56,
+            "get_star_ts": 1513507647
+          },
+          "2": {
+            "star_index": 57,
+            "get_star_ts": 1513509343
+          }
+        },
+        "1": {
+          "2": {
+            "get_star_ts": 1513377906,
+            "star_index": 49
+          },
+          "1": {
+            "star_index": 48,
+            "get_star_ts": 1513377401
+          }
+        },
+        "24": {
+          "2": {
+            "get_star_ts": 1514215448,
+            "star_index": 126
+          },
+          "1": {
+            "star_index": 125,
+            "get_star_ts": 1514212804
+          }
+        },
+        "10": {
+          "1": {
+            "get_star_ts": 1513527444,
+            "star_index": 60
+          },
+          "2": {
+            "star_index": 61,
+            "get_star_ts": 1513529219
+          }
+        },
+        "19": {
+          "1": {
+            "get_star_ts": 1513730445,
+            "star_index": 78
+          },
+          "2": {
+            "get_star_ts": 1513731963,
+            "star_index": 79
+          }
+        },
+        "25": {
+          "1": {
+            "star_index": 127,
+            "get_star_ts": 1514220973
+          },
+          "2": {
+            "star_index": 138,
+            "get_star_ts": 1514240986
+          }
+        },
+        "22": {
+          "1": {
+            "get_star_ts": 1514232887,
+            "star_index": 134
+          },
+          "2": {
+            "star_index": 135,
+            "get_star_ts": 1514235636
+          }
+        },
+        "4": {
+          "1": {
+            "get_star_ts": 1514053288,
+            "star_index": 105
+          },
+          "2": {
+            "star_index": 106,
+            "get_star_ts": 1514053668
+          }
+        },
+        "7": {
+          "2": {
+            "star_index": 118,
+            "get_star_ts": 1514072446
+          },
+          "1": {
+            "star_index": 114,
+            "get_star_ts": 1514063090
+          }
+        },
+        "9": {
+          "2": {
+            "get_star_ts": 1514225884,
+            "star_index": 131
+          },
+          "1": {
+            "star_index": 130,
+            "get_star_ts": 1514225228
+          }
+        },
+        "15": {
+          "1": {
+            "get_star_ts": 1513523342,
+            "star_index": 58
+          },
+          "2": {
+            "get_star_ts": 1513524028,
+            "star_index": 59
+          }
+        },
+        "2": {
+          "2": {
+            "get_star_ts": 1513380527,
+            "star_index": 51
+          },
+          "1": {
+            "star_index": 50,
+            "get_star_ts": 1513378935
+          }
+        },
+        "13": {
+          "2": {
+            "star_index": 65,
+            "get_star_ts": 1513541701
+          },
+          "1": {
+            "star_index": 64,
+            "get_star_ts": 1513539999
+          }
+        },
+        "12": {
+          "2": {
+            "get_star_ts": 1513544148,
+            "star_index": 67
+          },
+          "1": {
+            "star_index": 66,
+            "get_star_ts": 1513544019
+          }
+        },
+        "20": {
+          "2": {
+            "get_star_ts": 1514046173,
+            "star_index": 103
+          },
+          "1": {
+            "get_star_ts": 1513766934,
+            "star_index": 82
+          }
+        },
+        "16": {
+          "2": {
+            "star_index": 55,
+            "get_star_ts": 1513475247
+          },
+          "1": {
+            "get_star_ts": 1513435257,
+            "star_index": 54
+          }
+        },
+        "8": {
+          "2": {
+            "get_star_ts": 1514223282,
+            "star_index": 129
+          },
+          "1": {
+            "star_index": 128,
+            "get_star_ts": 1514223084
+          }
+        }
+      },
+      "local_score": 7232,
+      "id": 751608,
+      "global_score": 0
+    },
+    "349295": {
+      "last_star_ts": 0,
+      "completion_day_level": {},
+      "local_score": 0,
+      "id": 349295,
+      "global_score": 0,
+      "name": "Chad",
+      "stars": 0
+    },
+    "605667": {
+      "last_star_ts": 0,
+      "completion_day_level": {},
+      "local_score": 0,
+      "id": 605667,
+      "global_score": 0,
+      "name": "Stephanie",
+      "stars": 0
+    },
+    "321662": {
+      "last_star_ts": 1514583000,
+      "name": "Matthew Johnson",
+      "stars": 40,
+      "local_score": 5764,
+      "completion_day_level": {
+        "19": {
+          "1": {
+            "star_index": 141,
+            "get_star_ts": 1514574897
+          },
+          "2": {
+            "star_index": 142,
+            "get_star_ts": 1514575087
+          }
+        },
+        "10": {
+          "1": {
+            "star_index": 95,
+            "get_star_ts": 1513970918
+          },
+          "2": {
+            "star_index": 96,
+            "get_star_ts": 1513978010
+          }
+        },
+        "1": {
+          "1": {
+            "get_star_ts": 1513608362,
+            "star_index": 69
+          },
+          "2": {
+            "get_star_ts": 1513608688,
+            "star_index": 70
+          }
+        },
+        "17": {
+          "2": {
+            "get_star_ts": 1514151107,
+            "star_index": 124
+          },
+          "1": {
+            "get_star_ts": 1514150241,
+            "star_index": 123
+          }
+        },
+        "4": {
+          "2": {
+            "get_star_ts": 1513725722,
+            "star_index": 77
+          },
+          "1": {
+            "get_star_ts": 1513724975,
+            "star_index": 76
+          }
+        },
+        "7": {
+          "1": {
+            "star_index": 85,
+            "get_star_ts": 1513803575
+          },
+          "2": {
+            "get_star_ts": 1513885234,
+            "star_index": 89
+          }
+        },
+        "9": {
+          "2": {
+            "star_index": 94,
+            "get_star_ts": 1513966432
+          },
+          "1": {
+            "get_star_ts": 1513965999,
+            "star_index": 93
+          }
+        },
+        "13": {
+          "1": {
+            "star_index": 108,
+            "get_star_ts": 1514054247
+          },
+          "2": {
+            "get_star_ts": 1514057517,
+            "star_index": 110
+          }
+        },
+        "2": {
+          "1": {
+            "star_index": 71,
+            "get_star_ts": 1513610012
+          },
+          "2": {
+            "get_star_ts": 1513610957,
+            "star_index": 72
+          }
+        },
+        "15": {
+          "2": {
+            "star_index": 117,
+            "get_star_ts": 1514069858
+          },
+          "1": {
+            "get_star_ts": 1514069389,
+            "star_index": 116
+          }
+        },
+        "12": {
+          "1": {
+            "star_index": 101,
+            "get_star_ts": 1514046026
+          },
+          "2": {
+            "star_index": 102,
+            "get_star_ts": 1514046137
+          }
+        },
+        "20": {
+          "1": {
+            "star_index": 143,
+            "get_star_ts": 1514580930
+          },
+          "2": {
+            "get_star_ts": 1514583000,
+            "star_index": 144
+          }
+        },
+        "16": {
+          "1": {
+            "get_star_ts": 1514144255,
+            "star_index": 121
+          },
+          "2": {
+            "star_index": 122,
+            "get_star_ts": 1514148836
+          }
+        },
+        "8": {
+          "2": {
+            "star_index": 91,
+            "get_star_ts": 1513887865
+          },
+          "1": {
+            "get_star_ts": 1513887711,
+            "star_index": 90
+          }
+        },
+        "5": {
+          "2": {
+            "get_star_ts": 1513758961,
+            "star_index": 81
+          },
+          "1": {
+            "star_index": 80,
+            "get_star_ts": 1513758831
+          }
+        },
+        "14": {
+          "2": {
+            "star_index": 115,
+            "get_star_ts": 1514068225
+          },
+          "1": {
+            "star_index": 111,
+            "get_star_ts": 1514059073
+          }
+        },
+        "6": {
+          "2": {
+            "star_index": 84,
+            "get_star_ts": 1513801894
+          },
+          "1": {
+            "get_star_ts": 1513796701,
+            "star_index": 83
+          }
+        },
+        "3": {
+          "1": {
+            "star_index": 74,
+            "get_star_ts": 1513718206
+          },
+          "2": {
+            "get_star_ts": 1513724418,
+            "star_index": 75
+          }
+        },
+        "11": {
+          "1": {
+            "star_index": 97,
+            "get_star_ts": 1513981947
+          },
+          "2": {
+            "get_star_ts": 1513982127,
+            "star_index": 98
+          }
+        },
+        "18": {
+          "2": {
+            "get_star_ts": 1514558458,
+            "star_index": 140
+          },
+          "1": {
+            "get_star_ts": 1514501851,
+            "star_index": 139
+          }
+        }
+      },
+      "id": 321662,
+      "global_score": 0
+    },
+    "363240": {
+      "stars": 0,
+      "name": "Eric Turner",
+      "local_score": 0,
+      "completion_day_level": {},
+      "global_score": 0,
+      "id": 363240,
+      "last_star_ts": 0
+    },
+    "36808": {
+      "stars": 0,
+      "name": "Holly Cook",
+      "completion_day_level": {},
+      "local_score": 0,
+      "global_score": 0,
+      "id": 36808,
+      "last_star_ts": 0
+    },
+    "799613": {
+      "last_star_ts": 0,
+      "stars": 0,
+      "name": "Andrew",
+      "completion_day_level": {},
+      "local_score": 0,
+      "global_score": 0,
+      "id": 799613
+    },
+    "383359": {
+      "last_star_ts": 0,
+      "completion_day_level": {},
+      "global_score": 0,
+      "local_score": 0,
+      "id": 383359,
+      "stars": 0,
+      "name": "Wendy"
+    },
+    "713143": {
+      "last_star_ts": 0,
+      "stars": 0,
+      "name": "Candace",
+      "global_score": 0,
+      "completion_day_level": {},
+      "local_score": 0,
+      "id": 713143
+    },
+    "434760": {
+      "completion_day_level": {},
+      "local_score": 0,
+      "id": 434760,
+      "global_score": 0,
+      "name": "Kimberly Wood",
+      "stars": 0,
+      "last_star_ts": 0
+    },
+    "918170": {
+      "last_star_ts": 0,
+      "stars": 0,
+      "name": "Hannah Robinson",
+      "completion_day_level": {},
+      "global_score": 0,
+      "local_score": 0,
+      "id": 918170
+    },
+    "214731": {
+      "name": "Nancy",
+      "stars": 0,
+      "global_score": 0,
+      "completion_day_level": {},
+      "local_score": 0,
+      "id": 214731,
+      "last_star_ts": 0
+    },
+    "492229": {
+      "completion_day_level": {},
+      "id": 492229,
+      "local_score": 0,
+      "global_score": 0,
+      "name": "Jack",
+      "stars": 0,
+      "last_star_ts": 0
+    },
+    "334303": {
+      "last_star_ts": 0,
+      "completion_day_level": {},
+      "local_score": 0,
+      "global_score": 0,
+      "id": 334303,
+      "stars": 0,
+      "name": "Holly"
+    },
+    "95001": {
+      "last_star_ts": 0,
+      "completion_day_level": {},
+      "local_score": 0,
+      "global_score": 0,
+      "id": 95001,
+      "name": "Aaron",
+      "stars": 0
+    },
+    "196855": {
+      "last_star_ts": 1609168299,
+      "local_score": 1128,
+      "completion_day_level": {
+        "5": {
+          "2": {
+            "star_index": 161,
+            "get_star_ts": 1609168299
+          },
+          "1": {
+            "get_star_ts": 1609166658,
+            "star_index": 160
+          }
+        },
+        "4": {
+          "1": {
+            "star_index": 158,
+            "get_star_ts": 1609091656
+          },
+          "2": {
+            "get_star_ts": 1609092519,
+            "star_index": 159
+          }
+        },
+        "1": {
+          "2": {
+            "get_star_ts": 1608442889,
+            "star_index": 155
+          },
+          "1": {
+            "star_index": 154,
+            "get_star_ts": 1608442478
+          }
+        },
+        "2": {
+          "1": {
+            "get_star_ts": 1608443959,
+            "star_index": 156
+          },
+          "2": {
+            "star_index": 157,
+            "get_star_ts": 1608444872
+          }
+        }
+      },
+      "id": 196855,
+      "global_score": 0,
+      "name": "Sara",
+      "stars": 8
+    },
+    "4080": {
+      "last_star_ts": 0,
+      "completion_day_level": {},
+      "id": 4080,
+      "local_score": 0,
+      "global_score": 0,
+      "stars": 0,
+      "name": "Kyle Combs"
+    },
+    "38648": {
+      "last_star_ts": 0,
+      "local_score": 0,
+      "completion_day_level": {},
+      "global_score": 0,
+      "id": 38648,
+      "name": "Alexandra Jones",
+      "stars": 0
+    },
+    "710132": {
+      "local_score": 0,
+      "completion_day_level": {},
+      "global_score": 0,
+      "id": 710132,
+      "name": "Michael Perez",
+      "stars": 0,
+      "last_star_ts": 0
+    },
+    "223025": {
+      "completion_day_level": {},
+      "local_score": 0,
+      "global_score": 0,
+      "id": 223025,
+      "name": "Douglas",
+      "stars": 0,
+      "last_star_ts": 0
+    },
+    "158921": {
+      "last_star_ts": 0,
+      "local_score": 0,
+      "completion_day_level": {},
+      "id": 158921,
+      "global_score": 0,
+      "name": "Tammy",
+      "stars": 0
+    },
+    "347806": {
+      "last_star_ts": 1701199698,
+      "name": "Mrs. Melissa Bradley",
+      "stars": 50,
+      "completion_day_level": {
+        "5": {
+          "1": {
+            "star_index": 148,
+            "get_star_ts": 1605016768
+          },
+          "2": {
+            "star_index": 149,
+            "get_star_ts": 1605017006
+          }
+        },
+        "14": {
+          "1": {
+            "star_index": 210,
+            "get_star_ts": 1699010044
+          },
+          "2": {
+            "get_star_ts": 1699017192,
+            "star_index": 211
+          }
+        },
+        "21": {
+          "1": {
+            "get_star_ts": 1700566758,
+            "star_index": 224
+          },
+          "2": {
+            "star_index": 225,
+            "get_star_ts": 1700566896
+          }
+        },
+        "23": {
+          "1": {
+            "get_star_ts": 1701080600,
+            "star_index": 228
+          },
+          "2": {
+            "get_star_ts": 1701094879,
+            "star_index": 229
+          }
+        },
+        "6": {
+          "1": {
+            "get_star_ts": 1605018602,
+            "star_index": 150
+          },
+          "2": {
+            "get_star_ts": 1605018798,
+            "star_index": 151
+          }
+        },
+        "3": {
+          "1": {
+            "get_star_ts": 1669215501,
+            "star_index": 164
+          },
+          "2": {
+            "star_index": 165,
+            "get_star_ts": 1669217744
+          }
+        },
+        "18": {
+          "2": {
+            "star_index": 217,
+            "get_star_ts": 1699522937
+          },
+          "1": {
+            "get_star_ts": 1699518593,
+            "star_index": 216
+          }
+        },
+        "11": {
+          "2": {
+            "star_index": 193,
+            "get_star_ts": 1669805238
+          },
+          "1": {
+            "get_star_ts": 1669805067,
+            "star_index": 192
+          }
+        },
+        "1": {
+          "1": {
+            "get_star_ts": 1604583925,
+            "star_index": 145
+          },
+          "2": {
+            "get_star_ts": 1604584016,
+            "star_index": 146
+          }
+        },
+        "10": {
+          "1": {
+            "get_star_ts": 1669402675,
+            "star_index": 174
+          },
+          "2": {
+            "star_index": 175,
+            "get_star_ts": 1669403731
+          }
+        },
+        "17": {
+          "1": {
+            "get_star_ts": 1699370618,
+            "star_index": 214
+          },
+          "2": {
+            "star_index": 215,
+            "get_star_ts": 1699383177
+          }
+        },
+        "24": {
+          "1": {
+            "star_index": 230,
+            "get_star_ts": 1701199213
+          },
+          "2": {
+            "star_index": 231,
+            "get_star_ts": 1701199616
+          }
+        },
+        "19": {
+          "2": {
+            "star_index": 219,
+            "get_star_ts": 1699877662
+          },
+          "1": {
+            "star_index": 218,
+            "get_star_ts": 1699877528
+          }
+        },
+        "22": {
+          "2": {
+            "star_index": 227,
+            "get_star_ts": 1701079747
+          },
+          "1": {
+            "star_index": 226,
+            "get_star_ts": 1701079440
+          }
+        },
+        "25": {
+          "1": {
+            "get_star_ts": 1604674397,
+            "star_index": 147
+          },
+          "2": {
+            "star_index": 232,
+            "get_star_ts": 1701199698
+          }
+        },
+        "4": {
+          "2": {
+            "star_index": 167,
+            "get_star_ts": 1669299139
+          },
+          "1": {
+            "star_index": 166,
+            "get_star_ts": 1669298974
+          }
+        },
+        "9": {
+          "2": {
+            "star_index": 173,
+            "get_star_ts": 1669399250
+          },
+          "1": {
+            "get_star_ts": 1669399086,
+            "star_index": 172
+          }
+        },
+        "7": {
+          "2": {
+            "get_star_ts": 1606389314,
+            "star_index": 153
+          },
+          "1": {
+            "star_index": 152,
+            "get_star_ts": 1605278763
+          }
+        },
+        "15": {
+          "1": {
+            "star_index": 196,
+            "get_star_ts": 1669813739
+          },
+          "2": {
+            "star_index": 197,
+            "get_star_ts": 1669814382
+          }
+        },
+        "13": {
+          "1": {
+            "star_index": 194,
+            "get_star_ts": 1669807668
+          },
+          "2": {
+            "star_index": 195,
+            "get_star_ts": 1669813046
+          }
+        },
+        "2": {
+          "1": {
+            "get_star_ts": 1655752833,
+            "star_index": 162
+          },
+          "2": {
+            "star_index": 163,
+            "get_star_ts": 1655753677
+          }
+        },
+        "12": {
+          "1": {
+            "star_index": 186,
+            "get_star_ts": 1669585833
+          },
+          "2": {
+            "star_index": 187,
+            "get_star_ts": 1669586253
+          }
+        },
+        "20": {
+          "2": {
+            "get_star_ts": 1699960005,
+            "star_index": 221
+          },
+          "1": {
+            "get_star_ts": 1699884766,
+            "star_index": 220
+          }
+        },
+        "16": {
+          "2": {
+            "star_index": 213,
+            "get_star_ts": 1699368972
+          },
+          "1": {
+            "star_index": 212,
+            "get_star_ts": 1699368576
+          }
+        },
+        "8": {
+          "1": {
+            "star_index": 170,
+            "get_star_ts": 1669395800
+          },
+          "2": {
+            "get_star_ts": 1669395888,
+            "star_index": 171
+          }
+        }
+      },
+      "local_score": 7149,
+      "global_score": 0,
+      "id": 347806
+    },
+    "959485": {
+      "last_star_ts": 0,
+      "local_score": 0,
+      "completion_day_level": {},
+      "id": 959485,
+      "global_score": 0,
+      "name": "Kara",
+      "stars": 0
+    },
+    "811858": {
+      "last_star_ts": 0,
+      "completion_day_level": {},
+      "local_score": 0,
+      "global_score": 0,
+      "id": 811858,
+      "name": "Craig Wang",
+      "stars": 0
+    },
+    "883674": {
+      "last_star_ts": 0,
+      "name": "Susan Mendoza",
+      "stars": 0,
+      "completion_day_level": {},
+      "local_score": 0,
+      "global_score": 0,
+      "id": 883674
+    },
+    "390733": {
+      "last_star_ts": 0,
+      "completion_day_level": {},
+      "id": 390733,
+      "local_score": 0,
+      "global_score": 0,
+      "name": "George",
+      "stars": 0
+    },
+    "935477": {
+      "local_score": 0,
+      "completion_day_level": {},
+      "id": 935477,
+      "global_score": 0,
+      "stars": 0,
+      "name": "John",
+      "last_star_ts": 0
+    },
+    "574944": {
+      "stars": 0,
+      "name": "Ana Williams",
+      "local_score": 0,
+      "completion_day_level": {},
+      "id": 574944,
+      "global_score": 0,
+      "last_star_ts": 0
+    },
+    "11135": {
+      "completion_day_level": {},
+      "local_score": 0,
+      "id": 11135,
+      "global_score": 0,
+      "stars": 0,
+      "name": "Lisa",
+      "last_star_ts": 0
+    },
+    "246435": {
+      "completion_day_level": {},
+      "local_score": 0,
+      "global_score": 0,
+      "id": 246435,
+      "stars": 0,
+      "name": "Sharon",
+      "last_star_ts": 0
+    },
+    "163860": {
+      "local_score": 0,
+      "completion_day_level": {},
+      "global_score": 0,
+      "id": 163860,
+      "stars": 0,
+      "name": "Katherine Gomez",
+      "last_star_ts": 0
+    },
+    "446945": {
+      "last_star_ts": 0,
+      "local_score": 0,
+      "completion_day_level": {},
+      "id": 446945,
+      "global_score": 0,
+      "stars": 0,
+      "name": "Jonathan"
+    },
+    "916151": {
+      "last_star_ts": 0,
+      "name": "Karen",
+      "stars": 0,
+      "completion_day_level": {},
+      "local_score": 0,
+      "global_score": 0,
+      "id": 916151
+    },
+    "237649": {
+      "last_star_ts": 0,
+      "name": "Roger",
+      "stars": 0,
+      "completion_day_level": {},
+      "id": 237649,
+      "local_score": 0,
+      "global_score": 0
+    },
+    "901322": {
+      "last_star_ts": 0,
+      "completion_day_level": {},
+      "global_score": 0,
+      "local_score": 0,
+      "id": 901322,
+      "name": "Ronald Fletcher",
+      "stars": 0
+    },
+    "484600": {
+      "completion_day_level": {},
+      "local_score": 0,
+      "id": 484600,
+      "global_score": 0,
+      "name": "Deanna Porter",
+      "stars": 0,
+      "last_star_ts": 0
+    },
+    "51893": {
+      "last_star_ts": 0,
+      "name": "Bryan",
+      "stars": 0,
+      "local_score": 0,
+      "completion_day_level": {},
+      "global_score": 0,
+      "id": 51893
+    },
+    "727333": {
+      "id": 727333,
+      "completion_day_level": {},
+      "local_score": 0,
+      "global_score": 0,
+      "stars": 0,
+      "name": "Jennifer",
+      "last_star_ts": 0
+    },
+    "364766": {
+      "last_star_ts": 0,
+      "name": "Savannah Knight",
+      "stars": 0,
+      "local_score": 0,
+      "completion_day_level": {},
+      "id": 364766,
+      "global_score": 0
+    },
+    "863837": {
+      "name": "Elijah",
+      "stars": 0,
+      "local_score": 0,
+      "completion_day_level": {},
+      "id": 863837,
+      "global_score": 0,
+      "last_star_ts": 0
+    },
+    "774654": {
+      "completion_day_level": {},
+      "local_score": 0,
+      "global_score": 0,
+      "id": 774654,
+      "name": "Christina Ross",
+      "stars": 0,
+      "last_star_ts": 0
+    },
+    "901891": {
+      "last_star_ts": 0,
+      "completion_day_level": {},
+      "global_score": 0,
+      "local_score": 0,
+      "id": 901891,
+      "name": "Dustin",
+      "stars": 0
+    },
+    "960138": {
+      "last_star_ts": 0,
+      "stars": 0,
+      "name": "Benjamin Fisher",
+      "id": 960138,
+      "completion_day_level": {},
+      "local_score": 0,
+      "global_score": 0
+    },
+    "255341": {
+      "last_star_ts": 0,
+      "name": "Martin",
+      "stars": 0,
+      "local_score": 0,
+      "completion_day_level": {},
+      "id": 255341,
+      "global_score": 0
+    },
+    "266905": {
+      "last_star_ts": 0,
+      "local_score": 0,
+      "completion_day_level": {},
+      "id": 266905,
+      "global_score": 0,
+      "name": "Aaron",
+      "stars": 0
+    },
+    "490666": {
+      "last_star_ts": 0,
+      "name": "David Lloyd",
+      "stars": 0,
+      "local_score": 0,
+      "completion_day_level": {},
+      "global_score": 0,
+      "id": 490666
+    },
+    "325710": {
+      "completion_day_level": {},
+      "id": 325710,
+      "local_score": 0,
+      "global_score": 0,
+      "name": "David Smith",
+      "stars": 0,
+      "last_star_ts": 0
+    },
+    "531277": {
+      "id": 531277,
+      "completion_day_level": {},
+      "local_score": 0,
+      "global_score": 0,
+      "name": "Dana",
+      "stars": 0,
+      "last_star_ts": 0
+    },
+    "233835": {
+      "last_star_ts": 0,
+      "name": "Teresa",
+      "stars": 0,
+      "completion_day_level": {},
+      "local_score": 0,
+      "id": 233835,
+      "global_score": 0
+    },
+    "893630": {
+      "last_star_ts": 0,
+      "stars": 0,
+      "name": "Matthew Conner",
+      "completion_day_level": {},
+      "local_score": 0,
+      "global_score": 0,
+      "id": 893630
+    },
+    "558385": {
+      "name": "Michael",
+      "stars": 0,
+      "local_score": 0,
+      "completion_day_level": {},
+      "global_score": 0,
+      "id": 558385,
+      "last_star_ts": 0
+    },
+    "3392": {
+      "last_star_ts": 1736172232,
+      "name": "Joseph Gonzalez",
+      "stars": 50,
+      "local_score": 7099,
+      "completion_day_level": {
+        "17": {
+          "1": {
+            "star_index": 235,
+            "get_star_ts": 1701634123
+          },
+          "2": {
+            "get_star_ts": 1701634860,
+            "star_index": 236
+          }
+        },
+        "10": {
+          "2": {
+            "star_index": 201,
+            "get_star_ts": 1669933962
+          },
+          "1": {
+            "star_index": 200,
+            "get_star_ts": 1669929600
+          }
+        },
+        "1": {
+          "2": {
+            "star_index": 169,
+            "get_star_ts": 1669324263
+          },
+          "1": {
+            "get_star_ts": 1669323852,
+            "star_index": 168
+          }
+        },
+        "24": {
+          "1": {
+            "get_star_ts": 1736168355,
+            "star_index": 249
+          },
+          "2": {
+            "star_index": 250,
+            "get_star_ts": 1736169142
+          }
+        },
+        "19": {
+          "1": {
+            "get_star_ts": 1735590405,
+            "star_index": 239
+          },
+          "2": {
+            "get_star_ts": 1735590771,
+            "star_index": 240
+          }
+        },
+        "25": {
+          "2": {
+            "get_star_ts": 1736172232,
+            "star_index": 252
+          },
+          "1": {
+            "get_star_ts": 1736172228,
+            "star_index": 251
+          }
+        },
+        "22": {
+          "2": {
+            "get_star_ts": 1735938193,
+            "star_index": 246
+          },
+          "1": {
+            "get_star_ts": 1735937282,
+            "star_index": 245
+          }
+        },
+        "4": {
+          "2": {
+            "get_star_ts": 1669477956,
+            "star_index": 181
+          },
+          "1": {
+            "star_index": 180,
+            "get_star_ts": 1669477556
+          }
+        },
+        "7": {
+          "2": {
+            "star_index": 189,
+            "get_star_ts": 1669661626
+          },
+          "1": {
+            "get_star_ts": 1669657606,
+            "star_index": 188
+          }
+        },
+        "9": {
+          "1": {
+            "get_star_ts": 1669839185,
+            "star_index": 198
+          },
+          "2": {
+            "star_index": 199,
+            "get_star_ts": 1669839319
+          }
+        },
+        "15": {
+          "1": {
+            "star_index": 222,
+            "get_star_ts": 1700425540
+          },
+          "2": {
+            "star_index": 223,
+            "get_star_ts": 1700426474
+          }
+        },
+        "13": {
+          "1": {
+            "star_index": 206,
+            "get_star_ts": 1696710296
+          },
+          "2": {
+            "star_index": 207,
+            "get_star_ts": 1696794946
+          }
+        },
+        "2": {
+          "2": {
+            "get_star_ts": 1669413037,
+            "star_index": 177
+          },
+          "1": {
+            "get_star_ts": 1669411375,
+            "star_index": 176
+          }
+        },
+        "20": {
+          "2": {
+            "star_index": 242,
+            "get_star_ts": 1735750241
+          },
+          "1": {
+            "get_star_ts": 1735749523,
+            "star_index": 241
+          }
+        },
+        "16": {
+          "2": {
+            "star_index": 234,
+            "get_star_ts": 1701205829
+          },
+          "1": {
+            "star_index": 233,
+            "get_star_ts": 1701204782
+          }
+        },
+        "12": {
+          "1": {
+            "get_star_ts": 1670516526,
+            "star_index": 204
+          },
+          "2": {
+            "star_index": 205,
+            "get_star_ts": 1670517051
+          }
+        },
+        "8": {
+          "2": {
+            "star_index": 191,
+            "get_star_ts": 1669751831
+          },
+          "1": {
+            "get_star_ts": 1669751765,
+            "star_index": 190
+          }
+        },
+        "5": {
+          "2": {
+            "star_index": 183,
+            "get_star_ts": 1669481324
+          },
+          "1": {
+            "star_index": 182,
+            "get_star_ts": 1669481135
+          }
+        },
+        "14": {
+          "2": {
+            "get_star_ts": 1698346617,
+            "star_index": 209
+          },
+          "1": {
+            "get_star_ts": 1698341013,
+            "star_index": 208
+          }
+        },
+        "21": {
+          "2": {
+            "star_index": 244,
+            "get_star_ts": 1735852952
+          },
+          "1": {
+            "star_index": 243,
+            "get_star_ts": 1735852926
+          }
+        },
+        "23": {
+          "1": {
+            "get_star_ts": 1736095039,
+            "star_index": 247
+          },
+          "2": {
+            "get_star_ts": 1736110508,
+            "star_index": 248
+          }
+        },
+        "6": {
+          "1": {
+            "star_index": 184,
+            "get_star_ts": 1669582755
+          },
+          "2": {
+            "get_star_ts": 1669585741,
+            "star_index": 185
+          }
+        },
+        "3": {
+          "2": {
+            "get_star_ts": 1669455113,
+            "star_index": 179
+          },
+          "1": {
+            "star_index": 178,
+            "get_star_ts": 1669453708
+          }
+        },
+        "18": {
+          "2": {
+            "get_star_ts": 1733002305,
+            "star_index": 238
+          },
+          "1": {
+            "star_index": 237,
+            "get_star_ts": 1732996805
+          }
+        },
+        "11": {
+          "1": {
+            "star_index": 202,
+            "get_star_ts": 1670075646
+          },
+          "2": {
+            "star_index": 203,
+            "get_star_ts": 1670082766
+          }
+        }
+      },
+      "global_score": 0,
+      "id": 3392
+    },
+    "789420": {
+      "stars": 0,
+      "name": "Jacob Vega",
+      "completion_day_level": {},
+      "local_score": 0,
+      "global_score": 0,
+      "id": 789420,
+      "last_star_ts": 0
+    },
+    "316819": {
+      "last_star_ts": 0,
+      "local_score": 0,
+      "completion_day_level": {},
+      "id": 316819,
+      "global_score": 0,
+      "name": "Paula",
+      "stars": 0
+    },
+    "575603": {
+      "last_star_ts": 0,
+      "completion_day_level": {},
+      "local_score": 0,
+      "id": 575603,
+      "global_score": 0,
+      "stars": 0,
+      "name": "Tanner"
+    },
+    "482925": {
+      "name": "Sara",
+      "stars": 0,
+      "local_score": 0,
+      "completion_day_level": {},
+      "global_score": 0,
+      "id": 482925,
+      "last_star_ts": 0
+    },
+    "954198": {
+      "last_star_ts": 0,
+      "name": "Lisa Brennan",
+      "stars": 0,
+      "completion_day_level": {},
+      "global_score": 0,
+      "local_score": 0,
+      "id": 954198
+    },
+    "865255": {
+      "name": "Suzanne",
+      "stars": 0,
+      "completion_day_level": {},
+      "local_score": 0,
+      "global_score": 0,
+      "id": 865255,
+      "last_star_ts": 0
+    },
+    "497924": {
+      "last_star_ts": 0,
+      "global_score": 0,
+      "completion_day_level": {},
+      "local_score": 0,
+      "id": 497924,
+      "name": "Brian Brown",
+      "stars": 0
+    },
+    "399323": {
+      "local_score": 0,
+      "completion_day_level": {},
+      "id": 399323,
+      "global_score": 0,
+      "name": "Charles",
+      "stars": 0,
+      "last_star_ts": 0
+    },
+    "514905": {
+      "last_star_ts": 0,
+      "completion_day_level": {},
+      "global_score": 0,
+      "local_score": 0,
+      "id": 514905,
+      "name": "James",
+      "stars": 0
+    },
+    "10902": {
+      "stars": 0,
+      "name": "Kristen Cunningham",
+      "local_score": 0,
+      "completion_day_level": {},
+      "id": 10902,
+      "global_score": 0,
+      "last_star_ts": 0
+    },
+    "633118": {
+      "name": "Jenna Wilkinson",
+      "stars": 0,
+      "completion_day_level": {},
+      "local_score": 0,
+      "id": 633118,
+      "global_score": 0,
+      "last_star_ts": 0
+    },
+    "436001": {
+      "completion_day_level": {},
+      "global_score": 0,
+      "local_score": 0,
+      "id": 436001,
+      "name": "David",
+      "stars": 0,
+      "last_star_ts": 0
+    },
+    "684248": {
+      "stars": 0,
+      "name": "Micheal Bailey",
+      "completion_day_level": {},
+      "global_score": 0,
+      "local_score": 0,
+      "id": 684248,
+      "last_star_ts": 0
+    },
+    "80324": {
+      "last_star_ts": 0,
+      "id": 80324,
+      "completion_day_level": {},
+      "local_score": 0,
+      "global_score": 0,
+      "name": "Sarah Singleton",
+      "stars": 0
+    },
+    "313209": {
+      "stars": 0,
+      "name": "Steven",
+      "completion_day_level": {},
+      "local_score": 0,
+      "global_score": 0,
+      "id": 313209,
+      "last_star_ts": 0
+    },
+    "408310": {
+      "last_star_ts": 0,
+      "completion_day_level": {},
+      "local_score": 0,
+      "id": 408310,
+      "global_score": 0,
+      "name": "Melissa Pena",
+      "stars": 0
+    },
+    "497505": {
+      "last_star_ts": 0,
+      "name": "Rhonda",
+      "stars": 0,
+      "completion_day_level": {},
+      "global_score": 0,
+      "local_score": 0,
+      "id": 497505
+    },
+    "174051": {
+      "id": 174051,
+      "completion_day_level": {},
+      "local_score": 0,
+      "global_score": 0,
+      "name": "Sarah",
+      "stars": 0,
+      "last_star_ts": 0
+    },
+    "254099": {
+      "local_score": 0,
+      "completion_day_level": {},
+      "global_score": 0,
+      "id": 254099,
+      "stars": 0,
+      "name": "Sabrina",
+      "last_star_ts": 0
+    },
+    "905135": {
+      "id": 905135,
+      "completion_day_level": {},
+      "local_score": 0,
+      "global_score": 0,
+      "name": "Garrett",
+      "stars": 0,
+      "last_star_ts": 0
+    },
+    "750162": {
+      "last_star_ts": 0,
+      "name": "Cynthia Taylor",
+      "stars": 0,
+      "completion_day_level": {},
+      "local_score": 0,
+      "global_score": 0,
+      "id": 750162
+    },
+    "400971": {
+      "stars": 0,
+      "name": "Nancy",
+      "local_score": 0,
+      "completion_day_level": {},
+      "global_score": 0,
+      "id": 400971,
+      "last_star_ts": 0
+    },
+    "156317": {
+      "last_star_ts": 0,
+      "stars": 0,
+      "name": "Patrick",
+      "completion_day_level": {},
+      "local_score": 0,
+      "global_score": 0,
+      "id": 156317
+    },
+    "846236": {
+      "last_star_ts": 0,
+      "name": "David Rogers",
+      "stars": 0,
+      "local_score": 0,
+      "completion_day_level": {},
+      "global_score": 0,
+      "id": 846236
+    },
+    "69730": {
+      "last_star_ts": 0,
+      "local_score": 0,
+      "completion_day_level": {},
+      "global_score": 0,
+      "id": 69730,
+      "stars": 0,
+      "name": "Sarah White"
+    },
+    "969167": {
+      "stars": 0,
+      "name": "Preston",
+      "completion_day_level": {},
+      "global_score": 0,
+      "local_score": 0,
+      "id": 969167,
+      "last_star_ts": 0
+    },
+    "69725": {
+      "last_star_ts": 0,
+      "completion_day_level": {},
+      "local_score": 0,
+      "global_score": 0,
+      "id": 69725,
+      "stars": 0,
+      "name": "Kayla"
+    },
+    "438995": {
+      "stars": 0,
+      "name": "Tina",
+      "completion_day_level": {},
+      "local_score": 0,
+      "global_score": 0,
+      "id": 438995,
+      "last_star_ts": 0
+    },
+    "159652": {
+      "last_star_ts": 0,
+      "completion_day_level": {},
+      "local_score": 0,
+      "global_score": 0,
+      "id": 159652,
+      "stars": 0,
+      "name": "Dana Collins"
+    },
+    "524040": {
+      "completion_day_level": {},
+      "local_score": 0,
+      "id": 524040,
+      "global_score": 0,
+      "stars": 0,
+      "name": "Julie Myers",
+      "last_star_ts": 0
+    },
+    "132492": {
+      "name": "Amanda Evans",
+      "stars": 0,
+      "local_score": 0,
+      "completion_day_level": {},
+      "id": 132492,
+      "global_score": 0,
+      "last_star_ts": 0
+    },
+    "115722": {
+      "global_score": 0,
+      "completion_day_level": {},
+      "local_score": 0,
+      "id": 115722,
+      "name": "Monica Oliver",
+      "stars": 0,
+      "last_star_ts": 0
+    },
+    "764577": {
+      "last_star_ts": 0,
+      "name": "Stephanie",
+      "stars": 0,
+      "local_score": 0,
+      "completion_day_level": {},
+      "global_score": 0,
+      "id": 764577
+    },
+    "136640": {
+      "completion_day_level": {},
+      "local_score": 0,
+      "global_score": 0,
+      "id": 136640,
+      "stars": 0,
+      "name": "Kaitlin Chapman",
+      "last_star_ts": 0
+    },
+    "605815": {
+      "last_star_ts": 1514122661,
+      "stars": 11,
+      "name": "Susan",
+      "completion_day_level": {
+        "8": {
+          "1": {
+            "star_index": 88,
+            "get_star_ts": 1513812663
+          }
+        },
+        "3": {
+          "1": {
+            "star_index": 39,
+            "get_star_ts": 1513269769
+          }
+        },
+        "6": {
+          "1": {
+            "get_star_ts": 1513810033,
+            "star_index": 86
+          }
+        },
+        "12": {
+          "1": {
+            "star_index": 119,
+            "get_star_ts": 1514092644
+          }
+        },
+        "2": {
+          "1": {
+            "get_star_ts": 1512941669,
+            "star_index": 33
+          }
+        },
+        "15": {
+          "1": {
+            "star_index": 120,
+            "get_star_ts": 1514122661
+          }
+        },
+        "9": {
+          "1": {
+            "get_star_ts": 1513963893,
+            "star_index": 92
+          }
+        },
+        "7": {
+          "1": {
+            "star_index": 87,
+            "get_star_ts": 1513811142
+          }
+        },
+        "4": {
+          "1": {
+            "star_index": 41,
+            "get_star_ts": 1513273375
+          }
+        },
+        "5": {
+          "1": {
+            "get_star_ts": 1513290647,
+            "star_index": 45
+          }
+        },
+        "1": {
+          "1": {
+            "get_star_ts": 1512757043,
+            "star_index": 28
+          }
+        }
+      },
+      "global_score": 0,
+      "local_score": 1583,
+      "id": 605815
+    },
+    "471089": {
+      "last_star_ts": 0,
+      "completion_day_level": {},
+      "local_score": 0,
+      "global_score": 0,
+      "id": 471089,
+      "stars": 0,
+      "name": "Jason"
+    },
+    "70285": {
+      "stars": 0,
+      "name": "Tanya",
+      "completion_day_level": {},
+      "local_score": 0,
+      "id": 70285,
+      "global_score": 0,
+      "last_star_ts": 0
+    },
+    "599981": {
+      "name": "Collin",
+      "stars": 0,
+      "completion_day_level": {},
+      "id": 599981,
+      "local_score": 0,
+      "global_score": 0,
+      "last_star_ts": 0
+    },
+    "529181": {
+      "last_star_ts": 0,
+      "name": "Shannon",
+      "stars": 0,
+      "id": 529181,
+      "completion_day_level": {},
+      "local_score": 0,
+      "global_score": 0
+    },
+    "635611": {
+      "last_star_ts": 0,
+      "stars": 0,
+      "name": "Christopher",
+      "global_score": 0,
+      "completion_day_level": {},
+      "local_score": 0,
+      "id": 635611
+    },
+    "969733": {
+      "local_score": 0,
+      "completion_day_level": {},
+      "global_score": 0,
+      "id": 969733,
+      "stars": 0,
+      "name": "John",
+      "last_star_ts": 0
+    },
+    "411073": {
+      "stars": 0,
+      "name": "Matthew",
+      "completion_day_level": {},
+      "global_score": 0,
+      "local_score": 0,
+      "id": 411073,
+      "last_star_ts": 0
+    },
+    "422662": {
+      "last_star_ts": 0,
+      "name": "Crystal Gonzalez",
+      "stars": 0,
+      "completion_day_level": {},
+      "global_score": 0,
+      "local_score": 0,
+      "id": 422662
+    },
+    "968868": {
+      "last_star_ts": 0,
+      "completion_day_level": {},
+      "global_score": 0,
+      "local_score": 0,
+      "id": 968868,
+      "name": "Karen Green",
+      "stars": 0
+    },
+    "548163": {
+      "stars": 0,
+      "name": "Amy",
+      "completion_day_level": {},
+      "local_score": 0,
+      "global_score": 0,
+      "id": 548163,
+      "last_star_ts": 0
+    },
+    "245522": {
+      "id": 245522,
+      "completion_day_level": {},
+      "local_score": 0,
+      "global_score": 0,
+      "name": "Jean Schwartz",
+      "stars": 0,
+      "last_star_ts": 0
+    },
+    "836605": {
+      "last_star_ts": 0,
+      "id": 836605,
+      "completion_day_level": {},
+      "local_score": 0,
+      "global_score": 0,
+      "name": "Aaron",
+      "stars": 0
+    },
+    "86205": {
+      "stars": 0,
+      "name": "Ashley",
+      "local_score": 0,
+      "completion_day_level": {},
+      "id": 86205,
+      "global_score": 0,
+      "last_star_ts": 0
+    },
+    "932672": {
+      "last_star_ts": 0,
+      "id": 932672,
+      "completion_day_level": {},
+      "local_score": 0,
+      "global_score": 0,
+      "stars": 0,
+      "name": "Zachary Martin"
+    },
+    "4059": {
+      "completion_day_level": {},
+      "local_score": 0,
+      "global_score": 0,
+      "id": 4059,
+      "stars": 0,
+      "name": "Alexis",
+      "last_star_ts": 0
+    },
+    "515891": {
+      "stars": 0,
+      "name": "Ryan",
+      "id": 515891,
+      "completion_day_level": {},
+      "local_score": 0,
+      "global_score": 0,
+      "last_star_ts": 0
+    },
+    "901854": {
+      "name": "Brett Hendricks",
+      "stars": 0,
+      "completion_day_level": {},
+      "id": 901854,
+      "local_score": 0,
+      "global_score": 0,
+      "last_star_ts": 0
+    },
+    "396623": {
+      "last_star_ts": 0,
+      "stars": 0,
+      "name": "Cynthia",
+      "id": 396623,
+      "completion_day_level": {},
+      "local_score": 0,
+      "global_score": 0
+    },
+    "794303": {
+      "last_star_ts": 0,
+      "stars": 0,
+      "name": "Michael",
+      "completion_day_level": {},
+      "id": 794303,
+      "local_score": 0,
+      "global_score": 0
+    },
+    "680889": {
+      "stars": 0,
+      "name": "Luke",
+      "id": 680889,
+      "completion_day_level": {},
+      "local_score": 0,
+      "global_score": 0,
+      "last_star_ts": 0
+    },
+    "783933": {
+      "last_star_ts": 0,
+      "name": "Cheryl",
+      "stars": 0,
+      "local_score": 0,
+      "completion_day_level": {},
+      "id": 783933,
+      "global_score": 0
+    },
+    "894348": {
+      "last_star_ts": 0,
+      "name": "Thomas James",
+      "stars": 0,
+      "completion_day_level": {},
+      "local_score": 0,
+      "global_score": 0,
+      "id": 894348
+    },
+    "687962": {
+      "local_score": 0,
+      "completion_day_level": {},
+      "id": 687962,
+      "global_score": 0,
+      "name": "Mark Mann",
+      "stars": 0,
+      "last_star_ts": 0
+    },
+    "196347": {
+      "completion_day_level": {},
+      "local_score": 0,
+      "global_score": 0,
+      "id": 196347,
+      "name": "Julia",
+      "stars": 0,
+      "last_star_ts": 0
+    },
+    "256644": {
+      "name": "Kelly Mcdonald",
+      "stars": 0,
+      "id": 256644,
+      "completion_day_level": {},
+      "local_score": 0,
+      "global_score": 0,
+      "last_star_ts": 0
+    },
+    "926605": {
+      "last_star_ts": 0,
+      "id": 926605,
+      "completion_day_level": {},
+      "local_score": 0,
+      "global_score": 0,
+      "name": "Anthony",
+      "stars": 0
+    },
+    "791766": {
+      "stars": 0,
+      "name": "Crystal Matthews",
+      "completion_day_level": {},
+      "local_score": 0,
+      "global_score": 0,
+      "id": 791766,
+      "last_star_ts": 0
+    },
+    "819405": {
+      "name": "Frank",
+      "stars": 0,
+      "completion_day_level": {},
+      "local_score": 0,
+      "global_score": 0,
+      "id": 819405,
+      "last_star_ts": 0
+    },
+    "199690": {
+      "last_star_ts": 0,
+      "stars": 0,
+      "name": "David Porter",
+      "local_score": 0,
+      "completion_day_level": {},
+      "id": 199690,
+      "global_score": 0
+    },
+    "457858": {
+      "last_star_ts": 0,
+      "completion_day_level": {},
+      "local_score": 0,
+      "id": 457858,
+      "global_score": 0,
+      "stars": 0,
+      "name": "Holly Johnson"
+    },
+    "521586": {
+      "last_star_ts": 0,
+      "completion_day_level": {},
+      "local_score": 0,
+      "id": 521586,
+      "global_score": 0,
+      "name": "Regina Avery",
+      "stars": 0
+    }
+  }
+}

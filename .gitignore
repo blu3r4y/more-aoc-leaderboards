@@ -13,6 +13,7 @@
 
 # local data
 /data/*
+!/data/e2e/
 !/data/anonymize.py
 
 # yarn without zero-install

@@ -1,8 +1,12 @@
-# just a short helper script to anonymize some json files
+# /// script
+# dependencies = [
+#   "Faker==38.2.0",
+# ]
+# ///
 
+import argparse
 import json
 import random
-import argparse
 
 from faker import Faker
 
@@ -25,6 +29,8 @@ def anonymize_json(path):
         # replace member
         del payload["members"][key]
         payload["members"][no] = member
+
+    payload["owner_id"] = random.randint(1_000_000, 10_000_000)
 
     result = path.replace(".json", "-anon.json")
     with open(result, "w") as f:

@@ -1,5 +1,7 @@
 /* eslint-disable @typescript-eslint/naming-convention */
 
+import * as fs from "fs";
+import * as path from "path";
 import dayjs from "dayjs";
 import duration from "dayjs/plugin/duration";
 
@@ -1618,5 +1620,17 @@ describe("processAllMembers()", () => {
     const result = processData(data);
     expect(result[1].dayFirst).toBe(1);
     expect(result[2].dayFirst).toBe(1);
+  });
+});
+
+describe("processData()", () => {
+  const years = [2015, 2016, 2017, 2018, 2019, 2020, 2021, 2022, 2023, 2024, 2025];
+
+  years.forEach((year) => {
+    it(`loads ${year}`, () => {
+      const file = path.resolve(__dirname, `../../data/e2e/${year}.json`);
+      const json = JSON.parse(fs.readFileSync(file, "utf-8"));
+      expect(processData(json)).toBeDefined();
+    });
   });
 });
